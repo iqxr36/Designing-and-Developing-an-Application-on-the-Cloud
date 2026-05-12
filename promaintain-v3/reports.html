@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reports - ProMaintain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary:#570000; --primary-container:#800000; --tertiary:#1d2736; --tertiary-container:#333d4d;
+  --on-tertiary-container:#9da8bb; --surface:#f8f9fa; --surface-low:#f3f4f5;
+  --surface-container:#edeeef; --outline:#8e706c; --outline-variant:#e2bfb9;
+  --on-surface:#191c1d; --on-surface-variant:#5a413d; --secondary-container:#e1e1c9;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family:'Public Sans',sans-serif; background:var(--surface); color:var(--on-surface); min-height:100vh; }
+.material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+.sidebar {
+  width:256px; height:100vh; position:fixed; left:0; top:0; background:var(--tertiary);
+  color:#fff; display:flex; flex-direction:column; box-shadow:0 10px 25px rgba(0,0,0,.16); z-index:20;
+}
+.brand { padding:28px 24px 24px; border-bottom:1px solid rgba(51,61,77,.9); }
+.brand h1 { margin:0; font-size:26px; line-height:32px; font-weight:700; letter-spacing:-.02em; }
+.brand p { margin:6px 0 0; color:var(--on-tertiary-container); font-size:12px; letter-spacing:.12em; font-weight:600; }
+.nav { padding:24px 0; flex:1; overflow:auto; }
+.nav-link { display:flex; align-items:center; gap:14px; padding:13px 24px; color:var(--on-tertiary-container); text-decoration:none; font-size:14px; transition:.18s ease; }
+.nav-link:hover { color:#fff; background:rgba(51,61,77,.55); }
+.nav-link.active { color:#fff; background:var(--tertiary-container); border-left:4px solid var(--primary-container); padding-left:20px; font-weight:600; }
+.userbox { border-top:1px solid rgba(51,61,77,.9); padding:20px 24px; display:flex; gap:12px; align-items:center; }
+.avatar { width:40px; height:40px; border-radius:999px; background:#e1e3e4; display:flex; align-items:center; justify-content:center; color:#1d2736; font-weight:700; }
+.main { margin-left:256px; min-height:100vh; }
+.topbar { height:64px; background:var(--surface); border-bottom:1px solid var(--outline-variant); display:flex; align-items:center; justify-content:space-between; padding:0 32px; position:sticky; top:0; z-index:10; }
+.search { width:450px; max-width:45vw; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--outline-variant); border-radius:10px; padding:9px 14px; color:var(--on-surface-variant); }
+.search input { border:0; outline:0; flex:1; font-size:14px; background:transparent; color:var(--on-surface); }
+.actions { display:flex; gap:16px; align-items:center; }
+.icon-btn { width:40px; height:40px; border:0; background:transparent; color:var(--on-surface-variant); border-radius:999px; cursor:pointer; position:relative; }
+.icon-btn::after { content:""; position:absolute; top:9px; right:9px; width:7px; height:7px; background:#ba1a1a; border-radius:50%; }
+.btn { height:38px; padding:0 18px; border-radius:8px; border:1px solid var(--outline); background:white; color:var(--primary); font-size:12px; font-weight:700; letter-spacing:.08em; cursor:pointer; }
+.btn.primary { background:var(--primary); color:#fff; border-color:var(--primary); }
+.btn:hover { filter:brightness(.98); }
+.content { padding:36px 32px 64px; max-width:1240px; }
+.page-head { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; margin-bottom:28px; }
+h2 { margin:0; font-size:34px; line-height:42px; letter-spacing:-.01em; font-weight:600; }
+.subtitle { margin:6px 0 0; color:var(--on-surface-variant); font-size:15px; }
+.card { background:white; border:1px solid var(--outline-variant); border-radius:12px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+.metric-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:32px; }
+.metric { padding:24px; min-height:150px; display:flex; justify-content:space-between; align-items:center; overflow:hidden; }
+.metric-label { font-size:12px; text-transform:uppercase; letter-spacing:.12em; color:#3f2b28; font-weight:700; }
+.metric-value { font-size:46px; line-height:54px; font-weight:700; margin-top:8px; color:#191c1d; }
+.metric-value.maroon { color:var(--primary); }
+.metric-sub { color:var(--on-surface-variant); margin-top:6px; font-size:14px; }
+.metric-icon { width:54px; height:54px; border-radius:999px; background:var(--secondary-container); display:flex; align-items:center; justify-content:center; color:#474836; }
+.filter-bar { padding:16px; display:flex; gap:14px; align-items:center; margin-bottom:24px; }
+.input { height:42px; border:1px solid var(--outline-variant); border-radius:8px; background:white; padding:0 14px; color:var(--on-surface); font-size:14px; }
+.input.search-inline { min-width:360px; display:flex; align-items:center; gap:8px; }
+.select { min-width:170px; }
+.clear { color:var(--primary); font-size:12px; font-weight:700; letter-spacing:.08em; margin-left:auto; }
+.table-card { overflow:hidden; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:#f7f7f7; color:#4c302c; text-align:left; font-size:12px; letter-spacing:.11em; font-weight:700; padding:17px 24px; }
+td { padding:18px 24px; border-top:1px solid #e7e8e9; vertical-align:middle; }
+.badge { display:inline-flex; align-items:center; height:26px; padding:0 13px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.06em; }
+.badge.dark { background:#121c2a; color:#fff; }
+.badge.soft { background:#e4e4cc; color:#474836; }
+.badge.warn { background:#ffdad6; color:#93000a; border:1px solid #e2bfb9; }
+.badge.outline { background:#fff; color:#5a413d; border:1px solid #e2bfb9; }
+.footer-row { padding:16px 18px; border-top:1px solid #e7e8e9; display:flex; justify-content:space-between; align-items:center; color:#5a413d; }
+.pagination { display:flex; gap:8px; align-items:center; }
+.page-btn { border:1px solid #e2bfb9; background:white; color:#5a413d; border-radius:6px; padding:8px 14px; }
+.chart-grid { display:grid; grid-template-columns:1.3fr .7fr; gap:24px; margin-bottom:24px; }
+.chart-box { padding:24px; }
+.chart-title { font-size:20px; font-weight:600; margin:0 0 20px; }
+.bars { display:flex; align-items:end; gap:18px; height:220px; border-left:1px solid #e7e8e9; border-bottom:1px solid #e7e8e9; padding:12px 12px 0; }
+.bar-wrap { flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:end; }
+.bar { width:100%; max-width:44px; background:var(--primary); border-radius:8px 8px 0 0; opacity:.92; }
+.bar-label { font-size:12px; color:#5a413d; }
+.donut { width:190px; height:190px; border-radius:50%; margin:14px auto; background:conic-gradient(var(--primary) 0 52%, #333d4d 52% 76%, #e4e4cc 76% 100%); position:relative; }
+.donut:after { content:""; position:absolute; inset:42px; border-radius:50%; background:white; }
+.legend { display:grid; gap:10px; }
+.legend-row { display:flex; justify-content:space-between; color:#5a413d; font-size:14px; }
+@media(max-width:900px) { .sidebar{width:220px} .main{margin-left:220px} .metric-grid,.chart-grid{grid-template-columns:1fr} .search{display:none} }
+</style>
+<link href="promaintain-consistency.css" rel="stylesheet"/>
+</head>
+<body>
+<aside id="pm-sidebar">
+<div class="pm-brand">
+<div class="pm-brand-icon">PM</div>
+<div>
+<h1>ProMaintain</h1>
+<p>Enterprise Admin</p>
+</div>
+</div>
+<nav class="pm-nav">
+<a class="pm-nav-link" href="dashboard.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+<a class="pm-nav-link" href="users.html"><span class="material-symbols-outlined">group</span><span>Users</span></a>
+<a class="pm-nav-link" href="properties.html"><span class="material-symbols-outlined">domain</span><span>Properties</span></a>
+<a class="pm-nav-link" href="units.html"><span class="material-symbols-outlined">meeting_room</span><span>Units</span></a>
+<a class="pm-nav-link" href="maintenance.html"><span class="material-symbols-outlined">build</span><span>Maintenance Requests</span></a>
+<a class="pm-nav-link active" href="reports.html"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">assessment</span><span>Reports</span></a>
+<a class="pm-nav-link" href="audit_logs.html"><span class="material-symbols-outlined">history</span><span>Audit Logs</span></a>
+<a class="pm-nav-link pm-nav-settings" href="settings.html"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+</nav>
+<div class="pm-userbox">
+<div class="pm-avatar">AU</div>
+<div>
+<div class="pm-user-name">Admin User</div>
+<div class="pm-user-email">admin@promaintain.com</div>
+</div>
+</div>
+</aside>
+<main class="main">
+<header class="topbar">
+<div class="search"><span class="material-symbols-outlined">search</span><input placeholder="Search ProMaintain..."/></div>
+<div class="actions">
+<button class="icon-btn" onclick="window.location.href='notifications.html'"><span class="material-symbols-outlined">notifications</span></button>
+<button class="btn" onclick="window.location.href='quick_actions.html'">Quick Actions</button>
+<button class="btn primary" onclick="window.location.href='create_request.html'">Create Request</button>
+<div class="avatar" style="width:34px;height:34px;font-size:12px">AU</div>
+</div>
+</header>
+<section class="content">
+<div class="page-head">
+<div><h2>Reports</h2><p class="subtitle">Monitor portfolio performance, request trends, technician workload, and service quality.</p></div>
+</div>
+<div class="metric-grid">
+<div class="card metric">
+<div>
+<div class="metric-label">Requests This Month</div>
+<div class="metric-value maroon">326</div>
+<div class="metric-sub">↗ +8.4% from last month</div>
+</div>
+<div class="metric-icon"><span class="material-symbols-outlined">receipt_long</span></div>
+</div>
+<div class="card metric">
+<div>
+<div class="metric-label">Avg Resolution Time</div>
+<div class="metric-value">18h</div>
+<div class="metric-sub">↓ 4h faster than target</div>
+</div>
+<div class="metric-icon"><span class="material-symbols-outlined">schedule</span></div>
+</div>
+<div class="card metric">
+<div>
+<div class="metric-label">Tenant Satisfaction</div>
+<div class="metric-value">94%</div>
+<div class="metric-sub">Based on 212 feedback entries</div>
+</div>
+<div class="metric-icon"><span class="material-symbols-outlined">thumb_up</span></div>
+</div>
+</div>
+<div class="card filter-bar">
+<select class="input select"><option>Last 30 Days</option><option>This Quarter</option><option>This Year</option></select>
+<select class="input select"><option>All Properties</option><option>The Grand Plaza</option><option>Riverfront Lofts</option><option>Oakwood Estates</option></select>
+<select class="input select"><option>All Categories</option><option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Security</option></select>
+<span class="clear">Export Report</span>
+</div>
+<div class="chart-grid">
+<div class="card chart-box">
+<h3 class="chart-title">Maintenance Requests by Month</h3>
+<div class="bars">
+<div class="bar-wrap"><div class="bar" style="height:48%"></div><div class="bar-label">May</div></div>
+<div class="bar-wrap"><div class="bar" style="height:58%"></div><div class="bar-label">Jun</div></div>
+<div class="bar-wrap"><div class="bar" style="height:44%"></div><div class="bar-label">Jul</div></div>
+<div class="bar-wrap"><div class="bar" style="height:68%"></div><div class="bar-label">Aug</div></div>
+<div class="bar-wrap"><div class="bar" style="height:73%"></div><div class="bar-label">Sep</div></div>
+<div class="bar-wrap"><div class="bar" style="height:82%"></div><div class="bar-label">Oct</div></div>
+</div>
+</div>
+<div class="card chart-box">
+<h3 class="chart-title">Request Priority Mix</h3>
+<div class="donut"></div>
+<div class="legend">
+<div class="legend-row"><span>Critical / Urgent</span><strong>52%</strong></div>
+<div class="legend-row"><span>Medium</span><strong>24%</strong></div>
+<div class="legend-row"><span>Low</span><strong>24%</strong></div>
+</div>
+</div>
+</div>
+<div class="card table-card">
+<table>
+<thead><tr><th>Report Name</th><th>Scope</th><th>Last Generated</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody>
+<tr><td><strong>Monthly Maintenance Summary</strong></td><td>All Properties</td><td>Oct 24, 08:30 AM</td><td><span class="badge dark">Ready</span></td><td>View • Export</td></tr>
+<tr><td><strong>Technician Workload Report</strong></td><td>Operations Team</td><td>Oct 23, 04:15 PM</td><td><span class="badge soft">Scheduled</span></td><td>View • Export</td></tr>
+<tr><td><strong>Vacancy &amp; Unit Status</strong></td><td>Portfolio</td><td>Oct 22, 11:00 AM</td><td><span class="badge dark">Ready</span></td><td>View • Export</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<script>
+document.querySelectorAll('a[href]').forEach(a => {
+  a.addEventListener('click', () => {
+    document.body.style.opacity = '0.98';
+    document.body.style.transition = 'opacity .15s ease';
+  });
+});
+</script>
+</body>
+</html>

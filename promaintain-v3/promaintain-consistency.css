@@ -1,0 +1,802 @@
+/* =====================================================================
+   ProMaintain — Design Consistency Layer  v3
+   Single source of truth for all 27 pages.
+   Two structural groups:
+     GROUP A: dashboard, users, properties, maintenance, settings,
+              audit_logs — Tailwind CDN + #pm-sidebar
+     GROUP B: all other 19 pages — custom .sidebar / .content CSS
+   All rules use !important to beat inline <style> blocks.
+   ===================================================================== */
+
+/* ── Design tokens ───────────────────────────────────────────────────── */
+:root {
+  --pm-sidebar-w:           256px;
+  --pm-sidebar-w-sm:        220px;
+  --pm-header-h:            64px;
+  --pm-pad-x:               32px;
+  --pm-pad-y:               32px;
+  --pm-content-max:         1240px;
+  --pm-nav-item-h:          44px;
+  --pm-control-h:           38px;
+  --pm-radius:              12px;
+  --pm-radius-btn:          8px;
+  --pm-card-shadow:         0 1px 3px rgba(0,0,0,.06);
+
+  /* colour tokens */
+  --pm-primary:             #570000;
+  --pm-primary-container:   #800000;
+  --pm-tertiary:            #1d2736;
+  --pm-tertiary-container:  #333d4d;
+  --pm-on-tertiary-muted:   #9da8bb;
+  --pm-outline-variant:     #e2bfb9;
+  --pm-outline:             #8e706c;
+  --pm-surface:             #f8f9fa;
+  --pm-on-surface:          #191c1d;
+  --pm-on-surface-variant:  #5a413d;
+  --pm-surface-container:   #edeeef;
+
+  /* badge palette */
+  --pm-badge-warn-bg:       #ffdad6;
+  --pm-badge-warn-text:     #93000a;
+  --pm-badge-soft-bg:       #e4e4cc;
+  --pm-badge-soft-text:     #474836;
+  --pm-badge-dark-bg:       #121c2a;
+  --pm-badge-dark-text:     #fff;
+  --pm-badge-success-bg:    #d6f0e0;
+  --pm-badge-success-text:  #0a5c2e;
+}
+
+/* ── Reset baseline ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0 !important;
+  font-family: 'Public Sans', sans-serif !important;
+  background: var(--pm-surface) !important;
+  color: var(--pm-on-surface) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+}
+body[class*="h-screen"],
+body[class*="overflow-hidden"] {
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow-y: auto !important;
+}
+.material-symbols-outlined { line-height: 1 !important; flex-shrink: 0; }
+img { max-width: 100%; }
+
+/* ======================================================================
+   SIDEBAR
+   ====================================================================== */
+aside.sidebar,
+aside[class*="w-64"],
+nav[class*="w-64"],
+#pm-sidebar {
+  width:          var(--pm-sidebar-w) !important;
+  min-width:      var(--pm-sidebar-w) !important;
+  max-width:      var(--pm-sidebar-w) !important;
+  height:         100vh !important;
+  min-height:     100vh !important;
+  position:       fixed !important;
+  left:           0 !important;
+  top:            0 !important;
+  z-index:        30 !important;
+  background:     var(--pm-tertiary) !important;
+  color:          #fff !important;
+  display:        flex !important;
+  flex-direction: column !important;
+  overflow:       hidden !important;
+  box-shadow:     2px 0 12px rgba(0,0,0,.12) !important;
+  visibility:     visible !important;
+}
+
+/* ── Brand strip ─────────────────────────────────────────────────────── */
+aside.sidebar .brand,
+aside[class*="w-64"] > div:first-child,
+nav[class*="w-64"] > div:first-child,
+#pm-sidebar .pm-brand {
+  height:        88px !important;
+  min-height:    88px !important;
+  padding:       0 24px !important;
+  border-bottom: 1px solid rgba(51,61,77,.9) !important;
+  display:       flex !important;
+  align-items:   center !important;
+  gap:           12px !important;
+  flex-shrink:   0 !important;
+}
+aside.sidebar .brand h1,
+aside[class*="w-64"] > div:first-child h1,
+nav[class*="w-64"] > div:first-child h1,
+#pm-sidebar .pm-brand h1 {
+  margin:         0 !important;
+  font-size:      20px !important;
+  line-height:    26px !important;
+  font-weight:    700 !important;
+  letter-spacing: -.02em !important;
+  color:          #fff !important;
+}
+aside.sidebar .brand p,
+aside[class*="w-64"] > div:first-child p,
+nav[class*="w-64"] > div:first-child p,
+#pm-sidebar .pm-brand p {
+  margin:         3px 0 0 !important;
+  font-size:      10px !important;
+  line-height:    14px !important;
+  font-weight:    700 !important;
+  letter-spacing: .10em !important;
+  color:          var(--pm-on-tertiary-muted) !important;
+  text-transform: uppercase !important;
+}
+aside[class*="w-64"] > div:first-child img,
+nav[class*="w-64"] > div:first-child img {
+  width:         40px !important;
+  height:        40px !important;
+  min-width:     40px !important;
+  border-radius: 999px !important;
+  object-fit:    cover !important;
+  border:        2px solid var(--pm-primary) !important;
+}
+
+/* ── Nav area ────────────────────────────────────────────────────────── */
+aside.sidebar .nav,
+aside[class*="w-64"] nav,
+#pm-sidebar .pm-nav {
+  flex:           1 1 auto !important;
+  overflow-y:     auto !important;
+  overflow-x:     hidden !important;
+  display:        flex !important;
+  flex-direction: column !important;
+  padding:        12px 0 !important;
+}
+nav[class*="w-64"] {
+  flex:           1 1 auto !important;
+  overflow-y:     auto !important;
+  overflow-x:     hidden !important;
+  display:        flex !important;
+  flex-direction: column !important;
+  padding:        0 !important;
+}
+
+/* ── Nav links ───────────────────────────────────────────────────────── */
+aside.sidebar .nav-link,
+aside[class*="w-64"] nav a,
+nav[class*="w-64"] a[href],
+nav[class*="w-64"] ul li a,
+#pm-sidebar a.pm-nav-link {
+  min-height:     var(--pm-nav-item-h) !important;
+  height:         var(--pm-nav-item-h) !important;
+  padding:        0 22px !important;
+  display:        flex !important;
+  align-items:    center !important;
+  gap:            12px !important;
+  color:          var(--pm-on-tertiary-muted) !important;
+  text-decoration: none !important;
+  font-size:      14px !important;
+  line-height:    20px !important;
+  font-weight:    500 !important;
+  letter-spacing: 0 !important;
+  border-left:    4px solid transparent !important;
+  transition:     background .18s ease, color .18s ease !important;
+  white-space:    nowrap !important;
+}
+aside.sidebar .nav-link:hover,
+aside[class*="w-64"] nav a:hover,
+nav[class*="w-64"] a[href]:hover,
+nav[class*="w-64"] ul li a:hover,
+#pm-sidebar a.pm-nav-link:hover {
+  color:      #fff !important;
+  background: rgba(51,61,77,.55) !important;
+}
+
+/* Active state — unified across all groups */
+aside.sidebar .nav-link.active,
+aside[class*="w-64"] nav a[class*="active"],
+aside[class*="w-64"] nav a[class*="border-l-4"],
+aside[class*="w-64"] nav a[class*="tertiary-container"],
+nav[class*="w-64"] a[class*="active"],
+nav[class*="w-64"] a[class*="border-l-4"],
+nav[class*="w-64"] ul li a[class*="border-l-4"],
+nav[class*="w-64"] ul li a[class*="tertiary-container"],
+#pm-sidebar a.pm-nav-link.active {
+  color:            #fff !important;
+  background:       var(--pm-tertiary-container) !important;
+  border-left-color: var(--pm-primary-container) !important;
+  padding-left:     18px !important;
+  font-weight:      600 !important;
+}
+
+/* Nav icon size */
+aside.sidebar .nav-link .material-symbols-outlined,
+aside[class*="w-64"] nav a .material-symbols-outlined,
+nav[class*="w-64"] a .material-symbols-outlined,
+nav[class*="w-64"] ul li a .material-symbols-outlined,
+#pm-sidebar a.pm-nav-link .material-symbols-outlined {
+  width:     22px !important;
+  min-width: 22px !important;
+  font-size: 22px !important;
+}
+
+/* List reset for audit_logs nav > ul */
+nav[class*="w-64"] ul {
+  list-style:     none !important;
+  margin:         0 !important;
+  padding:        12px 0 !important;
+  flex:           1 1 auto !important;
+  display:        flex !important;
+  flex-direction: column !important;
+}
+nav[class*="w-64"] ul li { margin: 0 !important; padding: 0 !important; }
+
+/* Settings nav link at bottom */
+aside[class*="w-64"] a.mt-auto,
+nav[class*="w-64"] a.mt-auto {
+  margin-top: auto !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+
+/* ── Sidebar user box ────────────────────────────────────────────────── */
+aside.sidebar .userbox,
+#pm-sidebar .pm-userbox {
+  min-height:  72px !important;
+  padding:     16px 22px !important;
+  border-top:  1px solid rgba(51,61,77,.9) !important;
+  display:     flex !important;
+  gap:         12px !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+.avatar {
+  width:         40px !important;
+  height:        40px !important;
+  min-width:     40px !important;
+  border-radius: 999px !important;
+  display:       flex !important;
+  align-items:   center !important;
+  justify-content: center !important;
+  font-size:     14px !important;
+  font-weight:   700 !important;
+  object-fit:    cover !important;
+}
+
+/* ======================================================================
+   HEADER / TOP BAR
+   ====================================================================== */
+header.topbar,
+body header.fixed,
+body header[class*="bg-surface"] {
+  height:       var(--pm-header-h) !important;
+  min-height:   var(--pm-header-h) !important;
+  max-height:   var(--pm-header-h) !important;
+  padding:      0 var(--pm-pad-x) !important;
+  display:      flex !important;
+  align-items:  center !important;
+  justify-content: space-between !important;
+  gap:          20px !important;
+  background:   var(--pm-surface) !important;
+  border-bottom: 1px solid var(--pm-outline-variant) !important;
+  box-shadow:   0 1px 3px rgba(0,0,0,.04) !important;
+  z-index:      20 !important;
+  box-sizing:   border-box !important;
+}
+header.topbar {
+  position: sticky !important;
+  top:      0 !important;
+  width:    100% !important;
+}
+body header.fixed {
+  position: fixed !important;
+  top:      0 !important;
+  left:     var(--pm-sidebar-w) !important;
+  right:    0 !important;
+  width:    auto !important;
+}
+body header[class*="bg-surface"]:not(.fixed):not(.topbar) {
+  position:    sticky !important;
+  top:         0 !important;
+  width:       100% !important;
+  flex-shrink: 0 !important;
+}
+
+/* ── Topbar internals ────────────────────────────────────────────────── */
+header .flex.items-center,
+header .actions,
+.actions {
+  align-items: center !important;
+  gap:         14px !important;
+}
+/* Search bar */
+header .search,
+header .max-w-md,
+header .relative.max-w-md,
+header .flex-1.max-w-md,
+.search {
+  width:     450px !important;
+  max-width: 45vw !important;
+  flex:      0 1 450px !important;
+}
+.search {
+  min-height:    40px !important;
+  padding:       0 14px !important;
+  display:       flex !important;
+  align-items:   center !important;
+  gap:           10px !important;
+  border-radius: 10px !important;
+  background:    #fff !important;
+  border:        1px solid var(--pm-outline-variant) !important;
+}
+header input[type='text'],
+header input:not([type]),
+.search input {
+  min-height: 40px !important;
+  height:     40px !important;
+  font-size:  14px !important;
+  border:     none !important;
+  outline:    none !important;
+  background: transparent !important;
+}
+/* Topbar icon buttons — 40×40 circle, unified across both groups */
+header button.p-2,
+header button[class*="rounded-full"],
+.icon-btn {
+  width:         40px !important;
+  min-width:     40px !important;
+  height:        40px !important;
+  min-height:    40px !important;
+  padding:       0 !important;
+  border-radius: 999px !important;
+  border:        0 !important;
+  background:    transparent !important;
+  display:       flex !important;
+  align-items:   center !important;
+  justify-content: center !important;
+  cursor:        pointer !important;
+}
+/* Topbar avatar */
+.pm-avatar {
+  width:         36px !important;
+  height:        36px !important;
+  min-width:     36px !important;
+  border-radius: 999px !important;
+  display:       flex !important;
+  align-items:   center !important;
+  justify-content: center !important;
+  font-size:     12px !important;
+  font-weight:   700 !important;
+}
+
+/* ======================================================================
+   MAIN / CONTENT WRAPPERS
+   ====================================================================== */
+/* Outer column wrappers */
+main.main,
+div[class*="ml-64"],
+div[class*="md:ml-64"] {
+  margin-left:    var(--pm-sidebar-w) !important;
+  width:          calc(100vw - var(--pm-sidebar-w)) !important;
+  max-width:      none !important;
+  min-height:     100vh !important;
+  height:         auto !important;
+  overflow-y:     visible !important;
+  overflow-x:     hidden !important;
+  display:        flex !important;
+  flex-direction: column !important;
+}
+/* Inner scrollable mains */
+main.flex-1,
+main[class*="overflow-y-auto"] {
+  flex:       1 1 auto !important;
+  overflow-y: auto !important;
+  height:     auto !important;
+  min-height: 0 !important;
+}
+/* Padding for inner mains (GROUP A) */
+main[class*="p-8"],
+main[class*="p-margin"] {
+  padding: var(--pm-pad-y) var(--pm-pad-x) 64px !important;
+}
+/* dashboard.html: body > main is wrapper + content */
+body > main[class*="ml-64"] {
+  display:        block !important;
+  flex-direction: unset !important;
+  padding:        var(--pm-pad-y) var(--pm-pad-x) 64px !important;
+  margin-top:     var(--pm-header-h) !important;
+  max-width:      calc(var(--pm-content-max) + var(--pm-sidebar-w)) !important;
+}
+/* GROUP B content area */
+.content {
+  width:        100% !important;
+  max-width:    var(--pm-content-max) !important;
+  margin-left:  auto !important;
+  margin-right: auto !important;
+  padding:      var(--pm-pad-y) var(--pm-pad-x) 64px !important;
+}
+
+/* ======================================================================
+   TYPOGRAPHY SCALE
+   ====================================================================== */
+/* Page title (H2) — 28px across all pages */
+h2,
+h2.text-headline-lg,
+h2.font-headline-lg,
+.text-headline-lg,
+main h2,
+.content h2 {
+  font-size:      28px !important;
+  line-height:    36px !important;
+  letter-spacing: -.01em !important;
+  font-weight:    600 !important;
+  margin-top:     0 !important;
+  color:          var(--pm-on-surface) !important;
+}
+/* Page subtitle / description — 14px */
+.subtitle,
+.page-head p,
+h2 + p,
+.font-body-md.text-on-surface-variant,
+p.text-on-surface-variant.mt-1 {
+  font-size:   14px !important;
+  line-height: 20px !important;
+  margin-top:  4px !important;
+  color:       var(--pm-on-surface-variant) !important;
+}
+/* Section / card title (H3) — 18px */
+h3,
+h3.font-title-lg,
+h3.text-title-lg,
+.chart-title,
+.tile h3 {
+  font-size:   18px !important;
+  line-height: 26px !important;
+  font-weight: 600 !important;
+  margin-top:  0 !important;
+}
+/* Metric / KPI display number — 46px unified */
+h3.font-display-lg,
+h3.text-display-lg,
+.metric-value,
+.font-display-lg.text-display-lg {
+  font-size:   46px !important;
+  line-height: 54px !important;
+  font-weight: 700 !important;
+  letter-spacing: -.02em !important;
+}
+/* Form field labels */
+.field label,
+.metric-label,
+th,
+table thead th {
+  font-size:      12px !important;
+  letter-spacing: .10em !important;
+  font-weight:    700 !important;
+  text-transform: uppercase !important;
+}
+/* Body text */
+body, p, td, li, input, select, textarea, .input {
+  font-family: 'Public Sans', sans-serif !important;
+  font-size:   14px !important;
+}
+/* Nav / label small text */
+.nav-link, nav a[href],
+.font-label-md, .text-label-md {
+  font-size: 13px !important;
+}
+
+/* ======================================================================
+   PAGE SECTION HEADER
+   ====================================================================== */
+.page-head {
+  display:         flex !important;
+  justify-content: space-between !important;
+  align-items:     flex-start !important;
+  gap:             24px !important;
+  margin-bottom:   28px !important;
+}
+/* GROUP A page head wrappers */
+main > div.flex.justify-between:first-child,
+main > div[class*="flex"][class*="justify-between"]:first-child,
+div[class*="ml-64"] > main > div[class*="flex"][class*="justify-between"]:first-child {
+  margin-bottom: 28px !important;
+}
+/* mb-margin override for page head area: 28px not 32px */
+.mb-margin:first-child {
+  margin-bottom: 28px !important;
+}
+
+/* ======================================================================
+   CARDS
+   ====================================================================== */
+.card,
+.table-card,
+.form-card,
+.bg-surface-container-lowest.rounded-lg,
+.bg-surface-container-lowest.rounded-xl,
+.bg-surface.rounded-lg,
+.bg-surface.rounded-xl,
+.bg-white.rounded-lg,
+.bg-white.rounded-xl,
+[class*="rounded-lg"][class*="border"],
+[class*="rounded-xl"][class*="border"],
+[class*="rounded-lg"][class*="shadow"],
+[class*="rounded-xl"][class*="shadow"] {
+  border-radius: var(--pm-radius) !important;
+  box-shadow:    var(--pm-card-shadow) !important;
+}
+.form-card {
+  max-width: 860px !important;
+}
+
+/* ======================================================================
+   TABLES
+   ====================================================================== */
+table  {
+  width:           100% !important;
+  border-collapse: collapse !important;
+}
+/* TH — unified header row */
+th,
+table thead th {
+  height:     50px !important;
+  padding:    0 24px !important;
+  background: #f7f7f7 !important;
+  color:      #4c302c !important;
+  text-align: left !important;
+  font-size:  12px !important;
+  letter-spacing: .11em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  border-bottom: 1px solid var(--pm-outline-variant) !important;
+  white-space: nowrap !important;
+}
+/* GROUP A th (Tailwind classes) */
+th.py-4,
+th[class*="py-4"],
+th[class*="px-6"] {
+  padding: 0 24px !important;
+  height:  50px !important;
+}
+/* TD — unified row */
+td,
+table tbody td {
+  padding:        16px 24px !important;
+  border-top:     1px solid #e7e8e9 !important;
+  vertical-align: middle !important;
+  font-size:      14px !important;
+  line-height:    20px !important;
+}
+td[class*="py-4"],
+td[class*="px-6"] {
+  padding: 16px 24px !important;
+}
+/* Row hover — unified cream tint */
+tbody tr:hover,
+tr[class*="hover:bg"],
+[class*="hover:bg-secondary-fixed"],
+[class*="hover:bg-\\[#F5F5DC\\]"] {
+  background: rgba(228,228,204,.25) !important;
+}
+.table-card, .overflow-x-auto {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* ======================================================================
+   BUTTONS & CONTROLS
+   ====================================================================== */
+button,
+.btn,
+a.btn,
+input[type='button'],
+input[type='submit'] {
+  min-height:     var(--pm-control-h) !important;
+  height:         auto !important;
+  border-radius:  var(--pm-radius-btn) !important;
+  display:        inline-flex !important;
+  align-items:    center !important;
+  justify-content: center !important;
+  gap:            8px !important;
+  white-space:    nowrap !important;
+  line-height:    18px !important;
+  font-size:      13px !important;
+  font-weight:    600 !important;
+  letter-spacing: .05em !important;
+  cursor:         pointer !important;
+  font-family:    'Public Sans', sans-serif !important;
+}
+/* Reset icon/circle buttons */
+button.p-2,
+.icon-btn,
+header button[class*="rounded-full"] {
+  width:         40px !important;
+  min-width:     40px !important;
+  height:        40px !important;
+  min-height:    40px !important;
+  padding:       0 !important;
+  border-radius: 999px !important;
+  letter-spacing: 0 !important;
+}
+/* GROUP A primary button classes — ensure consistent look */
+button[class*="bg-primary"]:not([class*="bg-primary-"]),
+button[class*="bg-primary"][class*="text-white"] {
+  background: var(--pm-primary) !important;
+  color:      #fff !important;
+  border:     1px solid var(--pm-primary) !important;
+}
+button[class*="bg-primary"]:not([class*="bg-primary-"]):hover,
+button[class*="bg-primary"][class*="text-white"]:hover {
+  background: var(--pm-primary-container) !important;
+  border-color: var(--pm-primary-container) !important;
+}
+/* GROUP A secondary/outline buttons */
+button[class*="bg-surface-container-lowest"][class*="border"],
+button[class*="bg-white"][class*="border"] {
+  background:   #fff !important;
+  color:        var(--pm-primary) !important;
+  border:       1px solid var(--pm-outline) !important;
+  border-radius: var(--pm-radius-btn) !important;
+}
+
+/* ── Form inputs ─────────────────────────────────────────────────────── */
+input:not([type='button']):not([type='submit']):not([type='checkbox']):not([type='radio']):not([type='range']),
+select,
+textarea,
+.input {
+  font-family:   'Public Sans', sans-serif !important;
+  font-size:     14px !important;
+  min-height:    44px !important;
+  border-radius: 8px !important;
+  border:        1px solid var(--pm-outline-variant) !important;
+  color:         var(--pm-on-surface) !important;
+  background:    #fff !important;
+  padding:       10px 14px !important;
+}
+.field label + input,
+.field label + select,
+.field label + textarea {
+  width: 100% !important;
+}
+
+/* ======================================================================
+   STATUS BADGES — unified across both groups
+   ====================================================================== */
+/* GROUP B base .badge */
+.badge {
+  display:       inline-flex !important;
+  align-items:   center !important;
+  height:        26px !important;
+  padding:       0 13px !important;
+  border-radius: 999px !important;
+  font-size:     12px !important;
+  font-weight:   700 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  white-space:   nowrap !important;
+}
+.badge.dark  { background: var(--pm-badge-dark-bg)    !important; color: var(--pm-badge-dark-text)    !important; }
+.badge.soft  { background: var(--pm-badge-soft-bg)    !important; color: var(--pm-badge-soft-text)    !important; }
+.badge.warn  { background: var(--pm-badge-warn-bg)    !important; color: var(--pm-badge-warn-text)    !important; border: 1px solid #e2bfb9 !important; }
+.badge.outline { background: #fff                     !important; color: var(--pm-on-surface-variant) !important; border: 1px solid var(--pm-outline-variant) !important; }
+.badge.success { background: var(--pm-badge-success-bg) !important; color: var(--pm-badge-success-text) !important; }
+
+/* GROUP A inline status badges — normalise to same sizing */
+span[class*="rounded-full"][class*="px-2"],
+span[class*="rounded-full"][class*="px-3"],
+div[class*="rounded-full"][class*="px-2"],
+div[class*="rounded-full"][class*="px-3"] {
+  height:        26px !important;
+  padding:       0 13px !important;
+  border-radius: 999px !important;
+  font-size:     12px !important;
+  font-weight:   700 !important;
+  letter-spacing: .06em !important;
+  display:       inline-flex !important;
+  align-items:   center !important;
+  white-space:   nowrap !important;
+}
+
+/* ======================================================================
+   GRID / LAYOUT GAPS
+   ====================================================================== */
+.metric-grid,
+.grid.gap-sm,
+.grid.gap-md,
+.grid.gap-gutter,
+.grid.gap-lg,
+main .grid[class*="gap-"] {
+  gap: 20px !important;
+}
+/* Two-column form grid */
+.grid { display: grid !important; }
+.grid.grid-cols-2,
+.grid[style*="grid-template-columns:1fr 1fr"],
+.grid:not([class*="grid-cols"]) {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px 24px !important;
+}
+
+/* ======================================================================
+   SECTION / CARD INTERNALS
+   ====================================================================== */
+/* Card title separator line */
+.card-header,
+div[class*="border-b"][class*="p-lg"],
+div[class*="border-b"][class*="p-6"] {
+  padding: 18px 24px !important;
+  border-bottom: 1px solid var(--pm-outline-variant) !important;
+}
+
+/* ======================================================================
+   RESPONSIVE  (<= 900 px)
+   ====================================================================== */
+@media (max-width: 900px) {
+  :root {
+    --pm-sidebar-w: var(--pm-sidebar-w-sm);
+    --pm-pad-x:     22px;
+    --pm-pad-y:     22px;
+  }
+  .search,
+  header .max-w-md,
+  header .relative.max-w-md,
+  header .flex-1.max-w-md {
+    display: none !important;
+  }
+}
+
+/* ── Metric / KPI card labels ─────────────────────────────────────────── */
+.metric-label {
+  color: #4c302c !important;
+}
+
+/* ── Sidebar userbox padding unification ─────────────────────────────── */
+aside.sidebar .userbox {
+  min-height: 72px !important;
+  padding:    0 22px !important;
+}
+
+
+/* ── Canonical PM sidebar details for pages converted to #pm-sidebar ── */
+.pm-brand-icon {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  color: var(--pm-primary) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .02em !important;
+  border: 2px solid var(--pm-primary) !important;
+}
+#pm-sidebar .pm-nav-settings {
+  margin-top: auto !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+#pm-sidebar .pm-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 999px !important;
+  background: #e1e3e4 !important;
+  color: var(--pm-tertiary) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+#pm-sidebar .pm-user-name {
+  font-size: 14px !important;
+  line-height: 18px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+#pm-sidebar .pm-user-email {
+  margin-top: 2px !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  color: var(--pm-on-tertiary-muted) !important;
+}

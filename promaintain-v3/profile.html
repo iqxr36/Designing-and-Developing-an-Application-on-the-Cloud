@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - ProMaintain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary:#570000; --primary-container:#800000; --tertiary:#1d2736; --tertiary-container:#333d4d;
+  --on-tertiary-container:#9da8bb; --surface:#f8f9fa; --surface-low:#f3f4f5;
+  --surface-container:#edeeef; --outline:#8e706c; --outline-variant:#e2bfb9;
+  --on-surface:#191c1d; --on-surface-variant:#5a413d; --secondary-container:#e1e1c9;
+  --error:#ba1a1a; --error-container:#ffdad6;
+}
+* { box-sizing:border-box; }
+body { margin:0; font-family:'Public Sans',sans-serif; background:var(--surface); color:var(--on-surface); min-height:100vh; }
+.material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+.sidebar { width:256px; height:100vh; position:fixed; left:0; top:0; background:var(--tertiary); color:#fff; display:flex; flex-direction:column; box-shadow:0 10px 25px rgba(0,0,0,.16); z-index:20; }
+.brand { padding:28px 24px 24px; border-bottom:1px solid rgba(51,61,77,.9); }
+.brand h1 { margin:0; font-size:26px; line-height:32px; font-weight:700; letter-spacing:-.02em; }
+.brand p { margin:6px 0 0; color:var(--on-tertiary-container); font-size:12px; letter-spacing:.12em; font-weight:600; }
+.nav { padding:24px 0; flex:1; overflow:auto; }
+.nav-link { display:flex; align-items:center; gap:14px; padding:13px 24px; color:var(--on-tertiary-container); text-decoration:none; font-size:14px; transition:.18s ease; }
+.nav-link:hover { color:#fff; background:rgba(51,61,77,.55); }
+.nav-link.active { color:#fff; background:var(--tertiary-container); border-left:4px solid var(--primary-container); padding-left:20px; font-weight:600; }
+.userbox { border-top:1px solid rgba(51,61,77,.9); padding:20px 24px; display:flex; gap:12px; align-items:center; }
+.avatar { width:40px; height:40px; border-radius:999px; background:#e1e3e4; display:flex; align-items:center; justify-content:center; color:#1d2736; font-weight:700; }
+.main { margin-left:256px; min-height:100vh; }
+.topbar { height:64px; background:var(--surface); border-bottom:1px solid var(--outline-variant); display:flex; align-items:center; justify-content:space-between; padding:0 32px; position:sticky; top:0; z-index:10; }
+.search { width:450px; max-width:45vw; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--outline-variant); border-radius:10px; padding:9px 14px; color:var(--on-surface-variant); }
+.search input { border:0; outline:0; flex:1; font-size:14px; background:transparent; color:var(--on-surface); }
+.actions { display:flex; gap:16px; align-items:center; }
+.icon-btn { width:40px; height:40px; border:0; background:transparent; color:var(--on-surface-variant); border-radius:999px; cursor:pointer; position:relative; }
+.icon-btn::after { content:""; position:absolute; top:9px; right:9px; width:7px; height:7px; background:#ba1a1a; border-radius:50%; }
+.btn { height:38px; padding:0 18px; border-radius:8px; border:1px solid var(--outline); background:white; color:var(--primary); font-size:12px; font-weight:700; letter-spacing:.08em; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+.btn.primary { background:var(--primary); color:#fff; border-color:var(--primary); }
+.btn.ghost { border-color:var(--outline-variant); color:#5a413d; }
+.content { padding:36px 32px 64px; max-width:1240px; }
+.page-head { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; margin-bottom:28px; }
+h2 { margin:0; font-size:34px; line-height:42px; letter-spacing:-.01em; font-weight:600; }
+.subtitle { margin:6px 0 0; color:var(--on-surface-variant); font-size:15px; }
+.card { background:white; border:1px solid var(--outline-variant); border-radius:12px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+.form-card { padding:28px; max-width:980px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:20px 24px; }
+.field label { display:block; font-size:12px; letter-spacing:.12em; color:#4c302c; font-weight:700; text-transform:uppercase; margin-bottom:8px; }
+.input, select, textarea { width:100%; border:1px solid #e2bfb9; border-radius:8px; min-height:44px; padding:10px 14px; font-size:14px; color:#191c1d; background:white; outline:none; }
+textarea { min-height:120px; resize:vertical; }
+.full { grid-column:1 / -1; }
+.footer-actions { display:flex; justify-content:flex-end; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid #e7e8e9; }
+.tile-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.tile { padding:24px; text-decoration:none; color:#191c1d; transition:.18s; }
+.tile:hover { transform:translateY(-2px); border-color:#570000; }
+.tile-icon { width:54px; height:54px; border-radius:999px; background:#e1e1c9; color:#474836; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+.tile h3 { margin:0 0 8px; font-size:20px; }
+.tile p { margin:0; color:#5a413d; line-height:1.5; }
+.table-card { overflow:hidden; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:#f7f7f7; color:#4c302c; text-align:left; font-size:12px; letter-spacing:.11em; font-weight:700; padding:17px 24px; }
+td { padding:18px 24px; border-top:1px solid #e7e8e9; vertical-align:middle; }
+.badge { display:inline-flex; align-items:center; height:26px; padding:0 13px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.06em; }
+.badge.dark { background:#121c2a; color:#fff; }
+.badge.soft { background:#e4e4cc; color:#474836; }
+.badge.warn { background:#ffdad6; color:#93000a; border:1px solid #e2bfb9; }
+.info-strip { padding:18px 22px; background:#fff; border-left:4px solid #570000; margin-bottom:22px; }
+@media(max-width:900px) { .sidebar{width:220px} .main{margin-left:220px} .grid,.tile-grid{grid-template-columns:1fr} .search{display:none} }
+</style>
+<link href="promaintain-consistency.css" rel="stylesheet"/>
+</head>
+<body>
+<aside class="sidebar">
+<div class="brand"><h1>ProMaintain</h1><p>ENTERPRISE ADMIN</p></div>
+<nav class="nav"><a class="nav-link" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="nav-link" href="users.html">
+<span class="material-symbols-outlined">group</span>
+<span>Users</span>
+</a>
+<a class="nav-link" href="properties.html">
+<span class="material-symbols-outlined">domain</span>
+<span>Properties</span>
+</a>
+<a class="nav-link" href="units.html">
+<span class="material-symbols-outlined">meeting_room</span>
+<span>Units</span>
+</a>
+<a class="nav-link" href="maintenance.html">
+<span class="material-symbols-outlined">build</span>
+<span>Maintenance Requests</span>
+</a>
+<a class="nav-link" href="reports.html">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</a>
+<a class="nav-link" href="audit_logs.html">
+<span class="material-symbols-outlined">history</span>
+<span>Audit Logs</span>
+</a>
+<a class="nav-link active" href="settings.html">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a></nav>
+<div class="userbox"><div class="avatar">A</div><div><div style="font-weight:600">Admin User</div><div style="font-size:12px;color:#9da8bb">admin@promaintain.com</div></div></div>
+</aside>
+<main class="main">
+<header class="topbar">
+<div class="search"><span class="material-symbols-outlined">search</span><input placeholder="Search ProMaintain..."/></div>
+<div class="actions">
+<button class="icon-btn" onclick="window.location.href='notifications.html'"><span class="material-symbols-outlined">notifications</span></button>
+<button class="btn" onclick="window.location.href='quick_actions.html'">Quick Actions</button>
+<button class="btn primary" onclick="window.location.href='create_request.html'">Create Request</button>
+<div class="avatar" onclick="window.location.href='profile.html'" style="width:34px;height:34px;font-size:12px;cursor:pointer">AU</div>
+</div>
+</header>
+<section class="content">
+<div class="page-head">
+<div><h2>Profile</h2><p class="subtitle">Manage admin profile information and account access.</p></div>
+</div>
+<div class="card form-card">
+<div class="grid">
+<div class="field"><label>First Name</label><input class="input" value="Admin"/></div>
+<div class="field"><label>Last Name</label><input class="input" value="User"/></div>
+<div class="field full"><label>Email Address</label><input class="input" value="admin@promaintain.com"/></div>
+<div class="field"><label>Avatar</label><a class="btn" href="change_avatar.html" onclick="window.location.href='change_avatar.html'">Change Avatar</a></div>
+<div class="field"><label>Account Status</label><input class="input" value="Active"/></div>
+</div>
+<div class="footer-actions"><a class="btn ghost" href="settings.html">Back</a><a class="btn primary" href="settings.html" onclick="window.location.href='settings.html'">Save Profile</a></div>
+</div>
+</section>
+</main>
+</body>
+</html>
