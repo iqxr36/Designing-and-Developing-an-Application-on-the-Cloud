@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CloudMVCApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15d31f4ef9a4ee13d4a07b57e40982ca7d89a319")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a0902c7233c52929a4aedc2f20398d52ae33f0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CloudMVCApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CloudMVCApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
