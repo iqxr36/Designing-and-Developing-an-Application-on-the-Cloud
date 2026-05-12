@@ -1,7 +1,40 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Migrations\\20260512092832_AddCompanyUserRoleFields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CloudMVCApplication\\Migrations\\20260512092832_AddCompanyUserRoleFields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|d:\\my-projects\\designing-and-developing-an-application-on-the-cloud\\cloudmvcapplication\\cloudmvcapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|solutionrelative:cloudmvcapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|d:\\my-projects\\designing-and-developing-an-application-on-the-cloud\\cloudmvcapplication\\cloudmvcapplication\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|solutionrelative:cloudmvcapplication\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|d:\\my-projects\\designing-and-developing-an-application-on-the-cloud\\cloudmvcapplication\\cloudmvcapplication\\models\\propertymanagementcompany.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|solutionrelative:cloudmvcapplication\\models\\propertymanagementcompany.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|d:\\my-projects\\designing-and-developing-an-application-on-the-cloud\\cloudmvcapplication\\cloudmvcapplication\\models\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|solutionrelative:cloudmvcapplication\\models\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|d:\\my-projects\\designing-and-developing-an-application-on-the-cloud\\cloudmvcapplication\\cloudmvcapplication\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|solutionrelative:cloudmvcapplication\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|d:\\my-projects\\designing-and-developing-an-application-on-the-cloud\\cloudmvcapplication\\cloudmvcapplication\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DAF4E52-435B-43D5-A0E9-F8218AEAF2CC}|CloudMVCApplication\\CloudMVCApplication.csproj|solutionrelative:cloudmvcapplication\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Migrations\\20260512091757_InitialPostgresCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CloudMVCApplication\\Migrations\\20260512091757_InitialPostgresCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -19,15 +52,115 @@
         },
         {
           "DockedWidth": 789,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260512092832_AddCompanyUserRoleFields.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Migrations\\20260512092832_AddCompanyUserRoleFields.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Migrations\\20260512092832_AddCompanyUserRoleFields.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Migrations\\20260512092832_AddCompanyUserRoleFields.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Migrations\\20260512092832_AddCompanyUserRoleFields.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:28:32.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:11:25.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Program.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Program.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Program.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:10:27.512Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PropertyManagementCompany.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\PropertyManagementCompany.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Models\\PropertyManagementCompany.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\PropertyManagementCompany.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Models\\PropertyManagementCompany.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:24:09.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationRole.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\ApplicationRole.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Models\\ApplicationRole.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\ApplicationRole.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Models\\ApplicationRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:23:22.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Models\\ApplicationUser.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:24:45.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Models\\ErrorViewModel.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:22:43.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20260512091757_InitialPostgresCreate.cs",
+              "DocumentMoniker": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Migrations\\20260512091757_InitialPostgresCreate.cs",
+              "RelativeDocumentMoniker": "CloudMVCApplication\\Migrations\\20260512091757_InitialPostgresCreate.cs",
+              "ToolTip": "D:\\MY-projects\\Designing-and-Developing-an-Application-on-the-Cloud\\CloudMVCApplication\\CloudMVCApplication\\Migrations\\20260512091757_InitialPostgresCreate.cs",
+              "RelativeToolTip": "CloudMVCApplication\\Migrations\\20260512091757_InitialPostgresCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:17:57.84Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -35,7 +168,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
