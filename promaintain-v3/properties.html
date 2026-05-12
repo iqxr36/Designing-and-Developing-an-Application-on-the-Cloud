@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Property Portfolio - ProMaintain</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#474836",
+                        "surface-tint": "#b22b1d",
+                        "primary-fixed": "#ffdad4",
+                        "on-primary-container": "#ff8371",
+                        "surface-bright": "#f8f9fa",
+                        "on-background": "#191c1d",
+                        "tertiary-fixed-dim": "#bdc7db",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#e4e4cc",
+                        "on-surface-variant": "#5a413d",
+                        "on-primary-fixed-variant": "#8f0f07",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410000",
+                        "on-secondary-fixed": "#1b1d0e",
+                        "inverse-on-surface": "#f0f1f2",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#5e604d",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#121c2a",
+                        "surface-dim": "#d9dadb",
+                        "secondary-container": "#e1e1c9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-tertiary-fixed-variant": "#3d4757",
+                        "outline-variant": "#e2bfb9",
+                        "outline": "#8e706c",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed": "#d9e3f7",
+                        "on-secondary-container": "#636451",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#1d2736",
+                        "primary": "#570000",
+                        "inverse-primary": "#ffb4a8",
+                        "on-surface": "#191c1d",
+                        "tertiary-container": "#333d4d",
+                        "secondary-fixed-dim": "#c8c8b0",
+                        "primary-container": "#800000",
+                        "on-tertiary-container": "#9da8bb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "primary-fixed-dim": "#ffb4a8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "max-content-width": "1440px",
+                        "margin": "32px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "display-lg": ["Public Sans"],
+                        "title-lg": ["Public Sans"],
+                        "label-md": ["Public Sans"],
+                        "headline-lg-mobile": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "body-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="promaintain-consistency.css" rel="stylesheet"/>
+<style id="pm-sidebar-css">
+/* ── ProMaintain canonical sidebar (overrides everything) ── */
+#pm-sidebar {
+  width: 256px !important; min-width: 256px !important; max-width: 256px !important;
+  height: 100vh !important; min-height: 100vh !important;
+  position: fixed !important; left: 0 !important; top: 0 !important;
+  z-index: 30 !important;
+  background: #1d2736 !important;
+  color: #fff !important;
+  display: flex !important; flex-direction: column !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.16) !important;
+  font-family: 'Public Sans', sans-serif !important;
+}
+.pm-brand {
+  height: 88px !important; min-height: 88px !important; flex-shrink: 0 !important;
+  padding: 0 22px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-bottom: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-brand-icon {
+  width: 36px !important; height: 36px !important; min-width: 36px !important;
+  border-radius: 999px !important;
+  background: #fff !important; color: #570000 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 800 !important; letter-spacing: .02em !important;
+  border: 2px solid #570000 !important;
+}
+#pm-sidebar .pm-brand h1 {
+  margin: 0 !important;
+  font-size: 20px !important; line-height: 26px !important;
+  font-weight: 700 !important; letter-spacing: -.02em !important;
+  color: #fff !important;
+}
+#pm-sidebar .pm-brand p {
+  margin: 2px 0 0 !important;
+  font-size: 10px !important; line-height: 14px !important;
+  font-weight: 700 !important; letter-spacing: .12em !important;
+  color: #9da8bb !important; text-transform: uppercase !important;
+}
+.pm-nav {
+  flex: 1 1 auto !important; overflow-y: auto !important; overflow-x: hidden !important;
+  display: flex !important; flex-direction: column !important;
+  padding: 10px 0 !important;
+}
+#pm-sidebar a.pm-nav-link {
+  height: 44px !important; min-height: 44px !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  color: #9da8bb !important;
+  text-decoration: none !important;
+  font-size: 14px !important; line-height: 20px !important;
+  font-weight: 500 !important; letter-spacing: 0 !important;
+  border-left: 4px solid transparent !important;
+  white-space: nowrap !important;
+  transition: .15s ease !important;
+}
+#pm-sidebar a.pm-nav-link:hover {
+  color: #fff !important; background: rgba(51,61,77,.55) !important;
+}
+#pm-sidebar a.pm-nav-link.active {
+  color: #fff !important;
+  background: #333d4d !important;
+  border-left-color: #800000 !important;
+  font-weight: 600 !important;
+  padding-left: 18px !important;
+}
+#pm-sidebar a.pm-nav-link .material-symbols-outlined {
+  font-size: 20px !important; width: 20px !important; min-width: 20px !important;
+  line-height: 1 !important;
+}
+#pm-sidebar a.pm-nav-link span:not(.material-symbols-outlined) {
+  font-size: 14px !important; font-weight: inherit !important;
+}
+#pm-sidebar a.pm-nav-settings {
+  margin-top: auto !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-userbox {
+  height: 72px !important; min-height: 72px !important; flex-shrink: 0 !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-avatar {
+  width: 34px !important; height: 34px !important; min-width: 34px !important;
+  border-radius: 999px !important;
+  background: #333d4d !important; color: #9da8bb !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 700 !important;
+}
+.pm-user-name  { font-size: 13px !important; font-weight: 600 !important; color: #fff !important; line-height: 18px !important; }
+.pm-user-email { font-size: 11px !important; color: #9da8bb !important; line-height: 15px !important; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<!-- SideNavBar -->
+<aside id="pm-sidebar">
+<div class="pm-brand">
+<div class="pm-brand-icon">PM</div>
+<div>
+<h1>ProMaintain</h1>
+<p>Enterprise Admin</p>
+</div>
+</div>
+<nav class="pm-nav">
+<a class="pm-nav-link" href="dashboard.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+<a class="pm-nav-link" href="users.html"><span class="material-symbols-outlined">group</span><span>Users</span></a>
+<a class="pm-nav-link active" href="properties.html"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">domain</span><span>Properties</span></a>
+<a class="pm-nav-link" href="units.html"><span class="material-symbols-outlined">meeting_room</span><span>Units</span></a>
+<a class="pm-nav-link" href="maintenance.html"><span class="material-symbols-outlined">build</span><span>Maintenance Requests</span></a>
+<a class="pm-nav-link" href="reports.html"><span class="material-symbols-outlined">assessment</span><span>Reports</span></a>
+<a class="pm-nav-link" href="audit_logs.html"><span class="material-symbols-outlined">history</span><span>Audit Logs</span></a>
+<a class="pm-nav-link pm-nav-settings" href="settings.html"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+</nav>
+<div class="pm-userbox">
+<div class="pm-avatar">AU</div>
+<div>
+<div class="pm-user-name">Admin User</div>
+<div class="pm-user-email">admin@promaintain.com</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center px-8 z-10">
+<div class="flex items-center bg-surface-container-low rounded-full px-4 py-2 w-96 border border-surface-variant focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none outline-none font-body-md text-body-md w-full text-on-surface placeholder:text-on-surface-variant" placeholder="Search properties, units, or requests..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all relative" onclick="window.location.href='notifications.html'">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="font-label-md text-label-md text-primary bg-white border border-outline px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors" onclick="window.location.href='quick_actions.html'">
+                Quick Actions
+            </button>
+<button class="font-label-md text-label-md text-white bg-primary px-4 py-2 rounded-lg hover:bg-primary-container transition-colors shadow-sm" onclick="window.location.href='create_request.html'">
+                Create Request
+            </button>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant ml-2 cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive, serving as a user profile picture. The lighting is studio quality, soft and even, highlighting a friendly yet authoritative expression. The background is a clean, neutral soft gray, perfectly complementing the modern, high-end UI aesthetic of the application. The overall mood is reliable and polished." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgvAqKZvoLvjOhr9ipLwA9gZPEbdXOLh__rtFuDeyQo58SxXN4VdB5BCGHcMFMH5oqfcRrfvCmofGm0Psc6wx09sxNPkk3dAKBkmFsiwEh7LYTzGl8ge0o58mSLUgWUdnOm1Xy6czGmtLU0Q9aGiATGSCpF5o5Ql0BnJtNMyu4eaC98FdfKCg-XszbR2EqtK4OoEH8p_yTEgWioiR-w3cIz8crWrfSTXWpQU10ub0u32t6bTlSBUk7BGWRrlmheQdwsRlQmps0A8A"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-margin min-h-screen">
+<div class="max-w-[1440px] mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Property Portfolio</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage and monitor your enterprise real estate assets.</p>
+</div>
+<button class="font-label-md text-label-md text-white bg-primary px-6 py-3 rounded-lg hover:bg-primary-container transition-colors shadow-sm flex items-center gap-2" onclick="window.location.href='add_property.html'">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    Add Property
+                </button>
+</div>
+<!-- Portfolio Metrics Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-8">
+<div class="bg-surface rounded-lg p-6 border border-surface-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Properties</p>
+<span class="material-symbols-outlined text-surface-tint bg-primary-fixed p-2 rounded-lg">domain</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">24</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-green-700">trending_up</span>
+<span class="text-green-700 font-bold">+2</span> this quarter
+                    </p>
+</div>
+<div class="bg-surface rounded-lg p-6 border border-surface-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Units</p>
+<span class="material-symbols-outlined text-surface-tint bg-primary-fixed p-2 rounded-lg">meeting_room</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">1,452</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-2">Across all regions</p>
+</div>
+<div class="bg-surface rounded-lg p-6 border border-surface-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Avg Occupancy</p>
+<span class="material-symbols-outlined text-surface-tint bg-primary-fixed p-2 rounded-lg">group</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">94.2%</h3>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-3">
+<div class="bg-surface-tint h-1.5 rounded-full" style="width: 94.2%"></div>
+</div>
+</div>
+<div class="bg-surface rounded-lg p-6 border border-surface-variant shadow-sm bg-gradient-to-br from-surface to-surface-container-low">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Portfolio Health</p>
+<span class="material-symbols-outlined text-surface-tint bg-primary-fixed p-2 rounded-lg">health_and_safety</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">98/100</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-2 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-surface-tint"></span>
+                        Excellent condition
+                    </p>
+</div>
+</div>
+<!-- Filters & Controls -->
+<div class="flex justify-between items-center mb-6 bg-surface p-4 rounded-lg border border-surface-variant shadow-sm">
+<div class="flex gap-4">
+<div class="relative">
+<select class="appearance-none bg-surface-bright border border-surface-variant text-on-surface font-body-md text-body-md rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-sm cursor-pointer">
+<option>All Regions</option>
+<option>North America</option>
+<option>Europe</option>
+<option>Asia Pacific</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-bright border border-surface-variant text-on-surface font-body-md text-body-md rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-sm cursor-pointer">
+<option>All Property Types</option>
+<option>Commercial Office</option>
+<option>Residential Luxury</option>
+<option>Industrial Logistics</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant border border-surface-variant bg-surface-bright px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors" onclick="window.location.href='advanced_filters.html'">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        More Filters
+                    </button>
+</div>
+<div class="flex bg-surface-container-highest rounded-lg p-1">
+<button class="p-1 rounded bg-white shadow-sm text-primary transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<!-- Property Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Property Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<img alt="Corporate Office Building" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pristine, modern high-rise corporate office building featuring an expansive glass facade reflecting a clear blue sky. The architecture is sharp and angular, conveying an executive, luxury corporate aesthetic. The lighting is bright and natural, casting minimal shadows and emphasizing the clean lines of the structure. The mood is authoritative, professional, and reliable, perfectly suited for an enterprise property management portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV7UeIJT2ueuvuhUzPW-Iecqre15klc9he5JRNYIF_RrLi4UPYQsy3-pR7GJWaww40AIlFaHXkHbOX14HMSiMkhAE75WrF7-fmy2rAK903krMJAdNJbc2RmEX7OwRn2S8flRq1Tfc3kcuMj7ATMiVVAOvxnw67rtekATMP_BQoQ4dgugIkV7ZbOqDHHEAGXQwh_tHDFIPEXO0szc0UnNb0vALZeJyAaI6I0-y4GuGDH19U9IQ0F99V_1EWaRhsv_-3a4_HhLTS8ck"/>
+<div class="absolute top-4 left-4 bg-primary text-white font-label-md text-label-md px-3 py-1 rounded-full shadow-sm">
+                            Commercial
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">The Apex Tower</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-start gap-1 mb-6">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                            100 Financial District Blvd, New York, NY
+                        </p>
+<div class="grid grid-cols-2 gap-4 mt-auto border-t border-surface-variant pt-4">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Total Units</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">120</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Occupancy</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">98%</p>
+</div>
+<div class="col-span-2 flex items-center justify-between bg-surface-container-low p-3 rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint">monitor_heart</span>
+<span class="font-label-md text-label-md text-on-surface">Health Score</span>
+</div>
+<span class="font-title-lg text-title-lg text-surface-tint">99</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<img alt="Luxury Residential Complex" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-end, luxury residential apartment complex featuring sleek, modern balconies and premium finishing materials. The scene is bathed in soft, golden-hour sunlight, giving the building a warm, inviting, yet highly exclusive appearance. The surrounding landscaping is meticulously manicured. The overall aesthetic implies premium asset value, aligning with a sophisticated corporate design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPF_mW8jBxWU1sav1q3e3ImQAO2jY41BLBbzkG8errCkKx866-m0nrOwkDEAEk0kXPy5iCwBM24la1nWLeFEalMzfGThQx-IGbecxaoQ3JFAYNIY1ObymEjsOj3rlTLnHUvGcKJb8rB1y5DOJx8mZsnvhUDx2gGT817I8r8Dms8jOGYw7P__GD77O_YVAXfDMudnXZEGappFIChf3tzqt9BVswThudaAFInUXFwFKudYUC8XrHNWzTKPhCv8IxFNx9a5FVkRP0Z20"/>
+<div class="absolute top-4 left-4 bg-tertiary text-white font-label-md text-label-md px-3 py-1 rounded-full shadow-sm">
+                            Residential
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Horizon Residences</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-start gap-1 mb-6">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                            450 Waterfront Way, Seattle, WA
+                        </p>
+<div class="grid grid-cols-2 gap-4 mt-auto border-t border-surface-variant pt-4">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Total Units</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">340</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Occupancy</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">91%</p>
+</div>
+<div class="col-span-2 flex items-center justify-between bg-surface-container-low p-3 rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">monitor_heart</span>
+<span class="font-label-md text-label-md text-on-surface">Health Score</span>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface">94</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 3 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<img alt="Industrial Logistics Park" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vast, modern industrial logistics and warehousing facility viewed from a slight elevated angle. The structure is characterized by clean, expansive metal paneling and organized loading docks. The environment is impeccably tidy, conveying operational excellence and efficiency. The lighting is bright daylight, highlighting the scale and robust nature of the commercial asset. The mood is industrial yet highly polished." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgWITc6upmhgXKuTaYC4bJaw-F26E3dSLZEszf9XVSHD2hr_0ZP8naH5D-PBRqpy007-2OAB3N_SbX-Dff4CxT0jnZVtdPH-iP---MtIAqc0I4rUXzy8GuTlhSxbZq5mT4ILXaEoe0WZTuy08oo6WJfu8AwJuK4cA6DidtkhY1b9_pfrHP1KyQeWxcOydxJwp6cWhB2jNzwmJ_OfFtR0oJhL7j9muJLoIVOi3u8Lvgc1J15gs2h5szbZWP12fT_WN0CXrbOn3SzeM"/>
+<div class="absolute top-4 left-4 bg-secondary text-white font-label-md text-label-md px-3 py-1 rounded-full shadow-sm">
+                            Industrial
+                        </div>
+<div class="absolute top-4 right-4 bg-error text-white font-label-md text-label-md px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                            Attention
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Meridian Logistics Park</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-start gap-1 mb-6">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                            8800 Supply Chain Dr, Dallas, TX
+                        </p>
+<div class="grid grid-cols-2 gap-4 mt-auto border-t border-surface-variant pt-4">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Total Units</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">12</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Occupancy</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">100%</p>
+</div>
+<div class="col-span-2 flex items-center justify-between bg-error-container/30 p-3 rounded-lg border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint">monitor_heart</span>
+<span class="font-label-md text-label-md text-surface-tint">Health Score</span>
+</div>
+<span class="font-title-lg text-title-lg text-surface-tint">72</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

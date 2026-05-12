@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ProMaintain - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#8f0f07",
+                      "on-background": "#191c1d",
+                      "primary": "#570000",
+                      "tertiary-fixed": "#d9e3f7",
+                      "surface-variant": "#e1e3e4",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#b22b1d",
+                      "secondary-container": "#e1e1c9",
+                      "on-tertiary-fixed": "#121c2a",
+                      "on-primary-container": "#ff8371",
+                      "inverse-surface": "#2e3132",
+                      "tertiary": "#1d2736",
+                      "on-secondary-fixed": "#1b1d0e",
+                      "on-secondary-container": "#636451",
+                      "outline-variant": "#e2bfb9",
+                      "primary-fixed": "#ffdad4",
+                      "inverse-primary": "#ffb4a8",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#bdc7db",
+                      "secondary-fixed": "#e4e4cc",
+                      "surface-bright": "#f8f9fa",
+                      "surface": "#f8f9fa",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-surface": "#191c1d",
+                      "surface-dim": "#d9dadb",
+                      "inverse-on-surface": "#f0f1f2",
+                      "primary-fixed-dim": "#ffb4a8",
+                      "on-tertiary-container": "#9da8bb",
+                      "primary-container": "#800000",
+                      "on-surface-variant": "#5a413d",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#333d4d",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#3d4757",
+                      "on-primary-fixed": "#410000",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#8e706c",
+                      "surface-container": "#edeeef",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "background": "#f8f9fa",
+                      "surface-container-high": "#e7e8e9",
+                      "surface-container-low": "#f3f4f5",
+                      "secondary-fixed-dim": "#c8c8b0",
+                      "secondary": "#5e604d",
+                      "on-secondary-fixed-variant": "#474836",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "lg": "24px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "md": "16px",
+                      "margin": "32px",
+                      "xl": "32px",
+                      "max-content-width": "1440px"
+              },
+              "fontFamily": {
+                      "body-md": ["Public Sans"],
+                      "label-md": ["Public Sans"],
+                      "headline-lg": ["Public Sans"],
+                      "headline-md": ["Public Sans"],
+                      "headline-lg-mobile": ["Public Sans"],
+                      "title-lg": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "display-lg": ["Public Sans"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+<link href="promaintain-consistency.css" rel="stylesheet"/>
+<style id="pm-sidebar-css">
+/* ── ProMaintain canonical sidebar (overrides everything) ── */
+#pm-sidebar {
+  width: 256px !important; min-width: 256px !important; max-width: 256px !important;
+  height: 100vh !important; min-height: 100vh !important;
+  position: fixed !important; left: 0 !important; top: 0 !important;
+  z-index: 30 !important;
+  background: #1d2736 !important;
+  color: #fff !important;
+  display: flex !important; flex-direction: column !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.16) !important;
+  font-family: 'Public Sans', sans-serif !important;
+}
+.pm-brand {
+  height: 88px !important; min-height: 88px !important; flex-shrink: 0 !important;
+  padding: 0 22px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-bottom: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-brand-icon {
+  width: 36px !important; height: 36px !important; min-width: 36px !important;
+  border-radius: 999px !important;
+  background: #fff !important; color: #570000 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 800 !important; letter-spacing: .02em !important;
+  border: 2px solid #570000 !important;
+}
+#pm-sidebar .pm-brand h1 {
+  margin: 0 !important;
+  font-size: 20px !important; line-height: 26px !important;
+  font-weight: 700 !important; letter-spacing: -.02em !important;
+  color: #fff !important;
+}
+#pm-sidebar .pm-brand p {
+  margin: 2px 0 0 !important;
+  font-size: 10px !important; line-height: 14px !important;
+  font-weight: 700 !important; letter-spacing: .12em !important;
+  color: #9da8bb !important; text-transform: uppercase !important;
+}
+.pm-nav {
+  flex: 1 1 auto !important; overflow-y: auto !important; overflow-x: hidden !important;
+  display: flex !important; flex-direction: column !important;
+  padding: 10px 0 !important;
+}
+#pm-sidebar a.pm-nav-link {
+  height: 44px !important; min-height: 44px !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  color: #9da8bb !important;
+  text-decoration: none !important;
+  font-size: 14px !important; line-height: 20px !important;
+  font-weight: 500 !important; letter-spacing: 0 !important;
+  border-left: 4px solid transparent !important;
+  white-space: nowrap !important;
+  transition: .15s ease !important;
+}
+#pm-sidebar a.pm-nav-link:hover {
+  color: #fff !important; background: rgba(51,61,77,.55) !important;
+}
+#pm-sidebar a.pm-nav-link.active {
+  color: #fff !important;
+  background: #333d4d !important;
+  border-left-color: #800000 !important;
+  font-weight: 600 !important;
+  padding-left: 18px !important;
+}
+#pm-sidebar a.pm-nav-link .material-symbols-outlined {
+  font-size: 20px !important; width: 20px !important; min-width: 20px !important;
+  line-height: 1 !important;
+}
+#pm-sidebar a.pm-nav-link span:not(.material-symbols-outlined) {
+  font-size: 14px !important; font-weight: inherit !important;
+}
+#pm-sidebar a.pm-nav-settings {
+  margin-top: auto !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-userbox {
+  height: 72px !important; min-height: 72px !important; flex-shrink: 0 !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-avatar {
+  width: 34px !important; height: 34px !important; min-width: 34px !important;
+  border-radius: 999px !important;
+  background: #333d4d !important; color: #9da8bb !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 700 !important;
+}
+.pm-user-name  { font-size: 13px !important; font-weight: 600 !important; color: #fff !important; line-height: 18px !important; }
+.pm-user-email { font-size: 11px !important; color: #9da8bb !important; line-height: 15px !important; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased flex">
+<!-- SideNavBar (from JSON) -->
+<aside id="pm-sidebar">
+<div class="pm-brand">
+<div class="pm-brand-icon">PM</div>
+<div>
+<h1>ProMaintain</h1>
+<p>Enterprise Admin</p>
+</div>
+</div>
+<nav class="pm-nav">
+<a class="pm-nav-link active" href="dashboard.html"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">dashboard</span><span>Dashboard</span></a>
+<a class="pm-nav-link" href="users.html"><span class="material-symbols-outlined">group</span><span>Users</span></a>
+<a class="pm-nav-link" href="properties.html"><span class="material-symbols-outlined">domain</span><span>Properties</span></a>
+<a class="pm-nav-link" href="units.html"><span class="material-symbols-outlined">meeting_room</span><span>Units</span></a>
+<a class="pm-nav-link" href="maintenance.html"><span class="material-symbols-outlined">build</span><span>Maintenance Requests</span></a>
+<a class="pm-nav-link" href="reports.html"><span class="material-symbols-outlined">assessment</span><span>Reports</span></a>
+<a class="pm-nav-link" href="audit_logs.html"><span class="material-symbols-outlined">history</span><span>Audit Logs</span></a>
+<a class="pm-nav-link pm-nav-settings" href="settings.html"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+</nav>
+<div class="pm-userbox">
+<div class="pm-avatar">AU</div>
+<div>
+<div class="pm-user-name">Admin User</div>
+<div class="pm-user-email">admin@promaintain.com</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (from JSON) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center px-8 z-10">
+<!-- Search -->
+<div class="flex-1 max-w-md relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-2 pl-10 pr-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-on-surface-variant" placeholder="Search properties, requests, or users..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all hover:bg-surface-container-low rounded-full" onclick="window.location.href='notifications.html'">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-surface-container-lowest border border-on-surface text-primary font-label-md text-label-md py-2 px-4 rounded hover:bg-surface-container-low transition-colors" onclick="window.location.href='quick_actions.html'">
+                Quick Actions
+            </button>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-2 px-4 rounded hover:bg-primary-container transition-colors shadow-sm" onclick="window.location.href='create_request.html'">
+                Create Request
+            </button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant ml-sm">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A small circular avatar showing a professional corporate headshot in light mode aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfR6flzLR8Z_ADZzjH4auNxVgKHhqUjr2UKa_KSWed8qKLGIz_PNnFOeuDmoJcqx9xoSrfueNz85xUIbS_sD8Q1ogAh41KUbjq3ABj3I7ZKeJ8rMitvT8gBNDQ39SgYKWjc8EBPCHkFTMttLxAMgLdq6uMzTkG0kJ50dGzhfZsh2936ABvJQ8UfRBgPY7XeQKSq1EtpL4b45zPoZ4kqhSL24ywWPRiseWPcqCtdbgFdu3IT6XdCK7CCwhlUTFOv5Vrn8PiMLB5rJk"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-margin w-full max-w-max-content-width mx-auto">
+<!-- Page Header & Quick Actions Row -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-margin gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Dashboard Overview</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Monitor property health, track maintenance, and manage operations.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md py-2 px-4 rounded hover:bg-surface-container-low transition-colors flex items-center gap-2" onclick="window.location.href='add_property.html'">
+<span class="material-symbols-outlined text-[18px]">add</span> Add Property
+                </button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md py-2 px-4 rounded hover:bg-surface-container-low transition-colors flex items-center gap-2" onclick="window.location.href='users.html'">
+<span class="material-symbols-outlined text-[18px]">person_add</span> Add User
+                </button>
+</div>
+</div>
+<!-- KPI Cards (Bento Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-sm mb-margin">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">Total Properties</p>
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-1.5 rounded text-[20px]">domain</span>
+</div>
+<h3 class="font-display-lg text-display-lg text-on-background">124</h3>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">Total Units</p>
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-1.5 rounded text-[20px]">meeting_room</span>
+</div>
+<h3 class="font-display-lg text-display-lg text-on-background">3,450</h3>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">Open Requests</p>
+<span class="material-symbols-outlined text-error bg-error-container p-1.5 rounded text-[20px]">report_problem</span>
+</div>
+<h3 class="font-display-lg text-display-lg text-on-background">42</h3>
+<p class="font-label-md text-label-md text-error mt-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_up</span> +12% this week</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">Active Technicians</p>
+<span class="material-symbols-outlined text-secondary bg-secondary-container p-1.5 rounded text-[20px]">engineering</span>
+</div>
+<h3 class="font-display-lg text-display-lg text-on-background">18</h3>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">Pending Approval</p>
+<span class="material-symbols-outlined text-on-surface-variant bg-surface-container-highest p-1.5 rounded text-[20px]">pending_actions</span>
+</div>
+<h3 class="font-display-lg text-display-lg text-on-background">7</h3>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-surface-variant to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<!-- Main Charts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-margin">
+<!-- Maintenance Request Analytics -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col">
+<div class="p-lg border-b border-surface-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-background">Request Volume Trends</h3>
+<div class="flex gap-2">
+<button class="font-label-md text-label-md text-on-surface-variant px-3 py-1 rounded hover:bg-surface-container-low">7D</button>
+<button class="font-label-md text-label-md text-primary bg-primary-fixed px-3 py-1 rounded">30D</button>
+<button class="font-label-md text-label-md text-on-surface-variant px-3 py-1 rounded hover:bg-surface-container-low">YTD</button>
+</div>
+</div>
+<div class="p-lg flex-1 min-h-[300px] flex items-end gap-2 relative">
+<!-- Abstract Line Chart Visualization -->
+<div class="absolute inset-0 p-lg opacity-10" style="background-image: linear-gradient(to right, #570000 1px, transparent 1px), linear-gradient(to bottom, #570000 1px, transparent 1px); background-size: 40px 40px;"></div>
+<div class="w-full h-full border-l border-b border-outline-variant flex items-end justify-between px-4 pb-0 pt-8 relative z-10">
+<div class="w-12 bg-primary rounded-t-sm h-[40%] hover:opacity-80 transition-opacity"></div>
+<div class="w-12 bg-primary rounded-t-sm h-[60%] hover:opacity-80 transition-opacity"></div>
+<div class="w-12 bg-primary rounded-t-sm h-[30%] hover:opacity-80 transition-opacity"></div>
+<div class="w-12 bg-primary rounded-t-sm h-[80%] hover:opacity-80 transition-opacity"></div>
+<div class="w-12 bg-primary rounded-t-sm h-[50%] hover:opacity-80 transition-opacity"></div>
+<div class="w-12 bg-primary rounded-t-sm h-[90%] hover:opacity-80 transition-opacity"></div>
+</div>
+</div>
+</div>
+<!-- Request Status Overview -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col">
+<div class="p-lg border-b border-surface-variant">
+<h3 class="font-title-lg text-title-lg text-on-background">Status Overview</h3>
+</div>
+<div class="p-lg flex-1 flex flex-col justify-center gap-6">
+<!-- Simple Bar representations instead of complex donut for static HTML -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface">Resolved</span>
+<span class="font-body-md text-body-md text-on-surface-variant">65%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-on-background h-2 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface">In Progress</span>
+<span class="font-body-md text-body-md text-on-surface-variant">25%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-secondary-container h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface">Open/Urgent</span>
+<span class="font-body-md text-body-md text-on-surface-variant">10%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-error h-2 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Table & Activity Feed Row -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-margin">
+<!-- Data Table -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="p-lg border-b border-surface-variant flex justify-between items-center bg-surface-bright">
+<h3 class="font-title-lg text-title-lg text-on-background">Recent Requests</h3>
+<button class="font-label-md text-label-md text-primary flex items-center gap-1 hover:underline">
+                        View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-variant bg-surface-container-lowest">
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">ID</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Property</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Issue</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Status</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Tech</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-surface-variant hover:bg-[#F5F5DC]/30 transition-colors cursor-pointer group">
+<td class="py-4 px-6 font-label-md text-on-background">#REQ-8092</td>
+<td class="py-4 px-6 text-on-surface">The Grand - Unit 402</td>
+<td class="py-4 px-6 text-on-surface">HVAC Failure</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-error text-on-error font-label-md text-[10px] uppercase tracking-wider">Urgent</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Unassigned</td>
+</tr>
+<tr class="border-b border-surface-variant hover:bg-[#F5F5DC]/30 transition-colors cursor-pointer group">
+<td class="py-4 px-6 font-label-md text-on-background">#REQ-8091</td>
+<td class="py-4 px-6 text-on-surface">Maple Ridge - Unit 12B</td>
+<td class="py-4 px-6 text-on-surface">Plumbing Leak</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-[10px] uppercase tracking-wider">In Progress</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">M. Johnson</td>
+</tr>
+<tr class="border-b border-surface-variant hover:bg-[#F5F5DC]/30 transition-colors cursor-pointer group">
+<td class="py-4 px-6 font-label-md text-on-background">#REQ-8090</td>
+<td class="py-4 px-6 text-on-surface">Sunset Estates - Lobby</td>
+<td class="py-4 px-6 text-on-surface">Flickering Lights</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-md text-[10px] uppercase tracking-wider">Pending</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">S. Smith</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Activity Feed -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col">
+<div class="p-lg border-b border-surface-variant">
+<h3 class="font-title-lg text-title-lg text-on-background">Recent Activity</h3>
+</div>
+<div class="p-lg flex-1 overflow-y-auto">
+<div class="relative border-l-2 border-surface-variant ml-3 space-y-6">
+<div class="relative pl-6">
+<span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary border-2 border-surface-container-lowest"></span>
+<p class="font-label-md text-label-md text-on-background">M. Johnson <span class="font-body-md text-on-surface-variant">updated</span> #REQ-8091</p>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">Status changed to In Progress. Parts ordered.</p>
+<span class="font-label-md text-[10px] text-on-surface-variant mt-2 block">10 mins ago</span>
+</div>
+<div class="relative pl-6">
+<span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-secondary border-2 border-surface-container-lowest"></span>
+<p class="font-label-md text-label-md text-on-background">System <span class="font-body-md text-on-surface-variant">auto-assigned</span></p>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">#REQ-8090 assigned to S. Smith based on availability.</p>
+<span class="font-label-md text-[10px] text-on-surface-variant mt-2 block">1 hour ago</span>
+</div>
+<div class="relative pl-6">
+<span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-error border-2 border-surface-container-lowest"></span>
+<p class="font-label-md text-label-md text-on-background">New Request <span class="font-body-md text-on-surface-variant">submitted</span></p>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">Urgent HVAC failure reported at The Grand.</p>
+<span class="font-label-md text-[10px] text-on-surface-variant mt-2 block">2 hours ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

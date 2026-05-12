@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ProMaintain - Maintenance Requests</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#474836",
+                        "surface-tint": "#b22b1d",
+                        "primary-fixed": "#ffdad4",
+                        "on-primary-container": "#ff8371",
+                        "surface-bright": "#f8f9fa",
+                        "on-background": "#191c1d",
+                        "tertiary-fixed-dim": "#bdc7db",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#e4e4cc",
+                        "on-surface-variant": "#5a413d",
+                        "on-primary-fixed-variant": "#8f0f07",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410000",
+                        "on-secondary-fixed": "#1b1d0e",
+                        "inverse-on-surface": "#f0f1f2",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#5e604d",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#121c2a",
+                        "surface-dim": "#d9dadb",
+                        "secondary-container": "#e1e1c9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-tertiary-fixed-variant": "#3d4757",
+                        "outline-variant": "#e2bfb9",
+                        "outline": "#8e706c",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed": "#d9e3f7",
+                        "on-secondary-container": "#636451",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#1d2736",
+                        "primary": "#570000",
+                        "inverse-primary": "#ffb4a8",
+                        "on-surface": "#191c1d",
+                        "tertiary-container": "#333d4d",
+                        "secondary-fixed-dim": "#c8c8b0",
+                        "primary-container": "#800000",
+                        "on-tertiary-container": "#9da8bb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "primary-fixed-dim": "#ffb4a8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "max-content-width": "1440px",
+                        "margin": "32px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans", "sans-serif"],
+                        "headline-lg": ["Public Sans", "sans-serif"],
+                        "display-lg": ["Public Sans", "sans-serif"],
+                        "title-lg": ["Public Sans", "sans-serif"],
+                        "label-md": ["Public Sans", "sans-serif"],
+                        "headline-lg-mobile": ["Public Sans", "sans-serif"],
+                        "body-lg": ["Public Sans", "sans-serif"],
+                        "body-md": ["Public Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<link href="promaintain-consistency.css" rel="stylesheet"/>
+<style id="pm-sidebar-css">
+/* ── ProMaintain canonical sidebar (overrides everything) ── */
+#pm-sidebar {
+  width: 256px !important; min-width: 256px !important; max-width: 256px !important;
+  height: 100vh !important; min-height: 100vh !important;
+  position: fixed !important; left: 0 !important; top: 0 !important;
+  z-index: 30 !important;
+  background: #1d2736 !important;
+  color: #fff !important;
+  display: flex !important; flex-direction: column !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.16) !important;
+  font-family: 'Public Sans', sans-serif !important;
+}
+.pm-brand {
+  height: 88px !important; min-height: 88px !important; flex-shrink: 0 !important;
+  padding: 0 22px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-bottom: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-brand-icon {
+  width: 36px !important; height: 36px !important; min-width: 36px !important;
+  border-radius: 999px !important;
+  background: #fff !important; color: #570000 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 800 !important; letter-spacing: .02em !important;
+  border: 2px solid #570000 !important;
+}
+#pm-sidebar .pm-brand h1 {
+  margin: 0 !important;
+  font-size: 20px !important; line-height: 26px !important;
+  font-weight: 700 !important; letter-spacing: -.02em !important;
+  color: #fff !important;
+}
+#pm-sidebar .pm-brand p {
+  margin: 2px 0 0 !important;
+  font-size: 10px !important; line-height: 14px !important;
+  font-weight: 700 !important; letter-spacing: .12em !important;
+  color: #9da8bb !important; text-transform: uppercase !important;
+}
+.pm-nav {
+  flex: 1 1 auto !important; overflow-y: auto !important; overflow-x: hidden !important;
+  display: flex !important; flex-direction: column !important;
+  padding: 10px 0 !important;
+}
+#pm-sidebar a.pm-nav-link {
+  height: 44px !important; min-height: 44px !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  color: #9da8bb !important;
+  text-decoration: none !important;
+  font-size: 14px !important; line-height: 20px !important;
+  font-weight: 500 !important; letter-spacing: 0 !important;
+  border-left: 4px solid transparent !important;
+  white-space: nowrap !important;
+  transition: .15s ease !important;
+}
+#pm-sidebar a.pm-nav-link:hover {
+  color: #fff !important; background: rgba(51,61,77,.55) !important;
+}
+#pm-sidebar a.pm-nav-link.active {
+  color: #fff !important;
+  background: #333d4d !important;
+  border-left-color: #800000 !important;
+  font-weight: 600 !important;
+  padding-left: 18px !important;
+}
+#pm-sidebar a.pm-nav-link .material-symbols-outlined {
+  font-size: 20px !important; width: 20px !important; min-width: 20px !important;
+  line-height: 1 !important;
+}
+#pm-sidebar a.pm-nav-link span:not(.material-symbols-outlined) {
+  font-size: 14px !important; font-weight: inherit !important;
+}
+#pm-sidebar a.pm-nav-settings {
+  margin-top: auto !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-userbox {
+  height: 72px !important; min-height: 72px !important; flex-shrink: 0 !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-avatar {
+  width: 34px !important; height: 34px !important; min-width: 34px !important;
+  border-radius: 999px !important;
+  background: #333d4d !important; color: #9da8bb !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 700 !important;
+}
+.pm-user-name  { font-size: 13px !important; font-weight: 600 !important; color: #fff !important; line-height: 18px !important; }
+.pm-user-email { font-size: 11px !important; color: #9da8bb !important; line-height: 15px !important; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased flex">
+<!-- SideNavBar -->
+<aside id="pm-sidebar">
+<div class="pm-brand">
+<div class="pm-brand-icon">PM</div>
+<div>
+<h1>ProMaintain</h1>
+<p>Enterprise Admin</p>
+</div>
+</div>
+<nav class="pm-nav">
+<a class="pm-nav-link" href="dashboard.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+<a class="pm-nav-link" href="users.html"><span class="material-symbols-outlined">group</span><span>Users</span></a>
+<a class="pm-nav-link" href="properties.html"><span class="material-symbols-outlined">domain</span><span>Properties</span></a>
+<a class="pm-nav-link" href="units.html"><span class="material-symbols-outlined">meeting_room</span><span>Units</span></a>
+<a class="pm-nav-link active" href="maintenance.html"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">build</span><span>Maintenance Requests</span></a>
+<a class="pm-nav-link" href="reports.html"><span class="material-symbols-outlined">assessment</span><span>Reports</span></a>
+<a class="pm-nav-link" href="audit_logs.html"><span class="material-symbols-outlined">history</span><span>Audit Logs</span></a>
+<a class="pm-nav-link pm-nav-settings" href="settings.html"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+</nav>
+<div class="pm-userbox">
+<div class="pm-avatar">AU</div>
+<div>
+<div class="pm-user-name">Admin User</div>
+<div class="pm-user-email">admin@promaintain.com</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col ml-64 min-w-0 bg-background">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface border-b border-outline-variant shadow-sm z-10 flex justify-between items-center px-8 transition-all">
+<!-- Search -->
+<div class="flex-1 max-w-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search requests, properties, or units..." type="text"/>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors relative" onclick="window.location.href='notifications.html'">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="bg-surface border border-outline text-primary hover:bg-surface-container-low font-label-md text-label-md py-2 px-4 rounded-lg transition-colors" onclick="window.location.href='quick_actions.html'">
+                    Quick Actions
+                </button>
+<button class="bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md py-2 px-4 rounded-lg shadow-sm transition-colors flex items-center gap-2" onclick="window.location.href='create_request.html'">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                    Create Request
+                </button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto mt-16 p-8">
+<div class="max-w-[1440px] mx-auto">
+<!-- Page Header & Metrics Bento -->
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-6">Request Tracking</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Metric 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Open Requests</p>
+<p class="font-display-lg text-display-lg text-on-surface">42</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Critical / Urgent</p>
+<p class="font-display-lg text-display-lg text-primary">8</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Resolved Today</p>
+<p class="font-display-lg text-display-lg text-on-surface">15</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap items-center gap-4 mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Filters:</span>
+</div>
+<select class="bg-surface border border-outline-variant text-on-surface font-body-md text-body-md rounded-lg py-2 pl-4 pr-8 focus:ring-1 focus:ring-primary focus:border-primary appearance-none">
+<option>All Priorities</option>
+<option>Urgent</option>
+<option>High</option>
+<option>Medium</option>
+<option>Low</option>
+</select>
+<select class="bg-surface border border-outline-variant text-on-surface font-body-md text-body-md rounded-lg py-2 pl-4 pr-8 focus:ring-1 focus:ring-primary focus:border-primary appearance-none">
+<option>All Technicians</option>
+<option>Sarah Jenkins</option>
+<option>Marcus Cole</option>
+<option>David Chen</option>
+</select>
+<button class="text-primary hover:bg-surface-container-low font-label-md text-label-md py-2 px-4 rounded-lg transition-colors ml-auto flex items-center gap-2" onclick="window.location.href='maintenance_board.html'">
+<span class="material-symbols-outlined text-[18px]" data-icon="view_kanban">view_kanban</span>
+                        Board View
+                    </button>
+</div>
+<!-- Kanban Board -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+<!-- Column: Open -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2 px-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Open</h3>
+<span class="bg-surface-container-high text-on-surface font-label-md text-label-md px-2 py-1 rounded-full">12</span>
+</div>
+<!-- Card: Urgent -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow cursor-pointer relative overflow-hidden group">
+<!-- Left Accent Line -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex justify-between items-start mb-3">
+<span class="bg-primary text-on-primary font-label-md text-label-md px-2.5 py-1 rounded-full uppercase tracking-wider">Urgent</span>
+<span class="text-on-surface-variant font-label-md text-label-md">REQ-4092</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">HVAC System Failure - Major Leak Detected</h4>
+<div class="space-y-2 mb-4">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-2" data-icon="domain">domain</span>
+<span class="font-body-md text-body-md">The Grandeur Plaza • Unit 4B</span>
+</div>
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-2" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md text-body-md">Oct 24, 08:30 AM</span>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface font-label-md text-label-md overflow-hidden">
+<img alt="Tech" class="w-full h-full object-cover" data-alt="A portrait of a female maintenance technician in a dark grey uniform shirt, looking confident. The background is slightly out of focus, depicting an indoor office environment with soft, cool lighting. The overall color scheme is neutral with subtle cool tones, reinforcing a sense of professional reliability and calm capability in a corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAWXlH1HP0-A6EbdfA3sUalb_PBGE03VFWV-PbyPw9BYE0xv1FO1QpXW1zaWQOKw9x5PgjVjZfApuhtqmFomvtNdNZ0EJ9owuAWcagL-wc90U994vto5NgX7-4xG14objLFc53RsXpoJZlJdaeGs3D5kC6yqYvJZ1fl3o4btQkJw8eXh3j0GZu2CKQ2MJL6WUiBzXOentzv_FpChjuIZxPHsqS58u7G6uvpluOUFBBW5VjGcN3LaYuoZa49TdP1HIGPd5Jw0gDIFw"/>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Sarah J.</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Column: In Progress -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2 px-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">In Progress</h3>
+<span class="bg-surface-container-high text-on-surface font-label-md text-label-md px-2 py-1 rounded-full">5</span>
+</div>
+<!-- Card: High -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow cursor-pointer relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex justify-between items-start mb-3">
+<span class="bg-secondary text-on-secondary font-label-md text-label-md px-2.5 py-1 rounded-full uppercase tracking-wider">High</span>
+<span class="text-on-surface-variant font-label-md text-label-md">REQ-4088</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Elevator #2 Stuck on 5th Floor</h4>
+<div class="space-y-2 mb-4">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-2" data-icon="domain">domain</span>
+<span class="font-body-md text-body-md">Oakridge Heights • Core B</span>
+</div>
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-2" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md text-body-md">Oct 23, 14:15 PM</span>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface font-label-md text-label-md overflow-hidden">
+<img alt="Tech" class="w-full h-full object-cover" data-alt="A portrait of a male maintenance technician with a slight beard, wearing a high-visibility vest over a dark shirt. The setting is bright and industrial, with out-of-focus scaffolding in the background. The color palette emphasizes industrial grays and safety yellows, conveying a sense of active, hands-on professional work in a structured environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgirjU4d2NBcPkRYwFEAxAWaXt_WE-WrUctaWqq6Quv57w0se3L3u-KSvRKZRmg36owzWbIM1_Ake8djstDGA4gj8tqbeBbDQFi1j698EH3n5uH1GD5GlckxyWNF4rLbRU5xsKjIbGrLjNknHYmLLVw-6B4Bnci6pDniQ2j5qjkjS6m4nvtxR3_Mmt9lP3GDroe7-YqrVPY2Gw6mOisBpUeYIRh4EqQGooBudE820jxuuGlS6xdpAi3p-EfQIxFiOrXOBMlsgU_YY"/>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Marcus C.</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Column: Completed -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2 px-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Completed</h3>
+<span class="bg-surface-container-high text-on-surface font-label-md text-label-md px-2 py-1 rounded-full">25</span>
+</div>
+<!-- Card: Medium -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm opacity-80 hover:opacity-100 transition-opacity cursor-pointer relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex justify-between items-start mb-3">
+<span class="bg-tertiary text-on-tertiary font-label-md text-label-md px-2.5 py-1 rounded-full uppercase tracking-wider">Medium</span>
+<span class="text-on-surface-variant font-label-md text-label-md">REQ-4071</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2 line-clamp-2 line-through text-on-surface-variant">Broken Window Latch Repair</h4>
+<div class="space-y-2 mb-4">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-2" data-icon="domain">domain</span>
+<span class="font-body-md text-body-md">Riverside Complex • Unit 12A</span>
+</div>
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-2" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md">Resolved Oct 23</span>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface font-label-md text-label-md">
+                                        DC
+                                    </div>
+<span class="font-body-md text-body-md text-on-surface">David C.</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

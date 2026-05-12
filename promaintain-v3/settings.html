@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - ProMaintain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#474836",
+                      "surface-tint": "#b22b1d",
+                      "primary-fixed": "#ffdad4",
+                      "on-primary-container": "#ff8371",
+                      "surface-bright": "#f8f9fa",
+                      "on-background": "#191c1d",
+                      "tertiary-fixed-dim": "#bdc7db",
+                      "surface-container-highest": "#e1e3e4",
+                      "secondary-fixed": "#e4e4cc",
+                      "on-surface-variant": "#5a413d",
+                      "on-primary-fixed-variant": "#8f0f07",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#410000",
+                      "on-secondary-fixed": "#1b1d0e",
+                      "inverse-on-surface": "#f0f1f2",
+                      "inverse-surface": "#2e3132",
+                      "secondary": "#5e604d",
+                      "on-secondary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#121c2a",
+                      "surface-dim": "#d9dadb",
+                      "secondary-container": "#e1e1c9",
+                      "surface-container-low": "#f3f4f5",
+                      "on-tertiary-fixed-variant": "#3d4757",
+                      "outline-variant": "#e2bfb9",
+                      "outline": "#8e706c",
+                      "on-error": "#ffffff",
+                      "background": "#f8f9fa",
+                      "surface-container-high": "#e7e8e9",
+                      "surface-container": "#edeeef",
+                      "surface-variant": "#e1e3e4",
+                      "tertiary-fixed": "#d9e3f7",
+                      "on-secondary-container": "#636451",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#1d2736",
+                      "primary": "#570000",
+                      "inverse-primary": "#ffb4a8",
+                      "on-surface": "#191c1d",
+                      "tertiary-container": "#333d4d",
+                      "secondary-fixed-dim": "#c8c8b0",
+                      "primary-container": "#800000",
+                      "on-tertiary-container": "#9da8bb",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f8f9fa",
+                      "primary-fixed-dim": "#ffb4a8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "xl": "32px",
+                      "max-content-width": "1440px",
+                      "margin": "32px",
+                      "sm": "12px",
+                      "base": "8px",
+                      "lg": "24px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Public Sans"
+                      ],
+                      "headline-lg": [
+                              "Public Sans"
+                      ],
+                      "display-lg": [
+                              "Public Sans"
+                      ],
+                      "title-lg": [
+                              "Public Sans"
+                      ],
+                      "label-md": [
+                              "Public Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Public Sans"
+                      ],
+                      "body-lg": [
+                              "Public Sans"
+                      ],
+                      "body-md": [
+                              "Public Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-surface');
+        }
+    </style>
+<link href="promaintain-consistency.css" rel="stylesheet"/>
+<style id="pm-sidebar-css">
+/* ── ProMaintain canonical sidebar (overrides everything) ── */
+#pm-sidebar {
+  width: 256px !important; min-width: 256px !important; max-width: 256px !important;
+  height: 100vh !important; min-height: 100vh !important;
+  position: fixed !important; left: 0 !important; top: 0 !important;
+  z-index: 30 !important;
+  background: #1d2736 !important;
+  color: #fff !important;
+  display: flex !important; flex-direction: column !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.16) !important;
+  font-family: 'Public Sans', sans-serif !important;
+}
+.pm-brand {
+  height: 88px !important; min-height: 88px !important; flex-shrink: 0 !important;
+  padding: 0 22px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-bottom: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-brand-icon {
+  width: 36px !important; height: 36px !important; min-width: 36px !important;
+  border-radius: 999px !important;
+  background: #fff !important; color: #570000 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 800 !important; letter-spacing: .02em !important;
+  border: 2px solid #570000 !important;
+}
+#pm-sidebar .pm-brand h1 {
+  margin: 0 !important;
+  font-size: 20px !important; line-height: 26px !important;
+  font-weight: 700 !important; letter-spacing: -.02em !important;
+  color: #fff !important;
+}
+#pm-sidebar .pm-brand p {
+  margin: 2px 0 0 !important;
+  font-size: 10px !important; line-height: 14px !important;
+  font-weight: 700 !important; letter-spacing: .12em !important;
+  color: #9da8bb !important; text-transform: uppercase !important;
+}
+.pm-nav {
+  flex: 1 1 auto !important; overflow-y: auto !important; overflow-x: hidden !important;
+  display: flex !important; flex-direction: column !important;
+  padding: 10px 0 !important;
+}
+#pm-sidebar a.pm-nav-link {
+  height: 44px !important; min-height: 44px !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  color: #9da8bb !important;
+  text-decoration: none !important;
+  font-size: 14px !important; line-height: 20px !important;
+  font-weight: 500 !important; letter-spacing: 0 !important;
+  border-left: 4px solid transparent !important;
+  white-space: nowrap !important;
+  transition: .15s ease !important;
+}
+#pm-sidebar a.pm-nav-link:hover {
+  color: #fff !important; background: rgba(51,61,77,.55) !important;
+}
+#pm-sidebar a.pm-nav-link.active {
+  color: #fff !important;
+  background: #333d4d !important;
+  border-left-color: #800000 !important;
+  font-weight: 600 !important;
+  padding-left: 18px !important;
+}
+#pm-sidebar a.pm-nav-link .material-symbols-outlined {
+  font-size: 20px !important; width: 20px !important; min-width: 20px !important;
+  line-height: 1 !important;
+}
+#pm-sidebar a.pm-nav-link span:not(.material-symbols-outlined) {
+  font-size: 14px !important; font-weight: inherit !important;
+}
+#pm-sidebar a.pm-nav-settings {
+  margin-top: auto !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-userbox {
+  height: 72px !important; min-height: 72px !important; flex-shrink: 0 !important;
+  padding: 0 20px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  border-top: 1px solid rgba(51,61,77,.9) !important;
+}
+.pm-avatar {
+  width: 34px !important; height: 34px !important; min-width: 34px !important;
+  border-radius: 999px !important;
+  background: #333d4d !important; color: #9da8bb !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 11px !important; font-weight: 700 !important;
+}
+.pm-user-name  { font-size: 13px !important; font-weight: 600 !important; color: #fff !important; line-height: 18px !important; }
+.pm-user-email { font-size: 11px !important; color: #9da8bb !important; line-height: 15px !important; }
+</style>
+</head>
+<body class="antialiased flex bg-surface">
+<!-- SideNavBar -->
+<aside id="pm-sidebar">
+<div class="pm-brand">
+<div class="pm-brand-icon">PM</div>
+<div>
+<h1>ProMaintain</h1>
+<p>Enterprise Admin</p>
+</div>
+</div>
+<nav class="pm-nav">
+<a class="pm-nav-link" href="dashboard.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+<a class="pm-nav-link" href="users.html"><span class="material-symbols-outlined">group</span><span>Users</span></a>
+<a class="pm-nav-link" href="properties.html"><span class="material-symbols-outlined">domain</span><span>Properties</span></a>
+<a class="pm-nav-link" href="units.html"><span class="material-symbols-outlined">meeting_room</span><span>Units</span></a>
+<a class="pm-nav-link" href="maintenance.html"><span class="material-symbols-outlined">build</span><span>Maintenance Requests</span></a>
+<a class="pm-nav-link" href="reports.html"><span class="material-symbols-outlined">assessment</span><span>Reports</span></a>
+<a class="pm-nav-link" href="audit_logs.html"><span class="material-symbols-outlined">history</span><span>Audit Logs</span></a>
+<a class="pm-nav-link pm-nav-settings" href="settings.html"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+</nav>
+<div class="pm-userbox">
+<div class="pm-avatar">AU</div>
+<div>
+<div class="pm-user-name">Admin User</div>
+<div class="pm-user-email">admin@promaintain.com</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center px-8 h-16 shrink-0 z-10 w-full">
+<div class="flex items-center">
+<!-- Mobile menu button, hidden on desktop -->
+<button class="md:hidden mr-4 text-on-surface-variant p-2 -ml-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden text-headline-md font-headline-md font-bold text-primary">ProMaintain</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-all cursor-pointer" onclick="window.location.href='notifications.html'">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<button class="font-label-md text-label-md text-primary bg-white border border-outline hover:bg-surface-container-low px-4 py-2 rounded-lg transition-colors" onclick="window.location.href='quick_actions.html'">
+                    Quick Actions
+                </button>
+<button class="font-label-md text-label-md text-white bg-primary hover:bg-surface-tint px-4 py-2 rounded-lg transition-colors" onclick="window.location.href='create_request.html'">
+                    Create Request
+                </button>
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover ml-2 cursor-pointer ring-2 ring-transparent hover:ring-outline-variant transition-all" data-alt="A small circular avatar showing a professional administrator. Bright, corporate lighting matches a premium software interface. The tone is reliable and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6CL2rJtXOEh-pZ_k0mZWeI2-BoR6wBI65MNdqxJZpX9HbqHJ2Rj3P6oVuBgc0AuPfMnevyegeVKS3MjbkyFmJntroiYcWJN-VTGgBe66Bf-URqc4-LH7wOc5ZnK14Zxr4jNeFJh3BFM3wnEu1AXLD2u5blnyZubSRYz7yxA5OBNWZQmC20s0zt7OD9u1cxFMNkTL2kbTuF3y7E0wFwy8Ld6cXDzULH2ZrbuCGxnQCPb5Xk0ql_9yaIT9aMvO6jQj4To5Lqrj0LVQ"/>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto bg-surface-bright p-margin md:p-margin p-md">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-8">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-2">System Settings</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Manage your enterprise account configuration, notifications, and branding.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Left Column: Navigation / Quick Links (Bento feel) -->
+<div class="lg:col-span-1 space-y-6">
+<div class="bg-white rounded-lg border border-surface-variant p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0px_8px_24px_rgba(0,0,0,0.06)] transition-shadow">
+<h3 class="text-title-lg font-title-lg text-on-surface mb-4 border-b border-surface-variant pb-2">Settings Menu</h3>
+<ul class="space-y-2">
+<li>
+<a class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low text-primary font-body-md font-semibold border-l-2 border-primary" href="#profile">
+<span>Profile</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md" href="#organization">
+<span>Organization Details</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md" href="#notifications">
+<span>Notification Preferences</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md" href="#branding">
+<span>Branding &amp; Appearance</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- Right Column: Forms -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Profile Section -->
+<section class="bg-white rounded-[16px] border border-surface-variant p-lg shadow-[0px_4px_12px_rgba(0,0,0,0.03)] scroll-mt-24" id="profile">
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-secondary-container p-3 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">person</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-on-surface">Profile Information</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Update your personal account details.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 mb-8">
+<img alt="Profile Picture" class="w-24 h-24 rounded-full border-4 border-surface-container object-cover" data-alt="A larger profile picture of a corporate enterprise administrator, showing face and shoulders. Clean, bright studio lighting. Professional and authoritative appearance suitable for enterprise management software." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8eFfKzfslWt0sKI5PYqcbFtwi4sFbBaXp7UZ3lLjmMbXvACqN5Ud4TSJKQUItx7OS95aIPXu6NBsl55fBKUda5XffHBBECTUX9ArpqzvJN9aHyRuMoLV_HuAxVTHq6WZoC8jP6_sW_5PPkdLnP5YMSN2L_Uw1reM2w83jncUkaz0n6C0YsyYRDf3a_KNjLmrZUNKVhtg81woTdMtMZP0YRjy3TH-DcNuuS1WHVYJnPns-c6IS-eabPS9AvuAlSegpNAR4RPel_qA"/>
+<div class="flex gap-3">
+<button class="font-label-md text-label-md text-on-surface bg-surface hover:bg-surface-container border border-surface-variant px-4 py-2 rounded-lg transition-colors" onclick="window.location.href='change_avatar.html'">
+                                        Change Avatar
+                                    </button>
+<button class="font-label-md text-label-md text-error hover:text-on-error-container hover:bg-error-container/50 px-4 py-2 rounded-lg transition-colors">
+                                        Remove
+                                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2 uppercase tracking-wider">First Name</label>
+<input class="w-full bg-white border border-surface-variant text-on-surface text-body-md font-body-md rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all" type="text" value="Admin"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Last Name</label>
+<input class="w-full bg-white border border-surface-variant text-on-surface text-body-md font-body-md rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all" type="text" value="User"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Email Address</label>
+<input class="w-full bg-surface border border-surface-variant text-on-surface-variant text-body-md font-body-md rounded-lg px-4 py-3 cursor-not-allowed" disabled="" type="email" value="admin@promaintain.com"/>
+</div>
+</div>
+<div class="flex justify-end pt-4 border-t border-surface-variant">
+<button class="font-label-md text-label-md text-white bg-primary hover:bg-surface-tint px-6 py-2.5 rounded-[8px] transition-colors shadow-sm" onclick="window.location.href='settings.html'">
+                                    Save Profile
+                                </button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
