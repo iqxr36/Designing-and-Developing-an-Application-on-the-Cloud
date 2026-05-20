@@ -1,0 +1,70 @@
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewData["Title"] = "Notifications";
+}
+<div class="pm-flex-between pm-page-header">
+    <div>
+        <h1 class="pm-page-title">Notifications</h1>
+        <p class="pm-page-lead">Recent maintenance events and alerts (sample list).</p>
+    </div>
+    <button type="button" class="pm-btn pm-btn--secondary" disabled title="UI only">Mark all as read</button>
+</div>
+
+<div class="pm-stack" style="max-width:880px">
+    @* TODO: Replace notification cards with Notifications table data *@
+    <article class="pm-notify pm-notify--unread pm-notify--urgent">
+        <div class="d-flex gap-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:#fee2e2;color:var(--pm-danger)"><span class="material-symbols-outlined">warning</span></div>
+            <div class="flex-grow-1">
+                <div class="pm-flex-between">
+                    <h2 class="h6 mb-1">Urgent: water leak in Unit 4B</h2>
+                    <span class="pm-badge pm-badge--urgent">Just now</span>
+                </div>
+                <p class="pm-muted mb-3">Tenant reports significant pooling in the kitchen. Dispatch review recommended.</p>
+                <a class="pm-btn pm-btn--primary" asp-controller="Manager" asp-action="RequestDetails">View Request</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="pm-notify pm-notify--unread">
+        <div class="d-flex gap-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:var(--pm-secondary);color:var(--pm-primary)"><span class="material-symbols-outlined">build</span></div>
+            <div class="flex-grow-1">
+                <div class="pm-flex-between">
+                    <h2 class="h6 mb-1">New maintenance request</h2>
+                    <span class="pm-muted" style="font-size:.8rem">10 min ago</span>
+                </div>
+                <p class="pm-muted mb-3">Unit 12A submitted HVAC &ldquo;not blowing cold air.&rdquo;</p>
+                <a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Request</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="pm-notify pm-notify--read">
+        <div class="d-flex gap-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 pm-muted" style="width:48px;height:48px;background:#f3f4f6"><span class="material-symbols-outlined">engineering</span></div>
+            <div class="flex-grow-1">
+                <div class="pm-flex-between">
+                    <h2 class="h6 mb-1">Technician update: job #1042</h2>
+                    <span class="pm-muted" style="font-size:.8rem">2 hr ago</span>
+                </div>
+                <p class="pm-muted mb-3">Tech note: parts ordered, ETA two days; temporary fix applied.</p>
+                <a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Request</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="pm-notify pm-notify--read">
+        <div class="d-flex gap-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:#dcfce7;color:var(--pm-success)"><span class="material-symbols-outlined">task_alt</span></div>
+            <div class="flex-grow-1">
+                <div class="pm-flex-between">
+                    <h2 class="h6 mb-1">Repair completed: Unit 7C</h2>
+                    <span class="pm-muted" style="font-size:.8rem">Yesterday</span>
+                </div>
+                <p class="pm-muted mb-3">Dishwasher replacement tested and signed off.</p>
+                <a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Summary</a>
+            </div>
+        </div>
+    </article>
+</div>

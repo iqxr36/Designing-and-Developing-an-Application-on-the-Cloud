@@ -1,0 +1,48 @@
+@{
+    Layout = null;
+    var title = ViewData["Title"]?.ToString() ?? "Manager";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@title - PropMaintain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/manager.css" asp-append-version="true" />
+</head>
+<body class="pm-body">
+    <div class="manager-shell">
+        @await Html.PartialAsync("_ManagerSidebar")
+
+        <div class="manager-main">
+            <header class="manager-topbar pm-topbar">
+                <div class="pm-topbar__left">
+                    <a class="pm-topbar__brand" asp-area="" asp-controller="Home" asp-action="Index" title="Back to site home">CloudMVC</a>
+                    <nav class="pm-topbar__tabs" aria-label="Manager sections">
+                        <a class="pm-topbar__tab pm-topbar__tab--active" asp-controller="Manager" asp-action="MaintenanceRequests">Maintenance</a>
+                        <span class="pm-topbar__tab pm-topbar__tab--muted" title="Not in this UI phase">Technicians</span>
+                        <span class="pm-topbar__tab pm-topbar__tab--muted" title="Not in this UI phase">Inventory</span>
+                    </nav>
+                </div>
+                <div class="pm-topbar__right">
+                    <button type="button" class="pm-topbar__icon" title="Help (placeholder)"><span class="material-symbols-outlined">help</span></button>
+                    <a class="pm-topbar__icon" asp-controller="Manager" asp-action="Profile" title="Account settings"><span class="material-symbols-outlined">settings</span></a>
+                    <img class="pm-topbar__avatar" src="https://placehold.co/64x64/0d6efd/FFFFFF?text=PM" width="32" height="32" alt="Manager avatar placeholder" />
+                </div>
+            </header>
+
+            <main class="manager-content pm-main" role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

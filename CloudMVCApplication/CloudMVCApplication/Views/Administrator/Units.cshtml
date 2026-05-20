@@ -1,0 +1,151 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Unit Inventory";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Unit Inventory</h2>
+        <p class="admin-page-subtitle">Manage and track all physical units across properties.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--primary" asp-controller="Administrator" asp-action="AddUnit">
+            <span class="material-symbols-outlined">add</span> Add Unit
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static metrics with aggregated Units table data *@
+<div class="admin-metrics" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Total Units</span>
+        </div>
+        <h3 class="admin-metric__value" style="color: var(--pm-primary);">1,248</h3>
+        <p class="admin-metric__change" style="color: var(--pm-on-surface-variant);">Up 12 this quarter</p>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Vacancy Rate</span>
+        </div>
+        <h3 class="admin-metric__value">4.2%</h3>
+        <div class="admin-progress__bar" style="margin-top: 12px;">
+            <div class="admin-progress__fill admin-progress__fill--primary" style="width: 42%;"></div>
+        </div>
+        <p class="admin-text-muted admin-text-small admin-text-end" style="margin-top: 4px;">Target: &lt; 5%</p>
+    </div>
+    <div class="admin-metric">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <span class="admin-metric__label">Maintenance Hold</span>
+                <h3 class="admin-metric__value">18</h3>
+            </div>
+            <div class="admin-metric__icon" style="background: #e1e1c9; color: #474836;">
+                <span class="material-symbols-outlined">build</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="admin-filters">
+    <div class="admin-filters__group" style="flex: 2;">
+        <label>Search</label>
+        <div style="position: relative;">
+            <span class="material-symbols-outlined" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--pm-on-surface-variant);">search</span>
+            <input type="text" class="admin-input" placeholder="Search by Unit # or Resident..." style="padding-left: 40px;" />
+        </div>
+    </div>
+    <div class="admin-filters__group">
+        <label>Property</label>
+        <select class="admin-select">
+            <option>All Properties</option>
+            <option>The Grand Plaza</option>
+            <option>Riverfront Lofts</option>
+            <option>Oakwood Estates</option>
+        </select>
+    </div>
+    <div class="admin-filters__group">
+        <label>Type</label>
+        <select class="admin-select">
+            <option>All Types</option>
+            <option>Studio</option>
+            <option>1 Bedroom</option>
+            <option>2 Bedroom</option>
+            <option>Penthouse</option>
+        </select>
+    </div>
+    <div class="admin-filters__group">
+        <label>Status</label>
+        <select class="admin-select">
+            <option>All Statuses</option>
+            <option>Occupied</option>
+            <option>Vacant</option>
+            <option>Maintenance</option>
+        </select>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="admin-table-wrap">
+        @* TODO: Replace static unit list with Units table data *@
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Unit #</th>
+                    <th>Property Name</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Monthly Rent</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong style="color: var(--pm-primary);">A-101</strong></td>
+                    <td>The Grand Plaza</td>
+                    <td>2 Bedroom</td>
+                    <td><span class="admin-badge admin-badge--dark">Occupied</span></td>
+                    <td>$2,850.00</td>
+                    <td><a asp-controller="Administrator" asp-action="UnitDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a></td>
+                </tr>
+                <tr>
+                    <td><strong style="color: var(--pm-primary);">B-405</strong></td>
+                    <td>Riverfront Lofts</td>
+                    <td>Studio</td>
+                    <td><span class="admin-badge admin-badge--pending">Vacant</span></td>
+                    <td>$1,900.00</td>
+                    <td><a asp-controller="Administrator" asp-action="UnitDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a></td>
+                </tr>
+                <tr>
+                    <td><strong style="color: var(--pm-primary);">C-210</strong></td>
+                    <td>Oakwood Estates</td>
+                    <td>1 Bedroom</td>
+                    <td><span class="admin-badge admin-badge--progress">Maintenance</span></td>
+                    <td>$2,100.00</td>
+                    <td><a asp-controller="Administrator" asp-action="UnitDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a></td>
+                </tr>
+                <tr>
+                    <td><strong style="color: var(--pm-primary);">A-502</strong></td>
+                    <td>The Grand Plaza</td>
+                    <td>Penthouse</td>
+                    <td><span class="admin-badge admin-badge--dark">Occupied</span></td>
+                    <td>$5,500.00</td>
+                    <td><a asp-controller="Administrator" asp-action="UnitDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a></td>
+                </tr>
+                <tr>
+                    <td><strong style="color: var(--pm-primary);">A-503</strong></td>
+                    <td>The Grand Plaza</td>
+                    <td>2 Bedroom</td>
+                    <td><span class="admin-badge admin-badge--pending">Vacant</span></td>
+                    <td>$2,950.00</td>
+                    <td><a asp-controller="Administrator" asp-action="UnitDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="admin-pagination">
+        <span class="admin-text-muted admin-text-small" style="margin-right: auto;">Showing 1 to 5 of 1,248 units</span>
+        <button class="admin-pagination__btn" style="opacity: 0.5;">Previous</button>
+        <button class="admin-pagination__btn">Next</button>
+    </div>
+</div>

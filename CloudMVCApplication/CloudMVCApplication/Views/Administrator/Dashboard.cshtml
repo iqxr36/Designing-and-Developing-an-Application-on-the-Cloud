@@ -1,0 +1,202 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Dashboard Overview</h2>
+        <p class="admin-page-subtitle">Monitor property health, track maintenance, and manage operations.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="AddProperty">
+            <span class="material-symbols-outlined">add</span> Add Property
+        </a>
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="AddUser">
+            <span class="material-symbols-outlined">person_add</span> Add User
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static KPI counts with aggregated database data *@
+<div class="admin-metrics" style="grid-template-columns: repeat(5, 1fr);">
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Total Properties</span>
+            <div class="admin-metric__icon" style="background: #ffdad4; color: #570000;">
+                <span class="material-symbols-outlined">domain</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">124</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Total Units</span>
+            <div class="admin-metric__icon" style="background: #ffdad4; color: #570000;">
+                <span class="material-symbols-outlined">meeting_room</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">3,450</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Open Requests</span>
+            <div class="admin-metric__icon" style="background: #ffdad6; color: #ba1a1a;">
+                <span class="material-symbols-outlined">report_problem</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">42</h3>
+        <p class="admin-metric__change admin-metric__change--down">
+            <span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span> +12% this week
+        </p>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Active Technicians</span>
+            <div class="admin-metric__icon" style="background: #e1e1c9; color: #5e604d;">
+                <span class="material-symbols-outlined">engineering</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">18</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Pending Approval</span>
+            <div class="admin-metric__icon" style="background: #e1e3e4; color: #5a413d;">
+                <span class="material-symbols-outlined">pending_actions</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">7</h3>
+    </div>
+</div>
+
+<div class="admin-grid admin-grid--12 admin-mb-4">
+    <div class="admin-card admin-col-8">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Request Volume Trends</h3>
+            <div class="admin-flex admin-gap-2">
+                <button class="admin-btn admin-btn--link">7D</button>
+                <button class="admin-btn admin-btn--secondary" style="background: #ffdad4; border: none;">30D</button>
+                <button class="admin-btn admin-btn--link">YTD</button>
+            </div>
+        </div>
+        <div class="admin-chart">
+            <div class="admin-chart__grid"></div>
+            <div class="admin-chart__bar" style="height: 40%;"></div>
+            <div class="admin-chart__bar" style="height: 60%;"></div>
+            <div class="admin-chart__bar" style="height: 30%;"></div>
+            <div class="admin-chart__bar" style="height: 80%;"></div>
+            <div class="admin-chart__bar" style="height: 50%;"></div>
+            <div class="admin-chart__bar" style="height: 90%;"></div>
+        </div>
+    </div>
+    <div class="admin-card admin-col-4">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Status Overview</h3>
+        </div>
+        <div class="admin-card__body">
+            <div class="admin-progress">
+                <div class="admin-progress__header">
+                    <span class="admin-progress__label">Resolved</span>
+                    <span class="admin-progress__value">65%</span>
+                </div>
+                <div class="admin-progress__bar">
+                    <div class="admin-progress__fill admin-progress__fill--primary" style="width: 65%;"></div>
+                </div>
+            </div>
+            <div class="admin-progress">
+                <div class="admin-progress__header">
+                    <span class="admin-progress__label">In Progress</span>
+                    <span class="admin-progress__value">25%</span>
+                </div>
+                <div class="admin-progress__bar">
+                    <div class="admin-progress__fill admin-progress__fill--secondary" style="width: 25%;"></div>
+                </div>
+            </div>
+            <div class="admin-progress">
+                <div class="admin-progress__header">
+                    <span class="admin-progress__label">Open/Urgent</span>
+                    <span class="admin-progress__value">10%</span>
+                </div>
+                <div class="admin-progress__bar">
+                    <div class="admin-progress__fill admin-progress__fill--error" style="width: 10%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="admin-grid admin-grid--12">
+    <div class="admin-card admin-col-8">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Recent Requests</h3>
+            <a class="admin-btn admin-btn--link" asp-controller="Administrator" asp-action="Maintenance">
+                View All <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+            </a>
+        </div>
+        <div class="admin-table-wrap">
+            @* TODO: Replace static request list with MaintenanceRequests table data *@
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Property</th>
+                        <th>Issue</th>
+                        <th>Status</th>
+                        <th>Tech</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#REQ-8092</strong></td>
+                        <td>The Grand - Unit 402</td>
+                        <td>HVAC Failure</td>
+                        <td><span class="admin-badge admin-badge--urgent">Urgent</span></td>
+                        <td class="admin-text-muted">Unassigned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8091</strong></td>
+                        <td>Maple Ridge - Unit 12B</td>
+                        <td>Plumbing Leak</td>
+                        <td><span class="admin-badge admin-badge--progress">In Progress</span></td>
+                        <td class="admin-text-muted">M. Johnson</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8090</strong></td>
+                        <td>Sunset Estates - Lobby</td>
+                        <td>Flickering Lights</td>
+                        <td><span class="admin-badge admin-badge--pending">Pending</span></td>
+                        <td class="admin-text-muted">S. Smith</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="admin-card admin-col-4">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Recent Activity</h3>
+        </div>
+        <div class="admin-activity">
+            <div class="admin-activity__list">
+                <div class="admin-activity__item">
+                    <span class="admin-activity__dot admin-activity__dot--primary"></span>
+                    <p class="admin-activity__title">M. Johnson <span style="font-weight: normal; color: var(--pm-on-surface-variant);">updated</span> #REQ-8091</p>
+                    <p class="admin-activity__desc">Status changed to In Progress. Parts ordered.</p>
+                    <span class="admin-activity__time">10 mins ago</span>
+                </div>
+                <div class="admin-activity__item">
+                    <span class="admin-activity__dot admin-activity__dot--secondary"></span>
+                    <p class="admin-activity__title">System <span style="font-weight: normal; color: var(--pm-on-surface-variant);">auto-assigned</span></p>
+                    <p class="admin-activity__desc">#REQ-8090 assigned to S. Smith based on availability.</p>
+                    <span class="admin-activity__time">1 hour ago</span>
+                </div>
+                <div class="admin-activity__item">
+                    <span class="admin-activity__dot admin-activity__dot--error"></span>
+                    <p class="admin-activity__title">New Request <span style="font-weight: normal; color: var(--pm-on-surface-variant);">submitted</span></p>
+                    <p class="admin-activity__desc">Urgent HVAC failure reported at The Grand.</p>
+                    <span class="admin-activity__time">2 hours ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

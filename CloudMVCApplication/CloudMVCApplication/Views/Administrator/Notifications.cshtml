@@ -1,0 +1,90 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Notifications";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Notifications</h2>
+        <p class="admin-page-subtitle">Stay updated with system alerts and activity.</p>
+    </div>
+    <div class="admin-page-actions">
+        <button class="admin-btn admin-btn--secondary">Mark All as Read</button>
+    </div>
+</div>
+
+@* TODO: Replace static notifications with Notifications table data *@
+<div class="admin-card">
+    <div class="admin-card__body" style="padding: 0;">
+        <div style="padding: 16px 24px; border-bottom: 1px solid var(--pm-outline-variant); background: #ffdad4;">
+            <div class="admin-flex admin-flex-between admin-flex-center">
+                <div class="admin-flex admin-flex-center admin-gap-3">
+                    <div style="width: 40px; height: 40px; border-radius: 999px; background: #ba1a1a; color: #fff; display: flex; align-items: center; justify-content: center;">
+                        <span class="material-symbols-outlined">warning</span>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Urgent: HVAC System Failure at The Grandeur Plaza</p>
+                        <p class="admin-text-muted admin-text-small" style="margin: 0;">New maintenance request requires immediate attention</p>
+                    </div>
+                </div>
+                <span class="admin-text-muted admin-text-small">10 mins ago</span>
+            </div>
+        </div>
+        <div style="padding: 16px 24px; border-bottom: 1px solid var(--pm-outline-variant);">
+            <div class="admin-flex admin-flex-between admin-flex-center">
+                <div class="admin-flex admin-flex-center admin-gap-3">
+                    <div style="width: 40px; height: 40px; border-radius: 999px; background: #e1e1c9; color: #474836; display: flex; align-items: center; justify-content: center;">
+                        <span class="material-symbols-outlined">task_alt</span>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Request #REQ-8091 Completed</p>
+                        <p class="admin-text-muted admin-text-small" style="margin: 0;">Marcus Cole resolved the plumbing issue at Maple Ridge</p>
+                    </div>
+                </div>
+                <span class="admin-text-muted admin-text-small">1 hour ago</span>
+            </div>
+        </div>
+        <div style="padding: 16px 24px; border-bottom: 1px solid var(--pm-outline-variant);">
+            <div class="admin-flex admin-flex-between admin-flex-center">
+                <div class="admin-flex admin-flex-center admin-gap-3">
+                    <div style="width: 40px; height: 40px; border-radius: 999px; background: #d9e3f7; color: #1d2736; display: flex; align-items: center; justify-content: center;">
+                        <span class="material-symbols-outlined">person_add</span>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">New User Registration</p>
+                        <p class="admin-text-muted admin-text-small" style="margin: 0;">Alice Brown has been added as a Technician</p>
+                    </div>
+                </div>
+                <span class="admin-text-muted admin-text-small">3 hours ago</span>
+            </div>
+        </div>
+        <div style="padding: 16px 24px; border-bottom: 1px solid var(--pm-outline-variant); opacity: 0.6;">
+            <div class="admin-flex admin-flex-between admin-flex-center">
+                <div class="admin-flex admin-flex-center admin-gap-3">
+                    <div style="width: 40px; height: 40px; border-radius: 999px; background: #e1e3e4; color: #191c1d; display: flex; align-items: center; justify-content: center;">
+                        <span class="material-symbols-outlined">assessment</span>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Weekly Report Generated</p>
+                        <p class="admin-text-muted admin-text-small" style="margin: 0;">Your scheduled maintenance summary is ready</p>
+                    </div>
+                </div>
+                <span class="admin-text-muted admin-text-small">Yesterday</span>
+            </div>
+        </div>
+        <div style="padding: 16px 24px; opacity: 0.6;">
+            <div class="admin-flex admin-flex-between admin-flex-center">
+                <div class="admin-flex admin-flex-center admin-gap-3">
+                    <div style="width: 40px; height: 40px; border-radius: 999px; background: #ffdad6; color: #93000a; display: flex; align-items: center; justify-content: center;">
+                        <span class="material-symbols-outlined">security</span>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Security Alert</p>
+                        <p class="admin-text-muted admin-text-small" style="margin: 0;">Multiple failed login attempts detected from IP 203.0.113.42</p>
+                    </div>
+                </div>
+                <span class="admin-text-muted admin-text-small">2 days ago</span>
+            </div>
+        </div>
+    </div>
+</div>

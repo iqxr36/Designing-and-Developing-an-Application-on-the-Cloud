@@ -1,0 +1,121 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Advanced Filters";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Advanced Filters</h2>
+        <p class="admin-page-subtitle">Configure detailed filter criteria for your search.</p>
+    </div>
+</div>
+
+<div class="admin-form-card">
+    <div class="admin-form-card__header">
+        <h3 class="admin-form-card__title">Filter Criteria</h3>
+    </div>
+    <div class="admin-form-card__body">
+        @* TODO: Connect filters to search/query endpoints *@
+        <div class="admin-grid admin-grid--2cols">
+            <div class="admin-form-group">
+                <label class="admin-label">Date Range</label>
+                <div class="admin-flex admin-gap-2">
+                    <input type="date" class="admin-input" placeholder="From" />
+                    <input type="date" class="admin-input" placeholder="To" />
+                </div>
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Status</label>
+                <select class="admin-select">
+                    <option value="">All Statuses</option>
+                    <option value="open">Open</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Priority</label>
+                <select class="admin-select">
+                    <option value="">All Priorities</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Category</label>
+                <select class="admin-select">
+                    <option value="">All Categories</option>
+                    <option value="plumbing">Plumbing</option>
+                    <option value="electrical">Electrical</option>
+                    <option value="hvac">HVAC</option>
+                    <option value="structural">Structural</option>
+                    <option value="appliance">Appliance</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Property</label>
+                <select class="admin-select">
+                    <option value="">All Properties</option>
+                    <option value="1">Sunset Apartments</option>
+                    <option value="2">The Grandeur Plaza</option>
+                    <option value="3">Maple Ridge Condos</option>
+                    <option value="4">Harbor View Towers</option>
+                </select>
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Assigned Technician</label>
+                <select class="admin-select">
+                    <option value="">All Technicians</option>
+                    <option value="1">Marcus Cole</option>
+                    <option value="2">Sarah Johnson</option>
+                    <option value="3">David Martinez</option>
+                </select>
+            </div>
+        </div>
+        <div class="admin-form-group">
+            <label class="admin-label">Keywords</label>
+            <input type="text" class="admin-input" placeholder="Search by keywords..." />
+        </div>
+    </div>
+    <div class="admin-form-card__footer">
+        <div class="admin-flex admin-flex-between admin-flex-center">
+            <button class="admin-btn admin-btn--secondary">Clear Filters</button>
+            <div class="admin-flex admin-gap-2">
+                <button class="admin-btn admin-btn--secondary">Save as Preset</button>
+                <button class="admin-btn admin-btn--primary">Apply Filters</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="admin-card" style="margin-top: 24px;">
+    <div class="admin-card__header">
+        <h3 class="admin-card__title">Saved Filter Presets</h3>
+    </div>
+    <div class="admin-card__body">
+        <div class="admin-flex admin-flex-between admin-flex-center" style="padding: 12px 0; border-bottom: 1px solid var(--pm-outline-variant);">
+            <div>
+                <p style="font-weight: 600; margin: 0;">Urgent HVAC Issues</p>
+                <p class="admin-text-muted admin-text-small" style="margin: 0;">Priority: Urgent, Category: HVAC</p>
+            </div>
+            <div class="admin-flex admin-gap-2">
+                <button class="admin-btn admin-btn--secondary admin-btn--sm">Load</button>
+                <button class="admin-btn admin-btn--secondary admin-btn--sm" style="color: #ba1a1a;">Delete</button>
+            </div>
+        </div>
+        <div class="admin-flex admin-flex-between admin-flex-center" style="padding: 12px 0;">
+            <div>
+                <p style="font-weight: 600; margin: 0;">Last 30 Days - Open</p>
+                <p class="admin-text-muted admin-text-small" style="margin: 0;">Date Range: Last 30 days, Status: Open</p>
+            </div>
+            <div class="admin-flex admin-gap-2">
+                <button class="admin-btn admin-btn--secondary admin-btn--sm">Load</button>
+                <button class="admin-btn admin-btn--secondary admin-btn--sm" style="color: #ba1a1a;">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

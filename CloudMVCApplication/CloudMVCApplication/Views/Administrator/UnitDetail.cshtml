@@ -1,0 +1,94 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Unit Details";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Unit A-101</h2>
+        <p class="admin-page-subtitle">The Grand Plaza - 2 Bedroom Unit</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Units">
+            <span class="material-symbols-outlined">arrow_back</span> Back to Units
+        </a>
+        <button class="admin-btn admin-btn--primary">Edit Unit</button>
+    </div>
+</div>
+
+@* TODO: Replace static unit data with database lookup by unitId *@
+<div class="admin-grid" style="grid-template-columns: 1fr 2fr; gap: 24px;">
+    <div>
+        <div class="admin-card admin-mb-3">
+            <div class="admin-card__body" style="text-align: center;">
+                <span class="admin-badge admin-badge--dark" style="margin-bottom: 16px;">Occupied</span>
+                <h3 style="font-size: 36px; font-weight: 700; margin: 0; color: var(--pm-primary);">$2,850</h3>
+                <p class="admin-text-muted">Monthly Rent</p>
+            </div>
+        </div>
+        <div class="admin-card">
+            <div class="admin-card__header">
+                <h3 class="admin-card__title">Current Tenant</h3>
+            </div>
+            <div class="admin-card__body">
+                <div class="admin-flex admin-flex-center admin-gap-3 admin-mb-3">
+                    <div style="width: 48px; height: 48px; border-radius: 999px; background: #e1e3e4; display: flex; align-items: center; justify-content: center; font-weight: 700;">MJ</div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Michael Johnson</p>
+                        <p class="admin-text-muted admin-text-small" style="margin: 0;">Lease ends: Dec 31, 2024</p>
+                    </div>
+                </div>
+                <p class="admin-text-small"><strong>Phone:</strong> (555) 234-5678</p>
+                <p class="admin-text-small"><strong>Email:</strong> m.johnson@email.com</p>
+            </div>
+        </div>
+    </div>
+    <div class="admin-form-card">
+        <div class="admin-form-card__header">
+            <h3 class="admin-form-card__title">Unit Information</h3>
+        </div>
+        <div class="admin-form-card__body">
+            <div class="admin-grid admin-grid--2cols">
+                <div class="admin-form-group">
+                    <label class="admin-label">Unit Number</label>
+                    <input type="text" class="admin-input" value="A-101" />
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Property</label>
+                    <select class="admin-select">
+                        <option selected>The Grand Plaza</option>
+                        <option>Riverfront Lofts</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Unit Type</label>
+                    <select class="admin-select">
+                        <option>Studio</option>
+                        <option>1 Bedroom</option>
+                        <option selected>2 Bedroom</option>
+                        <option>Penthouse</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Square Footage</label>
+                    <input type="number" class="admin-input" value="1200" />
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Monthly Rent ($)</label>
+                    <input type="number" class="admin-input" value="2850" />
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Status</label>
+                    <select class="admin-select">
+                        <option selected>Occupied</option>
+                        <option>Vacant</option>
+                        <option>Maintenance</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="admin-form-card__footer">
+            <button class="admin-btn admin-btn--primary">Save Changes</button>
+        </div>
+    </div>
+</div>

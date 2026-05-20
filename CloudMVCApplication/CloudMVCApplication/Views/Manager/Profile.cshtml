@@ -1,0 +1,99 @@
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewData["Title"] = "Profile & Account Settings";
+}
+<div class="pm-page-header">
+    <h1 class="pm-page-title">Profile &amp; account settings</h1>
+    <p class="pm-page-lead">Manager profile summary (no persistence in this phase).</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8 d-flex flex-column gap-4">
+        <div class="pm-card">
+            <div class="pm-card__body">
+                <div class="row align-items-center g-4">
+                    <div class="col-auto text-center">
+                        <img class="pm-avatar-lg" src="https://placehold.co/256x256/374151/FFFFFF?text=PM" alt="Manager profile placeholder" />
+                    </div>
+                    <div class="col">
+                        <h2 class="h4 mb-1">Jonathan Davis</h2>
+                        <p class="pm-muted mb-2">Senior property manager</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="pm-badge pm-badge--low">12 managed properties</span>
+                            <span class="pm-badge pm-badge--low">Chicago metro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pm-card">
+            <div class="pm-card__body">
+                <form method="get" asp-controller="Manager" asp-action="Profile">
+                    <h3 class="h6 border-bottom pb-2 mb-3"><span class="material-symbols-outlined align-middle">badge</span> Account information</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="pm-label" for="fullName">Full name</label>
+                            <input class="pm-input" id="fullName" name="fullName" value="Jonathan Davis" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="pm-label" for="company">Company</label>
+                            <input class="pm-input" id="company" name="company" value="Apex Property Management" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="pm-label" for="email">Email</label>
+                            <input class="pm-input" id="email" name="email" type="email" value="jdavis@apexproperties.com" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="pm-label" for="phone">Phone</label>
+                            <input class="pm-input" id="phone" name="phone" type="tel" value="(555) 123-4567" />
+                        </div>
+                    </div>
+
+                    <h3 class="h6 border-bottom pb-2 mb-3 mt-4"><span class="material-symbols-outlined align-middle">lock</span> Password</h3>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="pm-label" for="cur">Current password</label>
+                            <input class="pm-input" id="cur" name="cur" type="password" placeholder="••••••••" autocomplete="current-password" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="pm-label" for="newp">New password</label>
+                            <input class="pm-input" id="newp" name="newp" type="password" autocomplete="new-password" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="pm-label" for="newp2">Confirm password</label>
+                            <input class="pm-input" id="newp2" name="newp2" type="password" autocomplete="new-password" />
+                        </div>
+                    </div>
+
+                    <div class="pm-actions border-top pt-3 mt-4" style="border-color:var(--pm-border)">
+                        <a class="pm-btn pm-btn--outline" asp-controller="Manager" asp-action="Dashboard">Cancel</a>
+                        <button type="submit" class="pm-btn pm-btn--primary">Save changes</button>
+                    </div>
+                    <p class="pm-muted pm-mt-2 mb-0" style="font-size:.85rem">Save reloads this page without persisting credentials (UI phase).</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 d-flex flex-column gap-4">
+        <div class="pm-card">
+            <div class="pm-card__header"><h2 class="pm-card__title">Account status</h2></div>
+            <div class="pm-card__body">
+                <ul class="list-unstyled mb-0 pm-stack">
+                    <li class="d-flex justify-content-between"><span class="pm-muted">Role</span><span class="pm-badge pm-badge--low">Property manager</span></li>
+                    <li class="d-flex justify-content-between"><span class="pm-muted">Status</span><span class="pm-badge pm-badge--completed">Active</span></li>
+                    <li class="d-flex justify-content-between"><span class="pm-muted">Cloud access</span><span class="pm-badge pm-badge--assigned">Enabled</span></li>
+                    <li class="d-flex justify-content-between border-top pt-2" style="border-color:var(--pm-border)"><span class="pm-muted">Last login</span><span>May 14, 2026</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pm-card" style="background:var(--pm-tertiary);color:var(--pm-white)">
+            <div class="pm-card__body">
+                <h3 class="h6">Two-factor authentication</h3>
+                <p class="mb-3" style="opacity:.85;font-size:.9rem">Add an extra verification step for sensitive actions.</p>
+                <button type="button" class="pm-btn pm-btn--secondary" disabled title="UI only">Enable 2FA</button>
+            </div>
+        </div>
+    </div>
+</div>

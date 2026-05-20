@@ -1,0 +1,61 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "User Details";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">User Details</h2>
+        <p class="admin-page-subtitle">View and manage user account information.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Users">
+            <span class="material-symbols-outlined">arrow_back</span> Back to Users
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static user data with database lookup by userId *@
+<div class="admin-grid" style="grid-template-columns: 1fr 2fr; gap: 24px;">
+    <div class="admin-card">
+        <div class="admin-card__body" style="text-align: center;">
+            <div style="width: 100px; height: 100px; border-radius: 999px; background: #800000; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; margin: 0 auto 16px;">JD</div>
+            <h3 style="font-size: 20px; font-weight: 600; margin: 0 0 4px;">John Doe</h3>
+            <p class="admin-text-muted">Admin</p>
+            <span class="admin-badge admin-badge--dark" style="margin-top: 12px;">Active</span>
+        </div>
+    </div>
+    <div class="admin-form-card">
+        <div class="admin-form-card__header">
+            <h3 class="admin-form-card__title">Account Information</h3>
+        </div>
+        <div class="admin-form-card__body">
+            <div class="admin-grid admin-grid--2cols">
+                <div class="admin-form-group">
+                    <label class="admin-label">Full Name</label>
+                    <input type="text" class="admin-input" value="John Doe" />
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Email</label>
+                    <input type="email" class="admin-input" value="john.doe@zammaintain.com" />
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Phone</label>
+                    <input type="tel" class="admin-input" value="(555) 123-4567" />
+                </div>
+                <div class="admin-form-group">
+                    <label class="admin-label">Role</label>
+                    <select class="admin-select">
+                        <option selected>Admin</option>
+                        <option>Property Manager</option>
+                        <option>Technician</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="admin-form-card__footer">
+            <button class="admin-btn admin-btn--secondary" style="color: #ba1a1a; border-color: #ba1a1a;">Deactivate User</button>
+            <button class="admin-btn admin-btn--primary">Save Changes</button>
+        </div>
+    </div>
+</div>

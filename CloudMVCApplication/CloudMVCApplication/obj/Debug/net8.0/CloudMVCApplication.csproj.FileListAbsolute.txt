@@ -237,10 +237,20 @@ C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Develop
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\CloudMVC.D41CF066.Up2Date
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\CloudMVCApplication.dll
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\refint\CloudMVCApplication.dll
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\CloudMVCApplication.pdb
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\CloudMVCApplication.genruntimeconfig.cache
 C:\Users\Faisal\Faisal's Files\APU 3rd Year - 2nd Semester\Designing-and-Developing-an-Application-on-the-Cloud\CloudMVCApplication\CloudMVCApplication\obj\Debug\net8.0\ref\CloudMVCApplication.dll
+Z:\obj\Debug\net8.0\CloudMVCApplication.csproj.AssemblyReference.cache
+Z:\obj\Debug\net8.0\rpswa.dswa.cache.json
+Z:\obj\Debug\net8.0\CloudMVCApplication.GeneratedMSBuildEditorConfig.editorconfig
+Z:\obj\Debug\net8.0\CloudMVCApplication.AssemblyInfoInputs.cache
+Z:\obj\Debug\net8.0\CloudMVCApplication.AssemblyInfo.cs
+Z:\obj\Debug\net8.0\CloudMVCApplication.csproj.CoreCompileInputs.cache
+Z:\obj\Debug\net8.0\CloudMVCApplication.MvcApplicationPartsAssemblyInfo.cs
+Z:\obj\Debug\net8.0\CloudMVCApplication.MvcApplicationPartsAssemblyInfo.cache
+Z:\obj\Debug\net8.0\CloudMVCApplication.dll
+Z:\obj\Debug\net8.0\refint\CloudMVCApplication.dll
+Z:\obj\Debug\net8.0\CloudMVCApplication.pdb

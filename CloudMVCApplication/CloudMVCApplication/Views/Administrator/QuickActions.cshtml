@@ -1,0 +1,68 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Quick Actions";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Quick Actions</h2>
+        <p class="admin-page-subtitle">Shortcuts to common administrative tasks.</p>
+    </div>
+</div>
+
+<div class="admin-grid admin-grid--3cols">
+    <a asp-controller="Administrator" asp-action="CreateRequest" class="admin-card" style="text-decoration: none; color: inherit;">
+        <div class="admin-card__body" style="text-align: center; padding: 32px;">
+            <div style="width: 64px; height: 64px; border-radius: 999px; background: #ffdad4; color: var(--pm-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <span class="material-symbols-outlined" style="font-size: 32px;">add_task</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Create Request</h3>
+            <p class="admin-text-muted admin-text-small" style="margin: 0;">Submit a new maintenance request</p>
+        </div>
+    </a>
+    <a asp-controller="Administrator" asp-action="AddUser" class="admin-card" style="text-decoration: none; color: inherit;">
+        <div class="admin-card__body" style="text-align: center; padding: 32px;">
+            <div style="width: 64px; height: 64px; border-radius: 999px; background: #d9e3f7; color: #1d2736; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <span class="material-symbols-outlined" style="font-size: 32px;">person_add</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Add User</h3>
+            <p class="admin-text-muted admin-text-small" style="margin: 0;">Create a new user account</p>
+        </div>
+    </a>
+    <a asp-controller="Administrator" asp-action="AddProperty" class="admin-card" style="text-decoration: none; color: inherit;">
+        <div class="admin-card__body" style="text-align: center; padding: 32px;">
+            <div style="width: 64px; height: 64px; border-radius: 999px; background: #e1e1c9; color: #474836; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <span class="material-symbols-outlined" style="font-size: 32px;">domain_add</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Add Property</h3>
+            <p class="admin-text-muted admin-text-small" style="margin: 0;">Register a new property</p>
+        </div>
+    </a>
+    <a asp-controller="Administrator" asp-action="AddUnit" class="admin-card" style="text-decoration: none; color: inherit;">
+        <div class="admin-card__body" style="text-align: center; padding: 32px;">
+            <div style="width: 64px; height: 64px; border-radius: 999px; background: #e1e3e4; color: #191c1d; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <span class="material-symbols-outlined" style="font-size: 32px;">add_home</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Add Unit</h3>
+            <p class="admin-text-muted admin-text-small" style="margin: 0;">Add a unit to a property</p>
+        </div>
+    </a>
+    <a asp-controller="Administrator" asp-action="GenerateReport" class="admin-card" style="text-decoration: none; color: inherit;">
+        <div class="admin-card__body" style="text-align: center; padding: 32px;">
+            <div style="width: 64px; height: 64px; border-radius: 999px; background: #ffdad4; color: var(--pm-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <span class="material-symbols-outlined" style="font-size: 32px;">summarize</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Generate Report</h3>
+            <p class="admin-text-muted admin-text-small" style="margin: 0;">Create a custom report</p>
+        </div>
+    </a>
+    <a asp-controller="Administrator" asp-action="AuditLogs" class="admin-card" style="text-decoration: none; color: inherit;">
+        <div class="admin-card__body" style="text-align: center; padding: 32px;">
+            <div style="width: 64px; height: 64px; border-radius: 999px; background: #d9e3f7; color: #1d2736; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <span class="material-symbols-outlined" style="font-size: 32px;">history</span>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">View Audit Logs</h3>
+            <p class="admin-text-muted admin-text-small" style="margin: 0;">Review system activity</p>
+        </div>
+    </a>
+</div>

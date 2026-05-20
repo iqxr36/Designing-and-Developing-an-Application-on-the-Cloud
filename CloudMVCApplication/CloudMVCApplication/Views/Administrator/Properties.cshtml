@@ -1,0 +1,167 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Property Portfolio";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Property Portfolio</h2>
+        <p class="admin-page-subtitle">Manage and monitor your enterprise real estate assets.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--primary" asp-controller="Administrator" asp-action="AddProperty">
+            <span class="material-symbols-outlined">add</span> Add Property
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static metrics with aggregated Properties table data *@
+<div class="admin-metrics" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Total Properties</span>
+            <div class="admin-metric__icon" style="background: #ffdad4; color: #570000;">
+                <span class="material-symbols-outlined">domain</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">24</h3>
+        <p class="admin-metric__change admin-metric__change--up">
+            <span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span> +2 this quarter
+        </p>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Total Units</span>
+            <div class="admin-metric__icon" style="background: #ffdad4; color: #570000;">
+                <span class="material-symbols-outlined">meeting_room</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">1,452</h3>
+        <p class="admin-metric__change" style="color: var(--pm-on-surface-variant);">Across all regions</p>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Avg Occupancy</span>
+            <div class="admin-metric__icon" style="background: #ffdad4; color: #570000;">
+                <span class="material-symbols-outlined">group</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">94.2%</h3>
+        <div class="admin-progress__bar" style="margin-top: 12px;">
+            <div class="admin-progress__fill admin-progress__fill--primary" style="width: 94.2%;"></div>
+        </div>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Portfolio Health</span>
+            <div class="admin-metric__icon" style="background: #ffdad4; color: #570000;">
+                <span class="material-symbols-outlined">health_and_safety</span>
+            </div>
+        </div>
+        <h3 class="admin-metric__value">98/100</h3>
+        <p class="admin-metric__change" style="color: var(--pm-on-surface-variant);">
+            <span style="width: 8px; height: 8px; border-radius: 999px; background: #570000; display: inline-block;"></span>
+            Excellent condition
+        </p>
+    </div>
+</div>
+
+<div class="admin-filters">
+    <div class="admin-filters__group">
+        <label>Region</label>
+        <select class="admin-select">
+            <option>All Regions</option>
+            <option>North America</option>
+            <option>Europe</option>
+            <option>Asia Pacific</option>
+        </select>
+    </div>
+    <div class="admin-filters__group">
+        <label>Property Type</label>
+        <select class="admin-select">
+            <option>All Property Types</option>
+            <option>Commercial Office</option>
+            <option>Residential Luxury</option>
+            <option>Industrial Logistics</option>
+        </select>
+    </div>
+    <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="AdvancedFilters" style="align-self: flex-end;">
+        <span class="material-symbols-outlined">filter_list</span> More Filters
+    </a>
+</div>
+
+@* TODO: Replace static property cards with Properties table data *@
+<div class="admin-grid admin-grid--3cols">
+    <a asp-controller="Administrator" asp-action="PropertyDetail" class="admin-card" style="text-decoration: none; color: inherit; overflow: hidden;">
+        <div style="height: 180px; background: linear-gradient(135deg, #1d2736 0%, #333d4d 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+            <span class="material-symbols-outlined" style="font-size: 64px; color: rgba(255,255,255,0.2);">domain</span>
+            <span class="admin-badge admin-badge--dark" style="position: absolute; top: 16px; left: 16px;">Commercial</span>
+        </div>
+        <div class="admin-card__body">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 4px;">The Apex Tower</h3>
+            <p class="admin-text-muted admin-text-small" style="display: flex; align-items: center; gap: 4px; margin: 0 0 16px;">
+                <span class="material-symbols-outlined" style="font-size: 16px;">location_on</span>
+                100 Financial District Blvd, New York, NY
+            </p>
+            <div class="admin-grid admin-grid--2cols" style="gap: 12px; padding-top: 16px; border-top: 1px solid var(--pm-outline-variant);">
+                <div>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Total Units</p>
+                    <p style="font-weight: 600; margin: 4px 0 0;">120</p>
+                </div>
+                <div>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Occupancy</p>
+                    <p style="font-weight: 600; margin: 4px 0 0;">98%</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a asp-controller="Administrator" asp-action="PropertyDetail" class="admin-card" style="text-decoration: none; color: inherit; overflow: hidden;">
+        <div style="height: 180px; background: linear-gradient(135deg, #570000 0%, #800000 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+            <span class="material-symbols-outlined" style="font-size: 64px; color: rgba(255,255,255,0.2);">apartment</span>
+            <span class="admin-badge" style="position: absolute; top: 16px; left: 16px; background: #1d2736; color: #fff;">Residential</span>
+        </div>
+        <div class="admin-card__body">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 4px;">Horizon Residences</h3>
+            <p class="admin-text-muted admin-text-small" style="display: flex; align-items: center; gap: 4px; margin: 0 0 16px;">
+                <span class="material-symbols-outlined" style="font-size: 16px;">location_on</span>
+                450 Waterfront Way, Seattle, WA
+            </p>
+            <div class="admin-grid admin-grid--2cols" style="gap: 12px; padding-top: 16px; border-top: 1px solid var(--pm-outline-variant);">
+                <div>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Total Units</p>
+                    <p style="font-weight: 600; margin: 4px 0 0;">340</p>
+                </div>
+                <div>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Occupancy</p>
+                    <p style="font-weight: 600; margin: 4px 0 0;">91%</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a asp-controller="Administrator" asp-action="PropertyDetail" class="admin-card" style="text-decoration: none; color: inherit; overflow: hidden;">
+        <div style="height: 180px; background: linear-gradient(135deg, #5e604d 0%, #474836 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+            <span class="material-symbols-outlined" style="font-size: 64px; color: rgba(255,255,255,0.2);">warehouse</span>
+            <span class="admin-badge" style="position: absolute; top: 16px; left: 16px; background: #5e604d; color: #fff;">Industrial</span>
+            <span class="admin-badge admin-badge--urgent" style="position: absolute; top: 16px; right: 16px;">
+                <span class="material-symbols-outlined" style="font-size: 14px;">warning</span> Attention
+            </span>
+        </div>
+        <div class="admin-card__body">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 4px;">Meridian Logistics Park</h3>
+            <p class="admin-text-muted admin-text-small" style="display: flex; align-items: center; gap: 4px; margin: 0 0 16px;">
+                <span class="material-symbols-outlined" style="font-size: 16px;">location_on</span>
+                8800 Supply Chain Dr, Dallas, TX
+            </p>
+            <div class="admin-grid admin-grid--2cols" style="gap: 12px; padding-top: 16px; border-top: 1px solid var(--pm-outline-variant);">
+                <div>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Total Units</p>
+                    <p style="font-weight: 600; margin: 4px 0 0;">12</p>
+                </div>
+                <div>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Occupancy</p>
+                    <p style="font-weight: 600; margin: 4px 0 0;">100%</p>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

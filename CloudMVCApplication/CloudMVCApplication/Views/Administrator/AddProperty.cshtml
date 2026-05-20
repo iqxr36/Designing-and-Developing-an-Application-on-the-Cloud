@@ -1,0 +1,79 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Add Property";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Add New Property</h2>
+        <p class="admin-page-subtitle">Register a new property in your portfolio.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Properties">
+            <span class="material-symbols-outlined">arrow_back</span> Back to Properties
+        </a>
+    </div>
+</div>
+
+<div class="admin-form-card">
+    <div class="admin-form-card__header">
+        <h3 class="admin-form-card__title">Property Information</h3>
+    </div>
+    <div class="admin-form-card__body">
+        @* TODO: Connect form to Property creation endpoint *@
+        <div class="admin-grid admin-grid--2cols">
+            <div class="admin-form-group">
+                <label class="admin-label">Property Name *</label>
+                <input type="text" class="admin-input" placeholder="Enter property name" required />
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Property Type *</label>
+                <select class="admin-select" required>
+                    <option value="">Select type</option>
+                    <option value="commercial">Commercial Office</option>
+                    <option value="residential">Residential</option>
+                    <option value="industrial">Industrial</option>
+                </select>
+            </div>
+            <div class="admin-form-group" style="grid-column: span 2;">
+                <label class="admin-label">Street Address *</label>
+                <input type="text" class="admin-input" placeholder="123 Main Street" required />
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">City *</label>
+                <input type="text" class="admin-input" placeholder="City" required />
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">State / Province *</label>
+                <input type="text" class="admin-input" placeholder="State" required />
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">ZIP / Postal Code *</label>
+                <input type="text" class="admin-input" placeholder="12345" required />
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Country *</label>
+                <select class="admin-select" required>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                </select>
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Total Units</label>
+                <input type="number" class="admin-input" placeholder="0" />
+            </div>
+            <div class="admin-form-group">
+                <label class="admin-label">Property Manager</label>
+                <select class="admin-select">
+                    <option value="">Select manager</option>
+                    <option value="1">Jane Smith</option>
+                    <option value="2">John Doe</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="admin-form-card__footer">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Properties">Cancel</a>
+        <button class="admin-btn admin-btn--primary">Add Property</button>
+    </div>
+</div>

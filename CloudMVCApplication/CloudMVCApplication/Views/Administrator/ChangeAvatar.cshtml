@@ -1,0 +1,56 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Change Avatar";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Change Avatar</h2>
+        <p class="admin-page-subtitle">Upload a new profile picture.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Profile">
+            <span class="material-symbols-outlined">arrow_back</span> Back to Profile
+        </a>
+    </div>
+</div>
+
+<div class="admin-card" style="max-width: 600px;">
+    <div class="admin-card__body" style="text-align: center;">
+        <div style="width: 120px; height: 120px; border-radius: 999px; background: #333d4d; color: #9da8bb; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 700; margin: 0 auto 24px;">AU</div>
+        
+        <p class="admin-text-muted" style="margin-bottom: 24px;">Upload a new image or choose from the avatars below.</p>
+        
+        @* TODO: Implement file upload functionality *@
+        <div style="border: 2px dashed var(--pm-outline-variant); border-radius: 12px; padding: 40px; margin-bottom: 24px;">
+            <span class="material-symbols-outlined" style="font-size: 48px; color: var(--pm-outline);">cloud_upload</span>
+            <p style="margin: 12px 0 0; font-weight: 500;">Drag and drop or click to upload</p>
+            <p class="admin-text-muted admin-text-small" style="margin: 4px 0 0;">PNG, JPG up to 5MB</p>
+            <input type="file" accept="image/*" style="display: none;" id="avatar-upload" />
+            <label for="avatar-upload" class="admin-btn admin-btn--secondary" style="margin-top: 16px; cursor: pointer;">Choose File</label>
+        </div>
+        
+        <div style="margin-bottom: 24px;">
+            <p style="font-weight: 600; margin-bottom: 12px;">Or choose a default avatar:</p>
+            <div class="admin-flex admin-flex-center admin-gap-2" style="justify-content: center;">
+                <div style="width: 48px; height: 48px; border-radius: 999px; background: #ffdad4; color: var(--pm-primary); display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid transparent;" title="Avatar 1">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <div style="width: 48px; height: 48px; border-radius: 999px; background: #d9e3f7; color: #1d2736; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid transparent;" title="Avatar 2">
+                    <span class="material-symbols-outlined">face</span>
+                </div>
+                <div style="width: 48px; height: 48px; border-radius: 999px; background: #e1e1c9; color: #474836; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid transparent;" title="Avatar 3">
+                    <span class="material-symbols-outlined">emoji_emotions</span>
+                </div>
+                <div style="width: 48px; height: 48px; border-radius: 999px; background: #e1e3e4; color: #191c1d; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid transparent;" title="Avatar 4">
+                    <span class="material-symbols-outlined">sentiment_satisfied</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="admin-flex admin-flex-center admin-gap-2" style="justify-content: center;">
+            <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Profile">Cancel</a>
+            <button class="admin-btn admin-btn--primary">Save Avatar</button>
+        </div>
+    </div>
+</div>

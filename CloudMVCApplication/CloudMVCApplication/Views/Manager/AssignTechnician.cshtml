@@ -1,0 +1,138 @@
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewData["Title"] = "Assign Technician";
+}
+<div class="pm-page-header">
+    <h1 class="pm-page-title">Assign Technician</h1>
+    <p class="pm-page-lead">Review request details and dispatch a specialist (form is non-persistent in this phase).</p>
+</div>
+
+<div class="row g-4 align-items-start">
+    <div class="col-lg-5">
+        <div class="pm-card">
+            <div class="pm-card__header">
+                <h2 class="pm-card__title">Request summary</h2>
+                <span class="pm-badge pm-badge--urgent">Urgent</span>
+            </div>
+            <div class="pm-card__body">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="pm-label">Request ID</div>
+                        <div><strong>REQ-2026-089</strong></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="pm-label">Status</div>
+                        <span class="pm-badge pm-badge--pending">Pending</span>
+                    </div>
+                    <div class="col-12">
+                        <div class="pm-label">Tenant &amp; property</div>
+                        <div class="p-3 rounded border" style="border-color:var(--pm-border)!important;background:var(--pm-neutral)">
+                            <strong>Sarah Jenkins, Unit 4B</strong>
+                            <div class="pm-muted" style="font-size:.875rem">Oakwood Residences</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="pm-label">Issue</div>
+                        <p class="mb-0">Major water leak in the master bathroom spreading toward hallway carpet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="pm-card">
+            <div class="pm-card__header">
+                <h2 class="pm-card__title">Dispatch form</h2>
+            </div>
+            <div class="pm-card__body">
+                @* TODO: Replace technician dropdown with TechnicianProfiles table data *@
+                <form method="get" asp-controller="Manager" asp-action="MaintenanceRequests">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="pm-label" for="tech">Assign technician</label>
+                            <select id="tech" class="pm-select" name="tech">
+                                <option value="">Select a technician&hellip;</option>
+                                <option>Ahmad Rahman (Plumbing)</option>
+                                <option>Daniel Wong (Electrical)</option>
+                                <option>Siti Aisyah (HVAC)</option>
+                                <option>Ravi Kumar (General)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="pm-label" for="priority">Priority</label>
+                            <select id="priority" class="pm-select" name="priority">
+                                <option>Low</option>
+                                <option selected>Medium</option>
+                                <option>High</option>
+                                <option>Urgent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="pm-label" for="due">Expected completion</label>
+                            <input class="pm-input" id="due" type="date" name="due" />
+                        </div>
+                        <div class="col-12">
+                            <label class="pm-label" for="notes">Manager notes (visible to tech)</label>
+                            <textarea id="notes" class="pm-textarea" rows="3" placeholder="E.g., key is with the front desk&hellip;"></textarea>
+                        </div>
+                    </div>
+                    <div class="pm-actions border-top pt-3 mt-3" style="border-color:var(--pm-border)">
+                        <a class="pm-btn pm-btn--outline" asp-controller="Manager" asp-action="MaintenanceRequests">Cancel</a>
+                        <button type="submit" class="pm-btn pm-btn--primary"><span class="material-symbols-outlined" style="font-size:18px">send</span> Assign technician</button>
+                    </div>
+                    <p class="pm-muted pm-mt-2 mb-0" style="font-size:.85rem">Submit returns you to Maintenance Requests without saving (UI phase).</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pm-card pm-mt-2">
+    <div class="pm-card__header">
+        <h2 class="pm-card__title">Available technicians (sample)</h2>
+        <a class="pm-btn pm-btn--link" asp-controller="Manager" asp-action="TechnicianWorkload">View workload</a>
+    </div>
+    <div class="pm-table-wrap">
+        <table class="pm-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Active jobs</th>
+                    <th>Availability</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ahmad Rahman</strong></td>
+                    <td>Plumbing</td>
+                    <td>2</td>
+                    <td><span class="pm-badge pm-badge--avail">Available</span></td>
+                    <td>4.8</td>
+                </tr>
+                <tr>
+                    <td><strong>Daniel Wong</strong></td>
+                    <td>Electrical</td>
+                    <td>5</td>
+                    <td><span class="pm-badge pm-badge--busy">Busy</span></td>
+                    <td>4.9</td>
+                </tr>
+                <tr>
+                    <td><strong>Siti Aisyah</strong></td>
+                    <td>HVAC</td>
+                    <td>1</td>
+                    <td><span class="pm-badge pm-badge--avail">Available</span></td>
+                    <td>4.7</td>
+                </tr>
+                <tr>
+                    <td><strong>Tom Blake</strong></td>
+                    <td>General</td>
+                    <td>0</td>
+                    <td><span class="pm-badge pm-badge--leave">On Leave</span></td>
+                    <td>4.5</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

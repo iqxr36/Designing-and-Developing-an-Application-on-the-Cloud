@@ -1,0 +1,53 @@
+@{
+    var current = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+<aside class="admin-sidebar" aria-label="Administrator navigation">
+    <div class="admin-sidebar__brand">
+        <div class="admin-sidebar__logo">ZM</div>
+        <div>
+            <h1 class="admin-sidebar__title">ZamMaintain</h1>
+            <p class="admin-sidebar__subtitle">Enterprise Admin</p>
+        </div>
+    </div>
+    <nav class="admin-sidebar__nav">
+        <a class="admin-sidebar__link @(current == "Dashboard" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="Dashboard">
+            <span class="material-symbols-outlined">dashboard</span>
+            Dashboard
+        </a>
+        <a class="admin-sidebar__link @(current == "Users" || current == "UserDetail" || current == "AddUser" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="Users">
+            <span class="material-symbols-outlined">group</span>
+            Users
+        </a>
+        <a class="admin-sidebar__link @(current == "Properties" || current == "PropertyDetail" || current == "AddProperty" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="Properties">
+            <span class="material-symbols-outlined">domain</span>
+            Properties
+        </a>
+        <a class="admin-sidebar__link @(current == "Units" || current == "UnitDetail" || current == "AddUnit" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="Units">
+            <span class="material-symbols-outlined">meeting_room</span>
+            Units
+        </a>
+        <a class="admin-sidebar__link @(current == "Maintenance" || current == "MaintenanceBoard" || current == "RequestDetail" || current == "CreateRequest" || current == "RequestSubmitted" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="Maintenance">
+            <span class="material-symbols-outlined">build</span>
+            Maintenance Requests
+        </a>
+        <a class="admin-sidebar__link @(current == "Reports" || current == "ReportDetail" || current == "GenerateReport" || current == "ExportReady" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="Reports">
+            <span class="material-symbols-outlined">assessment</span>
+            Reports
+        </a>
+        <a class="admin-sidebar__link @(current == "AuditLogs" || current == "AuditLogDetail" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="AuditLogs">
+            <span class="material-symbols-outlined">history</span>
+            Audit Logs
+        </a>
+        <a class="admin-sidebar__link admin-sidebar__link--settings @(current == "Settings" ? "admin-sidebar__link--active" : null)" asp-controller="Administrator" asp-action="Settings">
+            <span class="material-symbols-outlined">settings</span>
+            Settings
+        </a>
+    </nav>
+    <div class="admin-sidebar__userbox">
+        <div class="admin-sidebar__avatar">AU</div>
+        <div>
+            <div class="admin-sidebar__username">Admin User</div>
+            <div class="admin-sidebar__email">admin@zammaintain.com</div>
+        </div>
+    </div>
+</aside>

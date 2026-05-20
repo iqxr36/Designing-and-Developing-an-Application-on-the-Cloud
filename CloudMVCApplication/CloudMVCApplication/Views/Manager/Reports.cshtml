@@ -1,0 +1,79 @@
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewData["Title"] = "Reports & Summary";
+}
+<div class="pm-page-header">
+    <h1 class="pm-page-title">Reports &amp; Summary</h1>
+    <p class="pm-page-lead">Track maintenance performance and service efficiency (static metrics).</p>
+</div>
+
+@* TODO: Replace report metrics with calculated database queries *@
+<div class="pm-grid pm-grid--stats pm-mb-2">
+    <div class="pm-stat"><div class="pm-stat__label">Monthly requests</div><div class="pm-stat__value">452</div><div class="pm-muted" style="font-size:.8rem">+12% vs last month</div></div>
+    <div class="pm-stat"><div class="pm-stat__label">Completion rate</div><div class="pm-stat__value">94%</div><div class="pm-muted" style="font-size:.8rem">+3% vs last month</div></div>
+    <div class="pm-stat"><div class="pm-stat__label">Avg completion time</div><div class="pm-stat__value">1.2</div><div class="pm-muted" style="font-size:.8rem">days (-0.3)</div></div>
+    <div class="pm-stat"><div class="pm-stat__label">Urgent cases</div><div class="pm-stat__value" style="color:var(--pm-danger)">14</div><div class="pm-muted" style="font-size:.8rem">+5 vs last month</div></div>
+    <div class="pm-stat"><div class="pm-stat__label">Technician performance</div><div class="pm-stat__value">4.8</div><div class="pm-muted" style="font-size:.8rem">/ 5.0 average score</div></div>
+    <div class="pm-stat"><div class="pm-stat__label">Tenant feedback average</div><div class="pm-stat__value">4.6</div><div class="pm-muted" style="font-size:.8rem">/ 5.0 from surveys</div></div>
+</div>
+
+<div class="row g-4 pm-mb-2">
+    <div class="col-lg-8">
+        <div class="pm-card">
+            <div class="pm-card__header"><h2 class="pm-card__title">Request status breakdown</h2></div>
+            <div class="pm-card__body">
+                <div class="pm-bar-row">
+                    <span class="pm-bar-row__label">Completed</span>
+                    <div class="pm-bar-row__track"><div class="pm-bar-row__fill pm-progress__bar--ok" style="width:70%"></div></div>
+                    <strong style="width:3rem;text-align:right">70%</strong>
+                </div>
+                <div class="pm-bar-row">
+                    <span class="pm-bar-row__label">In progress</span>
+                    <div class="pm-bar-row__track"><div class="pm-bar-row__fill pm-progress__bar--warn" style="width:20%"></div></div>
+                    <strong style="width:3rem;text-align:right">20%</strong>
+                </div>
+                <div class="pm-bar-row mb-0">
+                    <span class="pm-bar-row__label">Pending</span>
+                    <div class="pm-bar-row__track"><div class="pm-bar-row__fill" style="width:10%"></div></div>
+                    <strong style="width:3rem;text-align:right">10%</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="pm-card">
+            <div class="pm-card__header"><h2 class="pm-card__title">Common issue types</h2></div>
+            <div class="pm-card__body pm-stack">
+                <div class="d-flex justify-content-between align-items-center p-2 rounded border" style="border-color:var(--pm-border)!important"><span>Plumbing</span><span class="pm-badge pm-badge--medium">42%</span></div>
+                <div class="d-flex justify-content-between align-items-center p-2 rounded border" style="border-color:var(--pm-border)!important"><span>Electrical</span><span class="pm-badge pm-badge--medium">28%</span></div>
+                <div class="d-flex justify-content-between align-items-center p-2 rounded border mb-0" style="border-color:var(--pm-border)!important"><span>HVAC</span><span class="pm-badge pm-badge--medium">15%</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pm-card">
+    <div class="pm-card__header">
+        <h2 class="pm-card__title">Metrics comparison</h2>
+        <button type="button" class="pm-btn pm-btn--outline" disabled title="UI only">Export report</button>
+    </div>
+    <div class="pm-table-wrap">
+        <table class="pm-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>This month</th>
+                    <th>Last month</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Total maintenance requests</td><td>452</td><td class="pm-muted">403</td><td class="text-success">+12.1%</td></tr>
+                <tr><td>First-time fix rate</td><td>88%</td><td class="pm-muted">85%</td><td class="text-success">+3.5%</td></tr>
+                <tr><td>Preventative vs reactive</td><td>35% / 65%</td><td class="pm-muted">30% / 70%</td><td class="text-success">+16.6%</td></tr>
+                <tr><td>Overdue requests</td><td>12</td><td class="pm-muted">18</td><td class="text-success">-33.3%</td></tr>
+                <tr><td>Average cost per repair</td><td>$145.50</td><td class="pm-muted">$138.20</td><td class="text-danger">+5.2%</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

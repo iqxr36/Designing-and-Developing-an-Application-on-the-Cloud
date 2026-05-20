@@ -1,0 +1,151 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "User Management";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">User Management</h2>
+        <p class="admin-page-subtitle">Manage staff accounts, assign roles, and monitor system access.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--primary" asp-controller="Administrator" asp-action="AddUser">
+            <span class="material-symbols-outlined">add</span> Add New User
+        </a>
+    </div>
+</div>
+
+<div class="admin-filters">
+    <div class="admin-filters__group" style="flex: 2;">
+        <label>Search Users</label>
+        <div style="position: relative;">
+            <span class="material-symbols-outlined" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--pm-on-surface-variant);">search</span>
+            <input type="text" class="admin-input" placeholder="Search by name, email, or phone..." style="padding-left: 40px;" />
+        </div>
+    </div>
+    <div class="admin-filters__group">
+        <label>Role</label>
+        <select class="admin-select">
+            <option value="">All Roles</option>
+            <option value="admin">Admin</option>
+            <option value="property_manager">Property Manager</option>
+            <option value="technician">Technician</option>
+        </select>
+    </div>
+    <div class="admin-filters__group">
+        <label>Status</label>
+        <select class="admin-select">
+            <option value="">All Statuses</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+    </div>
+    <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="AdvancedFilters" style="align-self: flex-end;">
+        <span class="material-symbols-outlined">filter_list</span> More Filters
+    </a>
+</div>
+
+<div class="admin-card">
+    <div class="admin-table-wrap">
+        @* TODO: Replace static user list with Users table data *@
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>User Details</th>
+                    <th>Role</th>
+                    <th>Contact Info</th>
+                    <th>Status</th>
+                    <th class="admin-text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="admin-flex admin-flex-center admin-gap-3">
+                            <div style="width: 40px; height: 40px; border-radius: 999px; background: #800000; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">JD</div>
+                            <div>
+                                <p style="font-weight: 600; margin: 0;">John Doe</p>
+                                <p class="admin-text-muted admin-text-small" style="margin: 0;">john.doe@zammaintain.com</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>Admin</td>
+                    <td>(555) 123-4567</td>
+                    <td><span class="admin-badge admin-badge--dark">Active</span></td>
+                    <td class="admin-text-end">
+                        <a class="admin-btn admin-btn--link" asp-controller="Administrator" asp-action="UserDetail">
+                            <span class="material-symbols-outlined">more_vert</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="admin-flex admin-flex-center admin-gap-3">
+                            <div style="width: 40px; height: 40px; border-radius: 999px; background: #e1e3e4; color: #191c1d; display: flex; align-items: center; justify-content: center; font-weight: 700;">JS</div>
+                            <div>
+                                <p style="font-weight: 600; margin: 0;">Jane Smith</p>
+                                <p class="admin-text-muted admin-text-small" style="margin: 0;">jane.smith@properties.com</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>Property Manager</td>
+                    <td>(555) 987-6543</td>
+                    <td><span class="admin-badge admin-badge--dark">Active</span></td>
+                    <td class="admin-text-end">
+                        <a class="admin-btn admin-btn--link" asp-controller="Administrator" asp-action="UserDetail">
+                            <span class="material-symbols-outlined">more_vert</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr style="opacity: 0.6;">
+                    <td>
+                        <div class="admin-flex admin-flex-center admin-gap-3">
+                            <div style="width: 40px; height: 40px; border-radius: 999px; background: #e1e3e4; color: #191c1d; display: flex; align-items: center; justify-content: center; font-weight: 700;">BJ</div>
+                            <div>
+                                <p style="font-weight: 600; margin: 0;">Bob Johnson</p>
+                                <p class="admin-text-muted admin-text-small" style="margin: 0;">bob.tech@maintenance.com</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>Technician</td>
+                    <td>(555) 321-7654</td>
+                    <td><span class="admin-badge admin-badge--pending">Inactive</span></td>
+                    <td class="admin-text-end">
+                        <a class="admin-btn admin-btn--link" asp-controller="Administrator" asp-action="UserDetail">
+                            <span class="material-symbols-outlined">more_vert</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="admin-flex admin-flex-center admin-gap-3">
+                            <div style="width: 40px; height: 40px; border-radius: 999px; background: #333d4d; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">AB</div>
+                            <div>
+                                <p style="font-weight: 600; margin: 0;">Alice Brown</p>
+                                <p class="admin-text-muted admin-text-small" style="margin: 0;">alice.b@zammaintain.com</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>Technician</td>
+                    <td>(555) 456-7890</td>
+                    <td><span class="admin-badge admin-badge--dark">Active</span></td>
+                    <td class="admin-text-end">
+                        <a class="admin-btn admin-btn--link" asp-controller="Administrator" asp-action="UserDetail">
+                            <span class="material-symbols-outlined">more_vert</span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="admin-pagination">
+        <span class="admin-text-muted admin-text-small" style="margin-right: auto;">Showing 1 to 4 of 24 users</span>
+        <button class="admin-pagination__btn"><span class="material-symbols-outlined">chevron_left</span></button>
+        <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
+        <button class="admin-pagination__btn">2</button>
+        <button class="admin-pagination__btn">3</button>
+        <span class="admin-text-muted">...</span>
+        <button class="admin-pagination__btn">6</button>
+        <button class="admin-pagination__btn"><span class="material-symbols-outlined">chevron_right</span></button>
+    </div>
+</div>

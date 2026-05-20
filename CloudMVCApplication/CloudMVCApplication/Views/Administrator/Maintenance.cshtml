@@ -1,0 +1,163 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Maintenance Requests";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Request Tracking</h2>
+        <p class="admin-page-subtitle">Monitor and manage all maintenance requests across your portfolio.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="MaintenanceBoard">
+            <span class="material-symbols-outlined">view_kanban</span> Board View
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static metrics with aggregated MaintenanceRequests table data *@
+<div class="admin-metrics" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="admin-metric">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <span class="admin-metric__label">Open Requests</span>
+                <h3 class="admin-metric__value">42</h3>
+            </div>
+            <div class="admin-metric__icon" style="background: #e1e1c9; color: #474836;">
+                <span class="material-symbols-outlined">assignment</span>
+            </div>
+        </div>
+    </div>
+    <div class="admin-metric">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <span class="admin-metric__label">Critical / Urgent</span>
+                <h3 class="admin-metric__value" style="color: var(--pm-primary);">8</h3>
+            </div>
+            <div class="admin-metric__icon" style="background: #ffdad6; color: #ba1a1a;">
+                <span class="material-symbols-outlined">warning</span>
+            </div>
+        </div>
+    </div>
+    <div class="admin-metric">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <span class="admin-metric__label">Resolved Today</span>
+                <h3 class="admin-metric__value">15</h3>
+            </div>
+            <div class="admin-metric__icon" style="background: #e1e3e4; color: #191c1d;">
+                <span class="material-symbols-outlined">task_alt</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="admin-filters">
+    <span class="admin-text-muted admin-flex admin-flex-center admin-gap-2">
+        <span class="material-symbols-outlined">filter_list</span> Filters:
+    </span>
+    <select class="admin-select">
+        <option>All Priorities</option>
+        <option>Urgent</option>
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+    </select>
+    <select class="admin-select">
+        <option>All Technicians</option>
+        <option>Sarah Jenkins</option>
+        <option>Marcus Cole</option>
+        <option>David Chen</option>
+    </select>
+</div>
+
+@* TODO: Replace static kanban cards with MaintenanceRequests table data *@
+<div class="admin-grid admin-grid--3cols">
+    <div>
+        <div class="admin-flex admin-flex-between admin-flex-center admin-mb-2" style="padding: 0 4px;">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0;">Open</h3>
+            <span class="admin-badge admin-badge--pending">12</span>
+        </div>
+        <div class="admin-card" style="border-left: 4px solid var(--pm-primary);">
+            <div class="admin-card__body">
+                <div class="admin-flex admin-flex-between admin-mb-2">
+                    <span class="admin-badge admin-badge--urgent">Urgent</span>
+                    <span class="admin-text-muted admin-text-small">REQ-4092</span>
+                </div>
+                <h4 style="font-size: 16px; font-weight: 600; margin: 0 0 8px;">HVAC System Failure - Major Leak Detected</h4>
+                <p class="admin-text-muted admin-text-small admin-flex admin-flex-center admin-gap-2" style="margin: 0 0 4px;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">domain</span>
+                    The Grandeur Plaza - Unit 4B
+                </p>
+                <p class="admin-text-muted admin-text-small admin-flex admin-flex-center admin-gap-2" style="margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">calendar_today</span>
+                    Oct 24, 08:30 AM
+                </p>
+                <div style="border-top: 1px solid var(--pm-outline-variant); margin-top: 16px; padding-top: 12px;">
+                    <div class="admin-flex admin-flex-center admin-gap-2">
+                        <div style="width: 28px; height: 28px; border-radius: 999px; background: #e1e3e4; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;">SJ</div>
+                        <span class="admin-text-small">Sarah J.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="admin-flex admin-flex-between admin-flex-center admin-mb-2" style="padding: 0 4px;">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0;">In Progress</h3>
+            <span class="admin-badge admin-badge--pending">5</span>
+        </div>
+        <div class="admin-card" style="border-left: 4px solid #5e604d;">
+            <div class="admin-card__body">
+                <div class="admin-flex admin-flex-between admin-mb-2">
+                    <span class="admin-badge admin-badge--progress">High</span>
+                    <span class="admin-text-muted admin-text-small">REQ-4088</span>
+                </div>
+                <h4 style="font-size: 16px; font-weight: 600; margin: 0 0 8px;">Elevator #2 Stuck on 5th Floor</h4>
+                <p class="admin-text-muted admin-text-small admin-flex admin-flex-center admin-gap-2" style="margin: 0 0 4px;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">domain</span>
+                    Oakridge Heights - Core B
+                </p>
+                <p class="admin-text-muted admin-text-small admin-flex admin-flex-center admin-gap-2" style="margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">calendar_today</span>
+                    Oct 23, 2:15 PM
+                </p>
+                <div style="border-top: 1px solid var(--pm-outline-variant); margin-top: 16px; padding-top: 12px;">
+                    <div class="admin-flex admin-flex-center admin-gap-2">
+                        <div style="width: 28px; height: 28px; border-radius: 999px; background: #e1e3e4; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;">MC</div>
+                        <span class="admin-text-small">Marcus C.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="admin-flex admin-flex-between admin-flex-center admin-mb-2" style="padding: 0 4px;">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0;">Completed</h3>
+            <span class="admin-badge admin-badge--pending">25</span>
+        </div>
+        <div class="admin-card" style="border-left: 4px solid #1d2736; opacity: 0.8;">
+            <div class="admin-card__body">
+                <div class="admin-flex admin-flex-between admin-mb-2">
+                    <span class="admin-badge admin-badge--dark">Medium</span>
+                    <span class="admin-text-muted admin-text-small">REQ-4071</span>
+                </div>
+                <h4 style="font-size: 16px; font-weight: 600; margin: 0 0 8px; text-decoration: line-through; color: var(--pm-on-surface-variant);">Broken Window Latch Repair</h4>
+                <p class="admin-text-muted admin-text-small admin-flex admin-flex-center admin-gap-2" style="margin: 0 0 4px;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">domain</span>
+                    Riverside Complex - Unit 12A
+                </p>
+                <p class="admin-text-muted admin-text-small admin-flex admin-flex-center admin-gap-2" style="margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span>
+                    Resolved Oct 23
+                </p>
+                <div style="border-top: 1px solid var(--pm-outline-variant); margin-top: 16px; padding-top: 12px;">
+                    <div class="admin-flex admin-flex-center admin-gap-2">
+                        <div style="width: 28px; height: 28px; border-radius: 999px; background: #e1e3e4; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;">DC</div>
+                        <span class="admin-text-small">David C.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Property Details";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">The Apex Tower</h2>
+        <p class="admin-page-subtitle">Commercial Office Building - 100 Financial District Blvd, New York, NY</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Properties">
+            <span class="material-symbols-outlined">arrow_back</span> Back to Properties
+        </a>
+        <button class="admin-btn admin-btn--primary">Edit Property</button>
+    </div>
+</div>
+
+@* TODO: Replace static property data with database lookup by propertyId *@
+<div class="admin-metrics" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Total Units</span>
+        </div>
+        <h3 class="admin-metric__value">120</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Occupied</span>
+        </div>
+        <h3 class="admin-metric__value">118</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Occupancy Rate</span>
+        </div>
+        <h3 class="admin-metric__value">98%</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Health Score</span>
+        </div>
+        <h3 class="admin-metric__value" style="color: var(--pm-primary);">99</h3>
+    </div>
+</div>
+
+<div class="admin-grid admin-grid--12">
+    <div class="admin-card admin-col-8">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Recent Maintenance Requests</h3>
+            <a class="admin-btn admin-btn--link" asp-controller="Administrator" asp-action="Maintenance">View All</a>
+        </div>
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Unit</th>
+                        <th>Issue</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#REQ-4092</strong></td>
+                        <td>Unit 4B</td>
+                        <td>HVAC System Failure</td>
+                        <td><span class="admin-badge admin-badge--urgent">Urgent</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-4088</strong></td>
+                        <td>Unit 12A</td>
+                        <td>Plumbing Leak</td>
+                        <td><span class="admin-badge admin-badge--progress">In Progress</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="admin-card admin-col-4">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Property Manager</h3>
+        </div>
+        <div class="admin-card__body">
+            <div class="admin-flex admin-flex-center admin-gap-3">
+                <div style="width: 48px; height: 48px; border-radius: 999px; background: #e1e3e4; display: flex; align-items: center; justify-content: center; font-weight: 700;">JS</div>
+                <div>
+                    <p style="font-weight: 600; margin: 0;">Jane Smith</p>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">jane.smith@properties.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

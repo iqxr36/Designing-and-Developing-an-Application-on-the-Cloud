@@ -1,0 +1,179 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Reports";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Reports</h2>
+        <p class="admin-page-subtitle">Monitor portfolio performance, request trends, technician workload, and service quality.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--primary" asp-controller="Administrator" asp-action="GenerateReport">
+            Generate Report
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static metrics with aggregated reports data *@
+<div class="admin-metrics" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="admin-metric">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <span class="admin-metric__label">Requests This Month</span>
+                <h3 class="admin-metric__value" style="color: var(--pm-primary);">326</h3>
+                <p class="admin-metric__change" style="color: var(--pm-on-surface-variant);">Up 8.4% from last month</p>
+            </div>
+            <div class="admin-metric__icon" style="background: #e1e1c9; color: #474836;">
+                <span class="material-symbols-outlined">receipt_long</span>
+            </div>
+        </div>
+    </div>
+    <div class="admin-metric">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <span class="admin-metric__label">Avg Resolution Time</span>
+                <h3 class="admin-metric__value">18h</h3>
+                <p class="admin-metric__change" style="color: var(--pm-on-surface-variant);">4h faster than target</p>
+            </div>
+            <div class="admin-metric__icon" style="background: #e1e1c9; color: #474836;">
+                <span class="material-symbols-outlined">schedule</span>
+            </div>
+        </div>
+    </div>
+    <div class="admin-metric">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <span class="admin-metric__label">Tenant Satisfaction</span>
+                <h3 class="admin-metric__value">94%</h3>
+                <p class="admin-metric__change" style="color: var(--pm-on-surface-variant);">Based on 212 feedback entries</p>
+            </div>
+            <div class="admin-metric__icon" style="background: #e1e1c9; color: #474836;">
+                <span class="material-symbols-outlined">thumb_up</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="admin-filters">
+    <div class="admin-filters__group">
+        <label>Time Period</label>
+        <select class="admin-select">
+            <option>Last 30 Days</option>
+            <option>This Quarter</option>
+            <option>This Year</option>
+        </select>
+    </div>
+    <div class="admin-filters__group">
+        <label>Property</label>
+        <select class="admin-select">
+            <option>All Properties</option>
+            <option>The Grand Plaza</option>
+            <option>Riverfront Lofts</option>
+            <option>Oakwood Estates</option>
+        </select>
+    </div>
+    <div class="admin-filters__group">
+        <label>Category</label>
+        <select class="admin-select">
+            <option>All Categories</option>
+            <option>HVAC</option>
+            <option>Plumbing</option>
+            <option>Electrical</option>
+            <option>Security</option>
+        </select>
+    </div>
+    <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="ExportReady" style="align-self: flex-end;">
+        Export Report
+    </a>
+</div>
+
+<div class="admin-grid admin-grid--12 admin-mb-4">
+    <div class="admin-card admin-col-8">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Maintenance Requests by Month</h3>
+        </div>
+        <div class="admin-chart">
+            <div class="admin-chart__grid"></div>
+            <div class="admin-chart__bar" style="height: 48%;"></div>
+            <div class="admin-chart__bar" style="height: 58%;"></div>
+            <div class="admin-chart__bar" style="height: 44%;"></div>
+            <div class="admin-chart__bar" style="height: 68%;"></div>
+            <div class="admin-chart__bar" style="height: 73%;"></div>
+            <div class="admin-chart__bar" style="height: 82%;"></div>
+        </div>
+    </div>
+    <div class="admin-card admin-col-4">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Request Priority Mix</h3>
+        </div>
+        <div class="admin-card__body">
+            <div style="width: 150px; height: 150px; border-radius: 50%; margin: 20px auto; background: conic-gradient(var(--pm-primary) 0 52%, #333d4d 52% 76%, #e4e4cc 76% 100%); position: relative;">
+                <div style="position: absolute; inset: 35px; border-radius: 50%; background: white;"></div>
+            </div>
+            <div style="display: grid; gap: 8px;">
+                <div class="admin-flex admin-flex-between">
+                    <span>Critical / Urgent</span>
+                    <strong>52%</strong>
+                </div>
+                <div class="admin-flex admin-flex-between">
+                    <span>Medium</span>
+                    <strong>24%</strong>
+                </div>
+                <div class="admin-flex admin-flex-between">
+                    <span>Low</span>
+                    <strong>24%</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="admin-table-wrap">
+        @* TODO: Replace static report list with Reports table data *@
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Report Name</th>
+                    <th>Scope</th>
+                    <th>Last Generated</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Monthly Maintenance Summary</strong></td>
+                    <td>All Properties</td>
+                    <td>Oct 24, 08:30 AM</td>
+                    <td><span class="admin-badge admin-badge--dark">Ready</span></td>
+                    <td>
+                        <a asp-controller="Administrator" asp-action="ReportDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a>
+                        <a asp-controller="Administrator" asp-action="ExportReady" class="admin-btn admin-btn--secondary" style="margin-left: 8px; padding: 4px 10px; min-height: auto;">Export</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Technician Workload Report</strong></td>
+                    <td>Operations Team</td>
+                    <td>Oct 23, 04:15 PM</td>
+                    <td><span class="admin-badge admin-badge--progress">Scheduled</span></td>
+                    <td>
+                        <a asp-controller="Administrator" asp-action="ReportDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a>
+                        <a asp-controller="Administrator" asp-action="ExportReady" class="admin-btn admin-btn--secondary" style="margin-left: 8px; padding: 4px 10px; min-height: auto;">Export</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Vacancy &amp; Unit Status</strong></td>
+                    <td>Portfolio</td>
+                    <td>Oct 22, 11:00 AM</td>
+                    <td><span class="admin-badge admin-badge--dark">Ready</span></td>
+                    <td>
+                        <a asp-controller="Administrator" asp-action="ReportDetail" style="color: var(--pm-primary); font-weight: 700; text-decoration: none;">View</a>
+                        <a asp-controller="Administrator" asp-action="ExportReady" class="admin-btn admin-btn--secondary" style="margin-left: 8px; padding: 4px 10px; min-height: auto;">Export</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

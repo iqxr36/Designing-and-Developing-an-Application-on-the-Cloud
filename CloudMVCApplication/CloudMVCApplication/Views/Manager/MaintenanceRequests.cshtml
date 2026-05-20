@@ -1,0 +1,119 @@
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewData["Title"] = "Maintenance Requests";
+}
+<div class="pm-page-header">
+    <h1 class="pm-page-title">Maintenance Requests</h1>
+    <p class="pm-page-lead">Review, prioritize, and assign technicians to tenant requests.</p>
+</div>
+
+<div class="pm-card pm-mb-2">
+    <div class="pm-card__body">
+        <div class="row g-3 align-items-end">
+            <div class="col-12 col-lg-4">
+                <label class="pm-label" for="q">Search</label>
+                <input id="q" class="pm-input" type="search" placeholder="Search ID, tenant, or issue&hellip;" />
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <label class="pm-label" for="status">Status</label>
+                <select id="status" class="pm-select">
+                    <option value="">All statuses</option>
+                    <option>Pending</option>
+                    <option>Assigned</option>
+                    <option>In Progress</option>
+                    <option>Completed</option>
+                    <option>Cancelled</option>
+                </select>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <label class="pm-label" for="pri">Priority</label>
+                <select id="pri" class="pm-select">
+                    <option value="">All priorities</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                    <option>Urgent</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-4 col-lg-2">
+                <label class="pm-label" for="prop">Property</label>
+                <select id="prop" class="pm-select">
+                    <option value="">All properties</option>
+                    <option>Sunset Heights</option>
+                    <option>Oakwood Estates</option>
+                </select>
+            </div>
+            <div class="col-12 col-lg-2 d-flex gap-2">
+                <button type="button" class="pm-btn pm-btn--outline pm-w-100" disabled title="UI only">Date range</button>
+            </div>
+        </div>
+        <p class="pm-muted pm-mt-2 mb-0" style="font-size:.85rem">Filters are static for this UI phase.</p>
+    </div>
+</div>
+
+<div class="pm-card">
+    <div class="pm-table-wrap">
+        @* TODO: Replace static request list with MaintenanceRequests table data *@
+        <table class="pm-table">
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Tenant / Property</th>
+                    <th>Issue</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Submitted</th>
+                    <th>Assigned tech</th>
+                    <th class="pm-text-end">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a asp-controller="Manager" asp-action="RequestDetails">REQ-8042</a></td>
+                    <td>Sarah Jenkins<br /><span class="pm-muted" style="font-size:.8rem">Sunset Heights, Unit 4B</span></td>
+                    <td>Plumbing leak</td>
+                    <td><span class="pm-badge pm-badge--high">High</span></td>
+                    <td><span class="pm-badge pm-badge--pending">Pending</span></td>
+                    <td class="pm-muted">May 12, 08:30</td>
+                    <td class="pm-muted">Unassigned</td>
+                    <td class="pm-text-end">
+                        <a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Details</a>
+                        <a class="pm-btn pm-btn--primary" asp-controller="Manager" asp-action="AssignTechnician">Assign</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a asp-controller="Manager" asp-action="RequestDetails">REQ-8041</a></td>
+                    <td>Michael Chang<br /><span class="pm-muted" style="font-size:.8rem">Oakwood Estates, Unit 12</span></td>
+                    <td>HVAC not cooling</td>
+                    <td><span class="pm-badge pm-badge--medium">Medium</span></td>
+                    <td><span class="pm-badge pm-badge--assigned">Assigned</span></td>
+                    <td class="pm-muted">May 11, 16:15</td>
+                    <td>David R.</td>
+                    <td class="pm-text-end">
+                        <a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a asp-controller="Manager" asp-action="RequestDetails">REQ-8039</a></td>
+                    <td>Elena Rodriguez<br /><span class="pm-muted" style="font-size:.8rem">Sunset Heights, Unit 1A</span></td>
+                    <td>Cabinet hinge</td>
+                    <td><span class="pm-badge pm-badge--low">Low</span></td>
+                    <td><span class="pm-badge pm-badge--inprogress">In Progress</span></td>
+                    <td class="pm-muted">May 10, 11:20</td>
+                    <td>Mark S.</td>
+                    <td class="pm-text-end">
+                        <a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Details</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pm-card__header border-top" style="border-top:1px solid var(--pm-border)">
+        <span class="pm-muted" style="font-size:.875rem">Showing 1&ndash;3 of 24 (sample)</span>
+        <div class="pm-actions">
+            <button type="button" class="pm-btn pm-btn--outline" disabled>Prev</button>
+            <button type="button" class="pm-btn pm-btn--primary" disabled>1</button>
+            <button type="button" class="pm-btn pm-btn--outline" disabled>Next</button>
+        </div>
+    </div>
+</div>

@@ -24,6 +24,114 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/AddProperty.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxBZGRQcm9wZXJ0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/AddUnit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxBZGRVbml0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxBZGRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/AdvancedFilters.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxBZHZhbmNlZEZpbHRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/AuditLogDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxBdWRpdExvZ0RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/AuditLogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxBdWRpdExvZ3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/ChangeAvatar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxDaGFuZ2VBdmF0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/CreateRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxDcmVhdGVSZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/ExportReady.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxFeHBvcnRSZWFkeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/GenerateReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxHZW5lcmF0ZVJlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Maintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxNYWludGVuYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/MaintenanceBoard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxNYWludGVuYW5jZUJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Notifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxOb3RpZmljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Properties.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxQcm9wZXJ0aWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/PropertyDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxQcm9wZXJ0eURldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/QuickActions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxRdWlja0FjdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/ReportDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxSZXBvcnREZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxSZXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/RequestDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxSZXF1ZXN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/RequestSubmitted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxSZXF1ZXN0U3VibWl0dGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Settings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxTZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/UnitDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxVbml0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Units.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxVbml0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/UserDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxVc2VyRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Administrator/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,12 +140,64 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/AssignTechnician.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxBc3NpZ25UZWNobmljaWFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/CompletedRepairs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxDb21wbGV0ZWRSZXBhaXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/MaintenanceRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxNYWludGVuYW5jZVJlcXVlc3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/Notifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxOb3RpZmljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxSZXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/RequestDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxSZXF1ZXN0RGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Manager/TechnicianWorkload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxUZWNobmljaWFuV29ya2xvYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Shared/_AdministratorLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbmlzdHJhdG9yTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Shared/_AdministratorSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbmlzdHJhdG9yU2lkZWJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Shared/_ManagerLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYW5hZ2VyTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Shared/_ManagerSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYW5hZ2VyU2lkZWJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Faisal/Faisal's Files/APU 3rd Year - 2nd Semester/Designing-and-Developing-an-Application-on-the-Cloud/CloudMVCApplication/CloudMVCApplication/Views/Shared/_ValidationScriptsPartial.cshtml]

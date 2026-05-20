@@ -1,0 +1,48 @@
+@{
+    Layout = null;
+    var title = ViewData["Title"]?.ToString() ?? "Administrator";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@title - ZamMaintain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/administrator.css" asp-append-version="true" />
+</head>
+<body class="admin-body">
+    @await Html.PartialAsync("_AdministratorSidebar")
+    <div class="admin-shell">
+        <header class="admin-topbar">
+            <div class="admin-topbar__left">
+                <div class="admin-topbar__search">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Search ZamMaintain..." />
+                </div>
+            </div>
+            <div class="admin-topbar__right">
+                <a class="admin-topbar__icon" asp-controller="Administrator" asp-action="Notifications" title="Notifications">
+                    <span class="material-symbols-outlined">notifications</span>
+                </a>
+                <a class="admin-topbar__btn admin-topbar__btn--secondary" asp-controller="Administrator" asp-action="QuickActions">
+                    Quick Actions
+                </a>
+                <a class="admin-topbar__btn admin-topbar__btn--primary" asp-controller="Administrator" asp-action="CreateRequest">
+                    Create Request
+                </a>
+                <a class="admin-topbar__avatar" asp-controller="Administrator" asp-action="Profile" title="Profile">AU</a>
+            </div>
+        </header>
+        <main class="admin-main" role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

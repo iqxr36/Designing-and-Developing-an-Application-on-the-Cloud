@@ -1,0 +1,93 @@
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewData["Title"] = "Completed Repairs";
+}
+<div class="pm-flex-between pm-page-header">
+    <div>
+        <h1 class="pm-page-title">Completed Repairs</h1>
+        <p class="pm-page-lead">Review historical maintenance logs and tenant feedback (sample data).</p>
+    </div>
+    <button type="button" class="pm-btn pm-btn--secondary" disabled title="UI only">Export CSV</button>
+</div>
+
+<div class="pm-card pm-mb-2">
+    <div class="pm-card__body">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+                <label class="pm-label" for="s">Search tenant / unit</label>
+                <input id="s" class="pm-input" placeholder="e.g. Unit 4B" />
+            </div>
+            <div class="col-md-3">
+                <label class="pm-label" for="tech">Technician</label>
+                <select id="tech" class="pm-select">
+                    <option value="">All technicians</option>
+                    <option>Mike Davis</option>
+                    <option>Sarah Jenkins</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="pm-label" for="dr">Date range</label>
+                <input id="dr" class="pm-input" placeholder="Last 30 days" readonly />
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="pm-btn pm-btn--primary pm-w-100" disabled>Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pm-card">
+    <div class="pm-table-wrap">
+        @* TODO: Replace completed rows with closed MaintenanceRequests + proof attachments *@
+        <table class="pm-table">
+            <thead>
+                <tr>
+                    <th>Req ID</th>
+                    <th>Tenant / property</th>
+                    <th>Issue</th>
+                    <th>Technician</th>
+                    <th>Completed</th>
+                    <th>Status</th>
+                    <th>Rating</th>
+                    <th>Proof</th>
+                    <th class="pm-text-end">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>REQ-8902</strong></td>
+                    <td>Alice Johnson<br /><span class="pm-muted" style="font-size:.8rem">Oakridge Apts, Unit 204</span></td>
+                    <td>Leaking kitchen faucet</td>
+                    <td>Mike Davis</td>
+                    <td class="pm-muted">May 10</td>
+                    <td><span class="pm-badge pm-badge--completed">Completed</span></td>
+                    <td><span class="pm-muted">5 / 5</span></td>
+                    <td><img src="https://placehold.co/80x80/cfe2ff/0d6efd?text=OK" width="40" height="40" class="rounded border" alt="Completion proof placeholder" /></td>
+                    <td class="pm-text-end"><a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Summary</a></td>
+                </tr>
+                <tr>
+                    <td><strong>REQ-8895</strong></td>
+                    <td>David Smith<br /><span class="pm-muted" style="font-size:.8rem">Pinecrest Towers, 14B</span></td>
+                    <td>HVAC not cooling</td>
+                    <td>Sarah Jenkins</td>
+                    <td class="pm-muted">May 8</td>
+                    <td><span class="pm-badge pm-badge--completed">Completed</span></td>
+                    <td><span class="pm-muted">4 / 5</span></td>
+                    <td><img src="https://placehold.co/80x80/cfe2ff/0d6efd?text=OK" width="40" height="40" class="rounded border" alt="Completion proof placeholder" /></td>
+                    <td class="pm-text-end"><a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Summary</a></td>
+                </tr>
+                <tr>
+                    <td><strong>REQ-8871</strong></td>
+                    <td>Maria Garcia<br /><span class="pm-muted" style="font-size:.8rem">Maple Townhomes, #4</span></td>
+                    <td>Broken window blind</td>
+                    <td>Tom Wilson</td>
+                    <td class="pm-muted">May 6</td>
+                    <td><span class="pm-badge pm-badge--completed">Completed</span></td>
+                    <td><span class="pm-muted">No rating yet</span></td>
+                    <td><span class="pm-muted" style="font-size:.75rem">No file</span></td>
+                    <td class="pm-text-end"><a class="pm-btn pm-btn--ghost" asp-controller="Manager" asp-action="RequestDetails">View Summary</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

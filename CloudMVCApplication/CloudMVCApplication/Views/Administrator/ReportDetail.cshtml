@@ -1,0 +1,63 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Report Details";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Monthly Maintenance Summary</h2>
+        <p class="admin-page-subtitle">Generated: Oct 24, 2023 08:30 AM</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Reports">
+            <span class="material-symbols-outlined">arrow_back</span> Back to Reports
+        </a>
+        <a class="admin-btn admin-btn--primary" asp-controller="Administrator" asp-action="ExportReady">
+            <span class="material-symbols-outlined">download</span> Export
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static report data with generated report content *@
+<div class="admin-metrics" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Total Requests</span>
+        </div>
+        <h3 class="admin-metric__value">326</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Resolved</span>
+        </div>
+        <h3 class="admin-metric__value" style="color: #0a5c2e;">284</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Pending</span>
+        </div>
+        <h3 class="admin-metric__value">42</h3>
+    </div>
+    <div class="admin-metric">
+        <div class="admin-metric__header">
+            <span class="admin-metric__label">Avg Resolution</span>
+        </div>
+        <h3 class="admin-metric__value">18h</h3>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="admin-card__header">
+        <h3 class="admin-card__title">Report Summary</h3>
+    </div>
+    <div class="admin-card__body">
+        <p>This report covers all maintenance activity from <strong>October 1-24, 2023</strong> across all properties in the portfolio.</p>
+        <h4 style="margin-top: 24px;">Key Findings:</h4>
+        <ul style="padding-left: 20px; margin-top: 12px;">
+            <li>Request volume increased by 8.4% compared to last month</li>
+            <li>Average resolution time improved by 4 hours</li>
+            <li>HVAC-related issues account for 35% of all requests</li>
+            <li>Tenant satisfaction remains high at 94%</li>
+        </ul>
+    </div>
+</div>

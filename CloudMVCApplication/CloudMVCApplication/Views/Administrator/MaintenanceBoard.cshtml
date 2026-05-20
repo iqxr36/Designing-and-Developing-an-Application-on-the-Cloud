@@ -1,0 +1,75 @@
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    ViewData["Title"] = "Maintenance Board";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h2 class="admin-page-title">Maintenance Board</h2>
+        <p class="admin-page-subtitle">Kanban-style view of all maintenance requests.</p>
+    </div>
+    <div class="admin-page-actions">
+        <a class="admin-btn admin-btn--secondary" asp-controller="Administrator" asp-action="Maintenance">
+            <span class="material-symbols-outlined">view_list</span> List View
+        </a>
+        <a class="admin-btn admin-btn--primary" asp-controller="Administrator" asp-action="CreateRequest">
+            <span class="material-symbols-outlined">add</span> Create Request
+        </a>
+    </div>
+</div>
+
+@* TODO: Replace static kanban board with MaintenanceRequests table data *@
+<div class="admin-grid admin-grid--3cols" style="align-items: flex-start;">
+    <div class="admin-card" style="background: var(--pm-surface-container);">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Open</h3>
+            <span class="admin-badge admin-badge--pending">12</span>
+        </div>
+        <div class="admin-card__body" style="display: flex; flex-direction: column; gap: 12px;">
+            <a asp-controller="Administrator" asp-action="RequestDetail" class="admin-card" style="text-decoration: none; color: inherit; border-left: 4px solid var(--pm-primary);">
+                <div class="admin-card__body">
+                    <span class="admin-badge admin-badge--urgent admin-mb-2">Urgent</span>
+                    <h4 style="font-size: 14px; font-weight: 600; margin: 0 0 8px;">HVAC System Failure</h4>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">The Grand - Unit 4B</p>
+                </div>
+            </a>
+            <a asp-controller="Administrator" asp-action="RequestDetail" class="admin-card" style="text-decoration: none; color: inherit; border-left: 4px solid #5e604d;">
+                <div class="admin-card__body">
+                    <span class="admin-badge admin-badge--progress admin-mb-2">High</span>
+                    <h4 style="font-size: 14px; font-weight: 600; margin: 0 0 8px;">Plumbing Leak</h4>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Riverside - Unit 12A</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="admin-card" style="background: var(--pm-surface-container);">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">In Progress</h3>
+            <span class="admin-badge admin-badge--pending">5</span>
+        </div>
+        <div class="admin-card__body" style="display: flex; flex-direction: column; gap: 12px;">
+            <a asp-controller="Administrator" asp-action="RequestDetail" class="admin-card" style="text-decoration: none; color: inherit; border-left: 4px solid #1d2736;">
+                <div class="admin-card__body">
+                    <span class="admin-badge admin-badge--dark admin-mb-2">Medium</span>
+                    <h4 style="font-size: 14px; font-weight: 600; margin: 0 0 8px;">Elevator Repair</h4>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Oakridge - Core B</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="admin-card" style="background: var(--pm-surface-container);">
+        <div class="admin-card__header">
+            <h3 class="admin-card__title">Completed</h3>
+            <span class="admin-badge admin-badge--pending">25</span>
+        </div>
+        <div class="admin-card__body" style="display: flex; flex-direction: column; gap: 12px;">
+            <a asp-controller="Administrator" asp-action="RequestDetail" class="admin-card" style="text-decoration: none; color: inherit; opacity: 0.7;">
+                <div class="admin-card__body">
+                    <span class="admin-badge admin-badge--success admin-mb-2">Resolved</span>
+                    <h4 style="font-size: 14px; font-weight: 600; margin: 0 0 8px; text-decoration: line-through;">Window Latch Repair</h4>
+                    <p class="admin-text-muted admin-text-small" style="margin: 0;">Completed Oct 23</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

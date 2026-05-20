@@ -1,0 +1,118 @@
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewData["Title"] = "Property Manager Dashboard";
+}
+@* TODO: Replace static KPI counts with aggregated MaintenanceRequests table data *@
+<div class="pm-page-header">
+    <h1 class="pm-page-title">Property Manager Dashboard</h1>
+    <p class="pm-page-lead">Monitor tenant maintenance requests, technician assignments, and repair progress.</p>
+</div>
+
+<div class="pm-grid pm-grid--stats pm-mb-2">
+    <div class="pm-stat"><span class="material-symbols-outlined pm-stat__icon">confirmation_number</span><div class="pm-stat__label">Total Requests</div><div class="pm-stat__value">128</div></div>
+    <div class="pm-stat"><span class="material-symbols-outlined pm-stat__icon">pending_actions</span><div class="pm-stat__label">Pending Requests</div><div class="pm-stat__value">34</div></div>
+    <div class="pm-stat"><span class="material-symbols-outlined pm-stat__icon">engineering</span><div class="pm-stat__label">Assigned Jobs</div><div class="pm-stat__value">22</div></div>
+    <div class="pm-stat"><span class="material-symbols-outlined pm-stat__icon">sync</span><div class="pm-stat__label">In Progress</div><div class="pm-stat__value">18</div></div>
+    <div class="pm-stat"><span class="material-symbols-outlined pm-stat__icon">task_alt</span><div class="pm-stat__label">Completed Repairs</div><div class="pm-stat__value">46</div></div>
+    <div class="pm-stat"><span class="material-symbols-outlined pm-stat__icon">warning</span><div class="pm-stat__label">Urgent Requests</div><div class="pm-stat__value">8</div></div>
+</div>
+
+<div class="pm-grid pm-grid--12 pm-mb-2">
+    <div class="pm-card">
+        <div class="pm-card__header">
+            <h2 class="pm-card__title">Recent Maintenance Requests</h2>
+            <a class="pm-btn pm-btn--secondary" asp-controller="Manager" asp-action="MaintenanceRequests">View All</a>
+        </div>
+        <div class="pm-table-wrap">
+            @* TODO: Replace static request list with MaintenanceRequests table data *@
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Tenant / Unit</th>
+                        <th>Issue</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th class="pm-text-end">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>REQ-2026-089</strong></td>
+                        <td>Sarah Jenkins<br /><span class="pm-muted" style="font-size:.8rem">Oakwood Apts, Unit 12B</span></td>
+                        <td>Broken Dishwasher</td>
+                        <td><span class="pm-badge pm-badge--high">High</span></td>
+                        <td><span class="pm-badge pm-badge--pending">Pending</span></td>
+                        <td class="pm-text-end"><a class="pm-btn pm-btn--link" asp-controller="Manager" asp-action="RequestDetails" title="View details"><span class="material-symbols-outlined" style="font-size:20px">visibility</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>REQ-2026-088</strong></td>
+                        <td>Michael Chen<br /><span class="pm-muted" style="font-size:.8rem">Pine Ridge, Unit 402</span></td>
+                        <td>HVAC Not Cooling</td>
+                        <td><span class="pm-badge pm-badge--urgent">Urgent</span></td>
+                        <td><span class="pm-badge pm-badge--assigned">Assigned</span></td>
+                        <td class="pm-text-end"><a class="pm-btn pm-btn--link" asp-controller="Manager" asp-action="RequestDetails"><span class="material-symbols-outlined" style="font-size:20px">visibility</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>REQ-2026-087</strong></td>
+                        <td>Elena Rodriguez<br /><span class="pm-muted" style="font-size:.8rem">Maple Court, Unit 1A</span></td>
+                        <td>Leaking Faucet</td>
+                        <td><span class="pm-badge pm-badge--low">Low</span></td>
+                        <td><span class="pm-badge pm-badge--pending">Pending</span></td>
+                        <td class="pm-text-end"><a class="pm-btn pm-btn--link" asp-controller="Manager" asp-action="RequestDetails"><span class="material-symbols-outlined" style="font-size:20px">visibility</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>REQ-2026-086</strong></td>
+                        <td>David Smith<br /><span class="pm-muted" style="font-size:.8rem">Oakwood Apts, Unit 8C</span></td>
+                        <td>Clogged Drain</td>
+                        <td><span class="pm-badge pm-badge--medium">Medium</span></td>
+                        <td><span class="pm-badge pm-badge--inprogress">In Progress</span></td>
+                        <td class="pm-text-end"><a class="pm-btn pm-btn--link" asp-controller="Manager" asp-action="RequestDetails"><span class="material-symbols-outlined" style="font-size:20px">visibility</span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="d-flex flex-column gap-3">
+        <div class="pm-card">
+            <div class="pm-card__header">
+                <h2 class="pm-card__title">Today&rsquo;s Priorities</h2>
+            </div>
+            <div class="pm-card__body pm-stack">
+                <div class="pm-notify pm-notify--urgent">
+                    <strong>HVAC Failure &mdash; Unit 402</strong>
+                    <p class="pm-muted pm-mt-1 mb-0">Tenant reported complete AC failure. Dispatch review required.</p>
+                </div>
+                <div class="pm-card__body border rounded" style="border-color:var(--pm-border)!important">
+                    <strong>Major Leak &mdash; Lobby</strong>
+                    <p class="pm-muted pm-mt-1 mb-0">Water pooling near main entrance. Plumber coordination in progress.</p>
+                </div>
+                <div class="pm-card__body border rounded" style="border-color:var(--pm-border)!important">
+                    <strong>Power Issue &mdash; East Wing</strong>
+                    <p class="pm-muted pm-mt-1 mb-0">Breaker panel inspection scheduled with electrical vendor.</p>
+                </div>
+            </div>
+        </div>
+        <div class="pm-card">
+            <div class="pm-card__header">
+                <h2 class="pm-card__title">Technician Workload</h2>
+            </div>
+            <div class="pm-card__body">
+                @* TODO: Replace workload bars with TechnicianProfiles + assignment counts *@
+                <div class="pm-mb-2">
+                    <div class="pm-flex-between"><span>James Wilson</span><span class="pm-muted">85%</span></div>
+                    <div class="pm-progress pm-mt-1"><div class="pm-progress__bar" style="width:85%"></div></div>
+                </div>
+                <div class="pm-mb-2">
+                    <div class="pm-flex-between"><span>Robert Garcia</span><span class="pm-muted">60%</span></div>
+                    <div class="pm-progress pm-mt-1"><div class="pm-progress__bar pm-progress__bar--warn" style="width:60%"></div></div>
+                </div>
+                <div class="pm-mb-2">
+                    <div class="pm-flex-between"><span>William Davis</span><span class="pm-muted">95%</span></div>
+                    <div class="pm-progress pm-mt-1"><div class="pm-progress__bar pm-progress__bar--danger" style="width:95%"></div></div>
+                </div>
+                <a class="pm-btn pm-btn--secondary pm-w-100 pm-mt-2" asp-controller="Manager" asp-action="TechnicianWorkload">Open workload</a>
+            </div>
+        </div>
+    </div>
+</div>
